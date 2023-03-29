@@ -371,7 +371,6 @@ function createCard(index) {
         game.multiplier;
   
       console.log(game.bank);
-      console.log(game.bonusLevel);
   
       updatePreviousMultipliers();
       game.flipped = true;
@@ -392,7 +391,7 @@ function createCard(index) {
   
   
   function shuffle() {
-    const deckCopy = deck.slice();
+    const deckCopy = rules.deck.slice();
     const shuffledDeck = [];
     while (deckCopy.length > 0) {
       shuffledDeck.push(
