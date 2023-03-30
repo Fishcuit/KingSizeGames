@@ -249,10 +249,7 @@ const rules = {
       imgSource: "bonus up.png",
       payOut: 0,
     },
-    {
-      imgSource: "bonus up.png",
-      payOut: 0,
-    },
+
   ],
   bonusDecks: [
     [
