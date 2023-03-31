@@ -13,6 +13,7 @@
 }
 #canvas {
   background-image: url("../img/Board.jpg");
+  width: 100%;
 }
 .card-row {
   display: flex;
@@ -47,7 +48,7 @@
 
 .title-logo {
   float: left;
-  height: 20%;
+  height: 4.9vw;
 }
 
 .card-meter-container {
@@ -67,7 +68,7 @@
   box-sizing: border-box;
   width: 150px;
   height: 214px;
-  margin: 10px;
+  margin: 8px;
   float: left;
   background-color: white;
   background-size: cover;
@@ -262,6 +263,11 @@ legend.other {
   }
   fieldset.other {
     font-size: 10px;
+  }
+
+  .title-logo {
+    float: left;
+    height: 2vw !important;
   }
 
 }
