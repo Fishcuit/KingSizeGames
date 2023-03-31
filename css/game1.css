@@ -173,6 +173,9 @@ HR {
 .left {
   margin-right: 100px;
 }
+.right {
+  margin-left: 100px;
+}
 fieldset.grand {
   color: white;
   font-size: 20px;

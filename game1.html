@@ -9,6 +9,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PiQum Classic</title>
   </head>
   
@@ -146,7 +147,7 @@
 
         <div id="board"></div>
         <div class="row">
-          <div class="column meter left">
+          <div class="meter left">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>C r e d i t s</p>
@@ -154,7 +155,13 @@
               <p id="current-score">$100.00</p>
             </fieldset>
           </div>
-          <div class="column meter">
+          <div id="deal-container" style="display: none">
+            <button id="deal">Deal</button>
+          </div>
+          <div id="confirm-choice-container" style="display: none">
+            <button id="confirm-choice">Reveal</button>
+          </div>
+          <div class="meter right">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>W a g e r</p>
@@ -162,17 +169,12 @@
               <p id="current-wager">$1.00</p>
             </fieldset>
           </div>
+          
         </div>
 
-        <div id="deal-container" style="display: none">
-          <button id="deal">Deal</button>
-        </div>
-
-        <div id="confirm-choice-container" style="display: none">
-          <button id="confirm-choice">Reveal</button>
-        </div>
+      
       </div>
-      <div class="column side-bar"></div>
+      <div class="column side-bar"><button onclick="toggleFullScreen()">Toggle Full Screen</button></div>
     </div>
     <div class="container body-content">
 
@@ -193,6 +195,14 @@
     <script
       type="text/javascript"
       src="scripts/gm1.js"
-    ></script>
+    >function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }</script>
   </body>
 </html>

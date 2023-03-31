@@ -306,7 +306,7 @@ const rules = {
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "Grand.png", payOut: 3000 },
       { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Grand.png", payOut: 3000 },
     ],
   ],
 };
@@ -339,10 +339,24 @@ function startGame() {
     previousHandMultipliers: [],
     bonusLevel: 1,
   };
+
+//If bonusLevel is greater than 1, show the cards to the player before flipping and shuffling them
+  if (game.bonusLevel > 1) {
+    dealContainer.style.display = "none";
+    confirmButtonContainer.style.display = "block";
+    confirmButton.addEventListener("click", function () {
+      dealContainer.style.display = "block";
+      confirmButtonContainer.style.display = "none";
+      dealHand();
+    });
+  } else {
+    dealHand();
+  }
   function dealHand() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
+    
 
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
