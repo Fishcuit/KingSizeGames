@@ -1,18 +1,12 @@
-
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="css/game1.css"
-/>
+<link rel="stylesheet" type="text/css" href="css/game1.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="css/site.css" />
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PiQum Classic</title>
   </head>
-  
+
   <body>
     <header style="position: relative">
       <div class="w3-top" class="header" id="home">
@@ -122,32 +116,16 @@
       </div>
       <div class="column grow center">
         <div class="card-meter-container">
-          <img
-            class="card-meter"
-            src="img/Meter_Royals_Jack.png"
-            alt=""
-          />
-          <img
-            class="card-meter"
-            src="img/Meter_Royals_Queen.png"
-            alt=""
-          />
-          <img
-            class="card-meter"
-            src="img/Meter_Royals_King.png"
-            alt=""
-          />
-          <img
-            class="card-meter"
-            src="img/Meter_Royals_Ace.png"
-            alt=""
-          />
+          <img class="card-meter" src="img/Meter_Royals_Jack.png" alt="" />
+          <img class="card-meter" src="img/Meter_Royals_Queen.png" alt="" />
+          <img class="card-meter" src="img/Meter_Royals_King.png" alt="" />
+          <img class="card-meter" src="img/Meter_Royals_Ace.png" alt="" />
         </div>
         <div id="last-win"></div>
 
         <div id="board"></div>
         <div class="row">
-          <div class="meter left">
+          <div class="column meter left">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>C r e d i t s</p>
@@ -161,7 +139,7 @@
           <div id="confirm-choice-container" style="display: none">
             <button id="confirm-choice">Reveal</button>
           </div>
-          <div class="meter right">
+          <div class="column meter right">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>W a g e r</p>
@@ -169,15 +147,13 @@
               <p id="current-wager">$1.00</p>
             </fieldset>
           </div>
-          
         </div>
-
-      
       </div>
-      <div class="column side-bar"><button onclick="toggleFullScreen()">Toggle Full Screen</button></div>
+      <div class="column side-bar">
+        <button id="fullscreen-btn">Toggle Full Screen</button>
+      </div>
     </div>
     <div class="container body-content">
-
       <hr />
       <footer>
         <div class="footer-content">
@@ -192,17 +168,25 @@
         </div>
       </footer>
     </div>
-    <script
-      type="text/javascript"
-      src="scripts/gm1.js"
-    >function toggleFullScreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        if (document.exitFullscreen) {
+    <script type="text/javascript" src="scripts/gm1.js"></script>
+    <script>
+      const gameContainer = document.querySelector(".game-container");
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
+
+      fullscreenBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          gameContainer.requestFullscreen();
+        } else {
           document.exitFullscreen();
         }
-      }
-    }</script>
+      });
+    </script>
+    This code uses the document.fullscreenElement property to check whether the
+    game container is currently in full screen mode. If it is not, it requests
+    full screen mode for the container using the requestFullscreen() method. If
+    it is already in full screen mode, it exits full screen mode using the
+    exitFullscreen() method. Note that this code assumes that the game container
+    has a class of "game-container". You should update this selector to match
+    the actual class or ID of your game container element.
   </body>
 </html>
