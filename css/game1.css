@@ -1,7 +1,7 @@
 #board {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 270px;
   padding-left: 5px;
 }
@@ -36,8 +36,8 @@
   flex-grow: 1;
 }
 .side-bar {
-  width: 30vw;
-  max-width: 350px;
+  width: 20vw;
+  max-width: 130px;
   padding-left: 10px;
 }
 .side-bar img {
@@ -48,18 +48,18 @@
 
 .title-logo {
   float: left;
-  height: 4.9vw;
+
 }
 
 .card-meter-container {
   display: flex;
   justify-content: center;
-  float: left;
-  align-self: center;
+  justify-self: center;
+  
 }
 
 .card-meter {
-  width: 200px;
+  width: 150px;
   height: auto;
   max-width: 15%;
   flex-shrink: 0;
@@ -217,7 +217,15 @@ legend.other {
   background-color: black;
 }
 
-@media screen and (max-width: 852px) {
+#toggle-fullscreen {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+
+@media screen and (max-width: 852px) and (max-device-width: 852px) {
   .card {
     width: 90px;
     height: 120px;
@@ -267,7 +275,7 @@ legend.other {
 
   .title-logo {
     float: left;
-    height: 2vw !important;
+    height: 10vw !important;
   }
 
 }

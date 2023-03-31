@@ -326,7 +326,7 @@ function startGame() {
   const dealButton = document.getElementById("deal");
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
-  const lastWin = document.getElementById("last-win");
+ 
   // dealContainer.style.display = "none";
   const game = {
     flipped: false,
@@ -489,11 +489,7 @@ function startGame() {
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
-    lastWin.innerText =
-      "WON: " +
-      +selectedCard.payOut * +game.multiplier +
-      " Multi: " +
-      game.multiplier;
+
     updatePreviousMultipliers();
 
     game.flipped = true;

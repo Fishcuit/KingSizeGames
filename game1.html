@@ -114,18 +114,17 @@
           <p>$15</p>
         </fieldset>
       </div>
-      <div class="column grow center">
+      <div class="column grow">
         <div class="card-meter-container">
           <img class="card-meter" src="img/Meter_Royals_Jack.png" alt="" />
           <img class="card-meter" src="img/Meter_Royals_Queen.png" alt="" />
           <img class="card-meter" src="img/Meter_Royals_King.png" alt="" />
           <img class="card-meter" src="img/Meter_Royals_Ace.png" alt="" />
         </div>
-        <div id="last-win"></div>
+    
 
-        <div id="board"></div>
-        <div class="row">
-          <div class="column meter left">
+        <div class="card-meter-container">
+          <div class="column-meter">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>C r e d i t s</p>
@@ -133,27 +132,36 @@
               <p id="current-score">$100.00</p>
             </fieldset>
           </div>
-          <div id="deal-container" style="display: none">
-            <button id="deal">Deal</button>
+          <div class="column-meter">
+            <fieldset class="meter-value">
+              <legend class="other">
+                <p>W i n</p>
+              </legend>
+              <p id="current-score">$100.00</p>
+            </fieldset>
           </div>
-          <div id="confirm-choice-container" style="display: none">
-            <button id="confirm-choice">Reveal</button>
-          </div>
-          <div class="column meter right">
+
+          <div class="column-meter">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>W a g e r</p>
               </legend>
               <p id="current-wager">$1.00</p>
             </fieldset>
-            
           </div>
-          <!-- <button id="fullscreen-btn">Toggle Full Screen</button> -->
         </div>
+        <div id="board"></div>
+        <div class="card-meter-container">
+          <div id="deal-container" style="display: none">
+            <button id="deal">Deal</button>
+          </div>
+          <div id="confirm-choice-container" style="display: none">
+            <button id="confirm-choice">Reveal</button>
+          </div>
+        </div>
+        <!-- <button id="fullscreen-btn">Toggle Full Screen</button> -->
       </div>
-      <div class="column side-bar">
-        
-      </div>
+      <div class="column side-bar"></div>
     </div>
     <div class="container body-content">
       <hr />
