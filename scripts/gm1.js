@@ -4,13 +4,14 @@ function createCard(index) {
   card.classList.add("card");
   card.dataset.cardIndex = index;
   // card.dataset.cardValue = index;
+  card.id = `card-${index}`;
   card.style.backgroundImage = `url("img/cards/XX.png")`;
   board.appendChild(card);
   return card;
 }
 
 function getCard(index) {
-  const card = document.querySelector(`[data-card-value="${index}"]`);
+  const card = document.querySelector(`#card-${index}`); // Update this line to use the new id
   return card;
 }
 
@@ -249,7 +250,6 @@ const rules = {
       imgSource: "bonus up.png",
       payOut: 0,
     },
-
   ],
   bonusDecks: [
     [
@@ -325,6 +325,7 @@ function startGame() {
   const confirmButton = document.getElementById("confirm-choice");
   const dealButton = document.getElementById("deal");
   const currentScore = document.getElementById("current-score");
+  const currentWager = document.getElementById("current-wager");
   const lastWin = document.getElementById("last-win");
   // dealContainer.style.display = "none";
   const game = {
@@ -336,13 +337,13 @@ function startGame() {
     bet: 1,
     multiplier: 1,
     previousHandMultipliers: [],
-    bonusLevel: 0,
+    bonusLevel: 1,
   };
   function dealHand() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
-  
+
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
       const previousMultiplier = game.previousHandMultipliers[index];
@@ -368,6 +369,22 @@ function startGame() {
       game.selected = newCard;
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
+
+      // Check if the card back is a Free Play card
+      const previousCard =
+        game.previousHandMultipliers[newCard.dataset.cardIndex];
+      const isFreePlayCardBack =
+        previousCard && previousCard.imgSource === "free pick.png";
+
+      // Subtract the bet when the player clicks on a card, except if it's a Free Play card back
+      if (!isFreePlayCardBack) {
+        game.bank -= game.bet;
+        currentScore.innerText = "$" + game.bank;
+      } else {
+        // Set the bet to 0 when a Free Play card back is selected
+        game.bet = 0;
+        currentWager.innerText = "$" + game.bet;
+      }
     });
     console.log(i);
   }
@@ -381,6 +398,7 @@ function startGame() {
     game.previousHandMultipliers = game.hand.map((cardEl, index) => {
       const card = game.deck[cardEl.dataset.cardIndex];
       const isMultiplierCard = card.imgSource.match(/\dx\.png$/);
+      const isFreePlayCard = card.imgSource.match(/free\ pick\.png$/);
 
       if (isMultiplierCard && index == game.selected.dataset.cardIndex) {
         const selectedCardMultiplier = parseInt(
@@ -404,20 +422,26 @@ function startGame() {
           };
         }
       }
+      // If the card is a Free Play card, return it, even if it's not selected
+      if (isFreePlayCard) {
+        return card;
+      }
+
+      // If the card is not a multiplier card, return null
       return isMultiplierCard ? card : null;
     });
+    console.log(game.previousHandMultipliers);
   }
 
   confirmButton.addEventListener("click", function () {
     if (game.flipped) {
       return;
     }
-    game.bank -= game.bet;
+
     console.log(game.selected.dataset.cardIndex);
     console.log(game.deck[game.selected.dataset.cardIndex]);
-
     const selectedCard = game.deck[game.selected.dataset.cardIndex];
-    
+
     const selectedMultiplier =
       game.previousHandMultipliers[game.selected.dataset.cardIndex];
 
@@ -425,7 +449,7 @@ function startGame() {
     if (isBonusCard) {
       game.bonusLevel++;
     } else {
-      game.bonusLevel = 0; // Reset bonusLevel to 1 if the selected card is not a bonus card
+      game.bonusLevel = 1; // Reset bonusLevel to 1 if the selected card is not a bonus card
     }
     if (selectedMultiplier) {
       const multiplierValue = parseInt(
@@ -436,19 +460,28 @@ function startGame() {
     } else {
       game.multiplier = 1;
     }
-    
-    game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
+    if (isNaN(game.multiplier)) {
+      game.multiplier = 1;
+    }
+    const increment = 1;
+    const cycles =
+      ((selectedCard.payOut || 0) * game.bet * game.multiplier) / increment;
+    for (let i = 0; i < cycles; i++) {
+      setTimeout(() => {
+        game.bank += increment;
+        currentScore.innerText = "$" + game.bank;
+        // Update the player's total display here, if necessary
+      }, i * 100); // Adjust the delay time as needed
+    }
+    // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
     lastWin.innerText =
       "WON: " +
       +selectedCard.payOut * +game.multiplier +
       " Multi: " +
       game.multiplier;
-
-    console.log(game.bank);
-    console.log(game.bonusLevel);
-
     updatePreviousMultipliers();
+
     game.flipped = true;
     confirmButtonContainer.style.display = "none";
     dealContainer.style.display = "none";
@@ -457,17 +490,18 @@ function startGame() {
       cardEl.style.backgroundImage = `url("img/cards/${game.deck[cardi].imgSource}")`;
     }
     dealContainer.style.display = "block";
+    game.bet = 1;
   });
   dealButton.addEventListener("click", function () {
+    currentWager.innerText = "$" + game.bet;
     dealHand();
     dealContainer.style.display = "none";
-    lastWin.innerText = "";
   });
 }
 
 function getBonusDeck(bonusLevel) {
-  if (bonusLevel > 0 && bonusLevel <= rules.bonusDecks.length) {
-    return rules.bonusDecks[bonusLevel - 1];
+  if (bonusLevel > 1 && bonusLevel <= rules.bonusDecks.length) {
+    return rules.bonusDecks[bonusLevel - 2];
   } else {
     return rules.deck;
   }
