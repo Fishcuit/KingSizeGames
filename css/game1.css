@@ -5,6 +5,16 @@
   height: 270px;
   padding-left: 5px;
 }
+#show-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 170px;
+  padding-left: 5px;
+  
+}
+
+
 #board2 {
   display: flex;
   flex-direction: column;
@@ -78,12 +88,45 @@
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 3px 0px #000000;
   box-shadow: 2px 2px 3px 0px #000000;
+  
+}
+
+.show-card {
+  box-sizing: border-box;
+  width: 75px;
+  height: 120px;
+  margin: 8px;
+  float: left;
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px #555555 solid;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 3px 0px #000000;
+  box-shadow: 2px 2px 3px 0px #000000;
+  animation: glowing-border 2s infinite;
+  border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
 .card.selected {
   width: 175px;
   height: 250px;
+  animation: glowing-border 2s infinite;
+  border: 1px solid #ff0000; /* Change the border color if needed */
 }
+
+.possible-cards {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fdfafa;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  animation: glowing-text 2s infinite;
+}
+
+
 
 HR {
   margin-top: 12px;
@@ -278,4 +321,28 @@ legend.other {
     height: 10vw !important;
   }
 
+}
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+  }
+  50% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+  }
+}
+
+@keyframes glowing-text {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
 }

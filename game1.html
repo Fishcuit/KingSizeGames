@@ -179,24 +179,5 @@
       </footer>
     </div>
     <script type="text/javascript" src="scripts/gm1.js"></script>
-    <script>
-      const gameContainer = document.querySelector("#canvas");
-      const fullscreenBtn = document.getElementById("fullscreen-btn");
 
-      fullscreenBtn.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-          gameContainer.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      });
-    </script>
-    This code uses the document.fullscreenElement property to check whether the
-    game container is currently in full screen mode. If it is not, it requests
-    full screen mode for the container using the requestFullscreen() method. If
-    it is already in full screen mode, it exits full screen mode using the
-    exitFullscreen() method. Note that this code assumes that the game container
-    has a class of "game-container". You should update this selector to match
-    the actual class or ID of your game container element.
-  </body>
 </html>
