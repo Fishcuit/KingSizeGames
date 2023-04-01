@@ -326,6 +326,7 @@ function startGame() {
   const dealButton = document.getElementById("deal");
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
+  const currentWin = document.getElementById("current-win");
  
   // dealContainer.style.display = "none";
   const game = {
@@ -392,7 +393,7 @@ function startGame() {
 
       // Subtract the bet when the player clicks on a card, except if it's a Free Play card back
       if (!isFreePlayCardBack) {
-        game.bank -= game.bet;
+        // game.bank -= game.bet;
         currentScore.innerText = "$" + game.bank;
       } else {
         // Set the bet to 0 when a Free Play card back is selected
@@ -451,7 +452,7 @@ function startGame() {
     if (game.flipped) {
       return;
     }
-
+    game.bank -= game.bet;
     console.log(game.selected.dataset.cardIndex);
     console.log(game.deck[game.selected.dataset.cardIndex]);
     const selectedCard = game.deck[game.selected.dataset.cardIndex];
@@ -489,6 +490,7 @@ function startGame() {
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
+    currentWin.innerText = "$" + ((selectedCard.payOut || 0) * game.bet * game.multiplier);
 
     updatePreviousMultipliers();
 
@@ -506,6 +508,7 @@ function startGame() {
     currentWager.innerText = "$" + game.bet;
     dealHand();
     dealContainer.style.display = "none";
+    currentWin.innerText = "--"
   });
 }
 
