@@ -19,211 +19,211 @@ const rules = {
   dealtCards: 5,
   deck: [
     {
-      imgSource: "2S.png",
+      imgSource: "Spades_2.png",
       payOut: 0,
     },
     {
-      imgSource: "3S.png",
+      imgSource: "Spades_3.png",
       payOut: 0,
     },
     {
-      imgSource: "4S.png",
+      imgSource: "Spades_4.png",
       payOut: 0,
     },
     {
-      imgSource: "5S.png",
+      imgSource: "Spades_5.png",
       payOut: 0,
     },
     {
-      imgSource: "6S.png",
+      imgSource: "Spades_6.png",
       payOut: 0,
     },
     {
-      imgSource: "7S.png",
+      imgSource: "Spades_7.png",
       payOut: 0,
     },
     {
-      imgSource: "8S.png",
+      imgSource: "Spades_8.png",
       payOut: 0,
     },
     {
-      imgSource: "9S.png",
+      imgSource: "Spades_9.png",
       payOut: 0,
     },
     {
-      imgSource: "10S.png",
+      imgSource: "Spades_10.png",
       payOut: 0,
     },
     {
-      imgSource: "JS.png",
+      imgSource: "Spades_J.png",
       payOut: 1,
     },
     {
-      imgSource: "QS.png",
+      imgSource: "Spades_Q.png",
       payOut: 2,
     },
     {
-      imgSource: "KS.png",
+      imgSource: "Spades_K.png",
       payOut: 3,
     },
     {
-      imgSource: "AS.png",
+      imgSource: "Spades_A.png",
       payOut: 4,
     },
     {
-      imgSource: "2D.png",
+      imgSource: "Diamonds_2.png",
       payOut: 0,
     },
     {
-      imgSource: "3D.png",
+      imgSource: "Diamonds_3.png",
       payOut: 0,
     },
     {
-      imgSource: "4D.png",
+      imgSource: "Diamonds_4.png",
       payOut: 0,
     },
     {
-      imgSource: "5D.png",
+      imgSource: "Diamonds_5.png",
       payOut: 0,
     },
     {
-      imgSource: "6D.png",
+      imgSource: "Diamonds_6.png",
       payOut: 0,
     },
     {
-      imgSource: "7D.png",
+      imgSource: "Diamonds_7.png",
       payOut: 0,
     },
     {
-      imgSource: "8D.png",
+      imgSource: "Diamonds_8.png",
       payOut: 0,
     },
     {
-      imgSource: "9D.png",
+      imgSource: "Diamonds_9.png",
       payOut: 0,
     },
     {
-      imgSource: "10D.png",
+      imgSource: "Diamonds_10.png",
       payOut: 0,
     },
     {
-      imgSource: "JD.png",
+      imgSource: "Diamonds_J.png",
       payOut: 1,
     },
     {
-      imgSource: "QD.png",
+      imgSource: "Diamonds_Q.png",
       payOut: 2,
     },
     {
-      imgSource: "KD.png",
+      imgSource: "Diamonds_K.png",
       payOut: 3,
     },
     {
-      imgSource: "AD.png",
+      imgSource: "Diamonds_A.png",
       payOut: 4,
     },
     {
-      imgSource: "2H.png",
+      imgSource: "Hearts_2.png",
       payOut: 0,
     },
     {
-      imgSource: "3H.png",
+      imgSource: "Hearts_3.png",
       payOut: 0,
     },
     {
-      imgSource: "4H.png",
+      imgSource: "Hearts_4.png",
       payOut: 0,
     },
     {
-      imgSource: "5H.png",
+      imgSource: "Hearts_5.png",
       payOut: 0,
     },
     {
-      imgSource: "6H.png",
+      imgSource: "Hearts_6.png",
       payOut: 0,
     },
     {
-      imgSource: "7H.png",
+      imgSource: "Hearts_7.png",
       payOut: 0,
     },
     {
-      imgSource: "8H.png",
+      imgSource: "Hearts_8.png",
       payOut: 0,
     },
     {
-      imgSource: "9H.png",
+      imgSource: "Hearts_9.png",
       payOut: 0,
     },
     {
-      imgSource: "10H.png",
+      imgSource: "Hearts_10.png",
       payOut: 0,
     },
     {
-      imgSource: "JH.png",
+      imgSource: "Hearts_J.png",
       payOut: 1,
     },
     {
-      imgSource: "QH.png",
+      imgSource: "Hearts_Q.png",
       payOut: 2,
     },
     {
-      imgSource: "KH.png",
+      imgSource: "Hearts_K.png",
       payOut: 3,
     },
     {
-      imgSource: "AH.png",
+      imgSource: "Hearts_A.png",
       payOut: 4,
     },
     {
-      imgSource: "2C.png",
+      imgSource: "Clubs_2.png",
       payOut: 0,
     },
     {
-      imgSource: "3C.png",
+      imgSource: "Clubs_3.png",
       payOut: 0,
     },
     {
-      imgSource: "4C.png",
+      imgSource: "Clubs_4.png",
       payOut: 0,
     },
     {
-      imgSource: "5C.png",
+      imgSource: "Clubs_5.png",
       payOut: 0,
     },
     {
-      imgSource: "6C.png",
+      imgSource: "Clubs_6.png",
       payOut: 0,
     },
     {
-      imgSource: "7C.png",
+      imgSource: "Clubs_7.png",
       payOut: 0,
     },
     {
-      imgSource: "8C.png",
+      imgSource: "Clubs_8.png",
       payOut: 0,
     },
     {
-      imgSource: "9C.png",
+      imgSource: "Clubs_9.png",
       payOut: 0,
     },
     {
-      imgSource: "10C.png",
+      imgSource: "Clubs_10.png",
       payOut: 0,
     },
     {
-      imgSource: "JC.png",
+      imgSource: "Clubs_J.png",
       payOut: 1,
     },
     {
-      imgSource: "QC.png",
+      imgSource: "Clubs_Q.png",
       payOut: 2,
     },
     {
-      imgSource: "KC.png",
+      imgSource: "Clubs_K.png",
       payOut: 3,
     },
     {
-      imgSource: "AC.png",
+      imgSource: "Clubs_A.png",
       payOut: 4,
     },
     {
@@ -327,7 +327,11 @@ function startGame() {
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
- 
+  const backgroundMusic = new Audio('sound/backround.mp3');
+  backgroundMusic.loop = true; // Loop the background music
+  backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
+  
+
   // dealContainer.style.display = "none";
   const game = {
     flipped: false,
@@ -341,7 +345,7 @@ function startGame() {
     bonusLevel: 1,
   };
 
-//If bonusLevel is greater than 1, show the cards to the player before flipping and shuffling them
+  //If bonusLevel is greater than 1, show the cards to the player before flipping and shuffling them
   if (game.bonusLevel > 1) {
     dealContainer.style.display = "none";
     confirmButtonContainer.style.display = "block";
@@ -357,7 +361,6 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
-    
 
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
@@ -365,11 +368,24 @@ function startGame() {
       const cardBack = previousMultiplier
         ? previousMultiplier.imgSource.replace(".png", "card.png")
         : "XX.png";
+
       card.style.backgroundImage = `url("img/cards/${cardBack}")`;
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
+      
+      card.style.animationDelay = `${index * 0.2}s`;
     }
+    setTimeout(() => {
+      for (const [index, card] of game.hand.entries()) {
+        (function (card, index) {
+          setTimeout(() => {
+            card.classList.add("deal"); // Add the deal class to each card with a delay
+          }, index * 200);
+        })(card, index);
+      }
+    }, 0);
   }
+  
 
   for (let i = 0; i < rules.dealtCards; i++) {
     const newCard = createCard(i);
@@ -449,9 +465,11 @@ function startGame() {
   }
 
   confirmButton.addEventListener("click", function () {
+    backgroundMusic.play();
     if (game.flipped) {
       return;
     }
+    
     game.bank -= game.bet;
     console.log(game.selected.dataset.cardIndex);
     console.log(game.deck[game.selected.dataset.cardIndex]);
@@ -481,16 +499,21 @@ function startGame() {
     const increment = 1;
     const cycles =
       ((selectedCard.payOut || 0) * game.bet * game.multiplier) / increment;
+    const coinSound = new Audio('sound/coin.mp3');
+
     for (let i = 0; i < cycles; i++) {
       setTimeout(() => {
         game.bank += increment;
         currentScore.innerText = "$" + game.bank;
+        coinSound.currentTime = 0; // Reset the playback position
+        coinSound.play();
         // Update the player's total display here, if necessary
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
-    currentWin.innerText = "$" + ((selectedCard.payOut || 0) * game.bet * game.multiplier);
+    currentWin.innerText =
+      "$" + (selectedCard.payOut || 0) * game.bet * game.multiplier;
 
     updatePreviousMultipliers();
 
@@ -503,12 +526,16 @@ function startGame() {
     }
     dealContainer.style.display = "block";
     game.bet = 1;
+    
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
+    // for (const card of game.hand) {
+    //   card.classList.remove("deal");
+    // }
     dealHand();
     dealContainer.style.display = "none";
-    currentWin.innerText = "--"
+    currentWin.innerText = "--";
   });
 }
 

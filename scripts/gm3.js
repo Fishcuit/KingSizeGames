@@ -17,37 +17,37 @@ function getCard(index) {
 const rules = {
   dealtCards: 5,
   deck: [
-    { imgSource: "2C.png", payOut: 0 },
-    { imgSource: "2D.png", payOut: 0 },
-    { imgSource: "2H.png", payOut: 0 },
-    { imgSource: "JD.png", payOut: 1 },
+    { imgSource: "Clubs_2.png", payOut: 0 },
+    { imgSource: "Diamonds_2.png", payOut: 0 },
+    { imgSource: "Hearts_2.png", payOut: 0 },
+    { imgSource: "Diamonds_2.png", payOut: 1 },
     { imgSource: "bonus up.png", payOut: 0 },
   ],
   bonusDecks: [
     [
-      { imgSource: "3C.png", payOut: 0 },
-      { imgSource: "3D.png", payOut: 0 },
-      { imgSource: "AD.png", payOut: 4 },
+      { imgSource: "Clubs_3.png", payOut: 0 },
+      { imgSource: "Diamonds_3.png", payOut: 0 },
+      { imgSource: "Diamonds_A.png", payOut: 4 },
       { imgSource: "bonus up.png", payOut: 0 },
       { imgSource: "bonus up.png", payOut: 0 },
     ],
     [
-      { imgSource: "4C.png", payOut: 0 },
-      { imgSource: "4D.png", payOut: 0 },
-      { imgSource: "AD.png", payOut: 4 },
+      { imgSource: "Clubs_4.png", payOut: 0 },
+      { imgSource: "Diamonds_4.png", payOut: 0 },
+      { imgSource: "Diamonds_A.png", payOut: 4 },
       { imgSource: "Mini.png", payOut: 10 },
       { imgSource: "bonus up.png", payOut: 0 },
     ],
     [
-      { imgSource: "5C.png", payOut: 0 },
-      { imgSource: "5D.png", payOut: 0 },
+      { imgSource: "Clubs_5.png", payOut: 0 },
+      { imgSource: "Diamonds_5.png", payOut: 0 },
       { imgSource: "Minor.png", payOut: 25 },
       { imgSource: "bonus up.png", payOut: 0 },
       { imgSource: "bonus up.png", payOut: 0 },
     ],
     [
-      { imgSource: "6C.png", payOut: 0 },
-      { imgSource: "6D.png", payOut: 0 },
+      { imgSource: "Clubs_6.png", payOut: 0 },
+      { imgSource: "Diamonds_6.png", payOut: 0 },
       { imgSource: "Mini.png", payOut: 10 },
       { imgSource: "Major.png", payOut: 25 },
       { imgSource: "bonus up.png", payOut: 0 },
@@ -113,7 +113,17 @@ function startGame() {
       card.style.backgroundImage = `url("img/cards/${cardBack}")`;
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
+      card.style.animationDelay = `${index * 0.2}s`;
     }
+    setTimeout(() => {
+      for (const [index, card] of game.hand.entries()) {
+        (function (card, index) {
+          setTimeout(() => {
+            card.classList.add("deal"); // Add the deal class to each card with a delay
+          }, index * 200);
+        })(card, index);
+      }
+    }, 0);
     displayDeck(getBonusDeck(game.bonusLevel));
   }
 
