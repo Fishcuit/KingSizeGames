@@ -30,7 +30,9 @@
 }
 
 #canvas {
-  background-image: url("../img/Board.jpg");
+  background-image: url("../img/redbg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   max-width: 1325px;
   height: 475px;
@@ -284,6 +286,7 @@ legend.other {
   float: right;
   bottom: 10px;
   right: 10px;
+  position: relative;
 }
 
 

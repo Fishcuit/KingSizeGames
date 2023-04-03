@@ -30,7 +30,9 @@
 }
 
 #canvas {
-  background-image: url("../img/Board.jpg");
+  background-image: url("../img/bluebg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   max-width: 1325px;
   height: 700px;
