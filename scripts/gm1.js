@@ -493,9 +493,11 @@ function startGame() {
     } else {
       game.multiplier = 1;
     }
+    console.log(game.multiplier)
     if (isNaN(game.multiplier)) {
       game.multiplier = 1;
     }
+    console.log(game.multiplier)
     const increment = 1;
     const cycles =
       ((selectedCard.payOut || 0) * game.bet * game.multiplier) / increment;
@@ -560,3 +562,17 @@ function shuffle(deck) {
 }
 
 startGame();
+
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+const fullscreenElement = document.getElementById('canvas-wrapper');
+
+fullscreenBtn.addEventListener('click', () => {
+  if (fullscreenElement.requestFullscreen) {
+    fullscreenElement.requestFullscreen();
+  } else if (fullscreenElement.webkitRequestFullscreen) { /* Safari */
+    fullscreenElement.webkitRequestFullscreen();
+  } else if (fullscreenElement.msRequestFullscreen) { /* IE11 */
+    fullscreenElement.msRequestFullscreen();
+  }
+});
+

@@ -33,7 +33,7 @@
   background-image: url("../img/Board.jpg");
   width: 100%;
   max-width: 1325px;
-  height: 475px;
+  height: 700px;
 }
 .card-row {
   display: flex;
