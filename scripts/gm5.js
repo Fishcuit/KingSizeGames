@@ -96,18 +96,20 @@ function startGame() {
     hand: [],
     bank: 100,
     bet: 1,
-    rowLevels: [1,1,1],
+    rowLevels: [0,0,0],
   };
   function dealHand() {
     game.selected = [null, null, null];
     game.flipped = [false, false, false];
   
     for (let row = 0; row < 3; row++) {
-      game.deck[row] = shuffle(
+      const deck =
         game.rowLevels[row] === 0
           ? rules.deck
-          : rules.bonusDecks[game.rowLevels[row] - 1]
-      );
+          : rules.bonusDecks[game.rowLevels[row] - 1];
+
+      displayDeck(deck, row);
+  
       game.deck[row] = shuffle(deck);
       for (const [index, card] of game.hand[row].entries()) {
         card.style.backgroundImage = `url("img/cards/XX.png")`;
@@ -154,8 +156,11 @@ function startGame() {
       return;
     }
   
-    game.bank -= game.bet;
-  
+    for (let row = 0; row < 3; row++) {
+      if (game.rowLevels[row] < 1) {
+        game.bank -= game.bet;
+      }
+    }
     let totalWin = 0;
     for (let row = 0; row < 3; row++) {
       for (let index = 0; index < rules.dealtCards; index++) {
@@ -174,6 +179,7 @@ function startGame() {
         }
       } else {
         totalWin += (selectedCard.payOut || 0) * game.bet;
+        game.rowLevels[row] = 0; // Reset the bonus level to 0 for non-"bonus up" cards
       }
   
       game.selected[
@@ -187,6 +193,11 @@ function startGame() {
     confirmButtonContainer.style.display = "none";
     dealContainer.style.display = "block";
     game.flipped = true;
+    // Change the following line from 'in' to 'of'
+    for (const cardi of game.hand) {
+      const cardEl = cardi;
+      cardEl.style.backgroundImage = `url("img/cards/${game.deck[cardi].imgSource}")`;
+    }
   });
   
   
@@ -198,8 +209,20 @@ function startGame() {
   });
 }
 
-function shuffle() {
-  const deckCopy = rules.deck.slice();
+function displayDeck(deck, row) {
+  const showCards = document.getElementById(`show-cards-${row}`);
+  showCards.innerHTML = "";
+
+  deck.forEach((card) => {
+    const img = document.createElement("img");
+    img.src = `img/cards/${card.imgSource}`;
+    img.classList.add("show-card");
+    showCards.appendChild(img);
+  });
+}
+
+function shuffle(deck) {
+  const deckCopy = deck.slice();
   const shuffledDeck = [];
   while (deckCopy.length > 0) {
     shuffledDeck.push(
