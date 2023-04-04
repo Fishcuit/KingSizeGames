@@ -20,7 +20,7 @@ const rules = {
     { imgSource: "Clubs_2.png", payOut: 0 },
     { imgSource: "Diamonds_2.png", payOut: 0 },
     { imgSource: "Hearts_2.png", payOut: 0 },
-    { imgSource: "Diamonds_2.png", payOut: 1 },
+    { imgSource: "Diamonds_J.png", payOut: 1 },
     { imgSource: "bonus up.png", payOut: 0 },
   ],
   bonusDecks: [
@@ -105,12 +105,7 @@ function startGame() {
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
 
     for (const [index, card] of game.hand.entries()) {
-      // Display multipliers from the previous hand on the card backs
-      const previousMultiplier = game.previousHandMultipliers[index];
-      const cardBack = previousMultiplier
-        ? previousMultiplier.imgSource.replace(".png", "card.png")
-        : "XX.png";
-      card.style.backgroundImage = `url("img/cards/${cardBack}")`;
+      card.style.backgroundImage = `url("img/cards/XX.png")`;
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
       card.style.animationDelay = `${index * 0.2}s`;
@@ -156,46 +151,14 @@ function startGame() {
     console.log(i);
   }
   dealHand();
-  function resetMultiplier() {
-    game.multiplier = 1;
-  }
-
-  function updatePreviousMultipliers() {
-    game.previousHandMultipliers = game.hand.map((cardEl, index) => {
-      const card = game.deck[cardEl.dataset.cardIndex];
-      const isMultiplierCard = card.imgSource.match(/\dx\.png$/);
-
-      if (isMultiplierCard && index == game.selected.dataset.cardIndex) {
-        const selectedCardMultiplier = parseInt(
-          card.imgSource.replace("x.png", ""),
-          10
-        );
-        const previousMultiplier = game.previousHandMultipliers[index];
-
-        if (previousMultiplier) {
-          const previousCardMultiplier = parseInt(
-            previousMultiplier.imgSource.replace("x.png", ""),
-            10
-          );
-          const newMultiplierValue =
-            selectedCardMultiplier * previousCardMultiplier;
-
-          // Return the new multiplier card with the combined multiplier value
-          return {
-            imgSource: `${newMultiplierValue}x.png`,
-            payOut: 0,
-          };
-        }
-      }
-      return isMultiplierCard ? card : null;
-    });
-  }
 
   confirmButton.addEventListener("click", function () {
     if (game.flipped) {
       return;
     }
-    game.bank -= game.bet;
+    if (game.bonusLevel < 1) {
+      game.bank -= game.bet;
+    }
     console.log(game.selected.dataset.cardIndex);
     console.log(game.deck[game.selected.dataset.cardIndex]);
 
@@ -238,7 +201,6 @@ function startGame() {
     console.log(game.bank);
     console.log(game.bonusLevel);
 
-    updatePreviousMultipliers();
     game.flipped = true;
     confirmButtonContainer.style.display = "none";
     dealContainer.style.display = "none";

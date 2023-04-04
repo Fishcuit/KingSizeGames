@@ -18,211 +18,211 @@ function createCard(index) {
     dealtCards: 5,
     deck: [
       {
-        imgSource: "2S.png",
+        imgSource: "Spades_2.png",
         payOut: 0,
       },
       {
-        imgSource: "3S.png",
+        imgSource: "Spades_3.png",
         payOut: 0,
       },
       {
-        imgSource: "4S.png",
+        imgSource: "Spades_4.png",
         payOut: 0,
       },
       {
-        imgSource: "5S.png",
+        imgSource: "Spades_5.png",
         payOut: 0,
       },
       {
-        imgSource: "6S.png",
+        imgSource: "Spades_6.png",
         payOut: 0,
       },
       {
-        imgSource: "7S.png",
+        imgSource: "Spades_7.png",
         payOut: 0,
       },
       {
-        imgSource: "8S.png",
+        imgSource: "Spades_8.png",
         payOut: 0,
       },
       {
-        imgSource: "9S.png",
+        imgSource: "Spades_9.png",
         payOut: 0,
       },
       {
-        imgSource: "10S.png",
+        imgSource: "Spades_10.png",
         payOut: 0,
       },
       {
-        imgSource: "JS.png",
+        imgSource: "Spades_J.png",
         payOut: 1,
       },
       {
-        imgSource: "QS.png",
+        imgSource: "Spades_Q.png",
         payOut: 2,
       },
       {
-        imgSource: "KS.png",
+        imgSource: "Spades_K.png",
         payOut: 3,
       },
       {
-        imgSource: "AS.png",
+        imgSource: "Spades_A.png",
         payOut: 4,
       },
       {
-        imgSource: "2D.png",
+        imgSource: "Diamonds_2.png",
         payOut: 0,
       },
       {
-        imgSource: "3D.png",
+        imgSource: "Diamonds_3.png",
         payOut: 0,
       },
       {
-        imgSource: "4D.png",
+        imgSource: "Diamonds_4.png",
         payOut: 0,
       },
       {
-        imgSource: "5D.png",
+        imgSource: "Diamonds_5.png",
         payOut: 0,
       },
       {
-        imgSource: "6D.png",
+        imgSource: "Diamonds_6.png",
         payOut: 0,
       },
       {
-        imgSource: "7D.png",
+        imgSource: "Diamonds_7.png",
         payOut: 0,
       },
       {
-        imgSource: "8D.png",
+        imgSource: "Diamonds_8.png",
         payOut: 0,
       },
       {
-        imgSource: "9D.png",
+        imgSource: "Diamonds_9.png",
         payOut: 0,
       },
       {
-        imgSource: "10D.png",
+        imgSource: "Diamonds_10.png",
         payOut: 0,
       },
       {
-        imgSource: "JD.png",
+        imgSource: "Diamonds_J.png",
         payOut: 1,
       },
       {
-        imgSource: "QD.png",
+        imgSource: "Diamonds_Q.png",
         payOut: 2,
       },
       {
-        imgSource: "KD.png",
+        imgSource: "Diamonds_K.png",
         payOut: 3,
       },
       {
-        imgSource: "AD.png",
+        imgSource: "Diamonds_A.png",
         payOut: 4,
       },
       {
-        imgSource: "2H.png",
+        imgSource: "Hearts_2.png",
         payOut: 0,
       },
       {
-        imgSource: "3H.png",
+        imgSource: "Hearts_3.png",
         payOut: 0,
       },
       {
-        imgSource: "4H.png",
+        imgSource: "Hearts_4.png",
         payOut: 0,
       },
       {
-        imgSource: "5H.png",
+        imgSource: "Hearts_5.png",
         payOut: 0,
       },
       {
-        imgSource: "6H.png",
+        imgSource: "Hearts_6.png",
         payOut: 0,
       },
       {
-        imgSource: "7H.png",
+        imgSource: "Hearts_7.png",
         payOut: 0,
       },
       {
-        imgSource: "8H.png",
+        imgSource: "Hearts_8.png",
         payOut: 0,
       },
       {
-        imgSource: "9H.png",
+        imgSource: "Hearts_9.png",
         payOut: 0,
       },
       {
-        imgSource: "10H.png",
+        imgSource: "Hearts_10.png",
         payOut: 0,
       },
       {
-        imgSource: "JH.png",
+        imgSource: "Hearts_J.png",
         payOut: 1,
       },
       {
-        imgSource: "QH.png",
+        imgSource: "Hearts_Q.png",
         payOut: 2,
       },
       {
-        imgSource: "KH.png",
+        imgSource: "Hearts_K.png",
         payOut: 3,
       },
       {
-        imgSource: "AH.png",
+        imgSource: "Hearts_A.png",
         payOut: 4,
       },
       {
-        imgSource: "2C.png",
+        imgSource: "Clubs_2.png",
         payOut: 0,
       },
       {
-        imgSource: "3C.png",
+        imgSource: "Clubs_3.png",
         payOut: 0,
       },
       {
-        imgSource: "4C.png",
+        imgSource: "Clubs_4.png",
         payOut: 0,
       },
       {
-        imgSource: "5C.png",
+        imgSource: "Clubs_5.png",
         payOut: 0,
       },
       {
-        imgSource: "6C.png",
+        imgSource: "Clubs_6.png",
         payOut: 0,
       },
       {
-        imgSource: "7C.png",
+        imgSource: "Clubs_7.png",
         payOut: 0,
       },
       {
-        imgSource: "8C.png",
+        imgSource: "Clubs_8.png",
         payOut: 0,
       },
       {
-        imgSource: "9C.png",
+        imgSource: "Clubs_9.png",
         payOut: 0,
       },
       {
-        imgSource: "10C.png",
+        imgSource: "Clubs_10.png",
         payOut: 0,
       },
       {
-        imgSource: "JC.png",
+        imgSource: "Clubs_J.png",
         payOut: 1,
       },
       {
-        imgSource: "QC.png",
+        imgSource: "Clubs_Q.png",
         payOut: 2,
       },
       {
-        imgSource: "KC.png",
+        imgSource: "Clubs_K.png",
         payOut: 3,
       },
       {
-        imgSource: "AC.png",
+        imgSource: "Clubs_A.png",
         payOut: 4,
       },
       {
@@ -243,6 +243,10 @@ function createCard(index) {
       },
       {
         imgSource: "free pick.png",
+        payOut: 0,
+      },
+      {
+        imgSource: "bonus up.png",
         payOut: 0,
       },
     ],
