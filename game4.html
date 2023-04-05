@@ -2,7 +2,7 @@
 <link
   rel="stylesheet"
   type="text/css"
-  href="css/game1.css"
+  href="css/game4.css"
 />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="css/site.css" />
@@ -84,6 +84,7 @@
         <img src="img/kingsize dark.png" alt="" />
       </div>
     </section>
+    <div id = "canvas-wrapper">
     <div id="canvas" class="row">
       <div class="column side-bar">
         <!-- <img src="{% static 'app/img/pokerlogo.png' %}" alt="" /> -->
@@ -159,11 +160,10 @@
             alt=""
           />
         </div>
-        <div id="last-win"></div>
-
-        <div id="board"></div>
-        <div class="row">
-          <div class="column meter left">
+        <div class="possible-cards">Poker Hand</div>
+        <div id="poker-hand"></div>
+        <div class="card-meter-container">
+          <div class="column-meter">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>C r e d i t s</p>
@@ -171,7 +171,16 @@
               <p id="current-score">$100.00</p>
             </fieldset>
           </div>
-          <div class="column meter">
+          <div class="column-meter">
+            <fieldset class="meter-value">
+              <legend class="other">
+                <p>W i n</p>
+              </legend>
+              <p id="current-win">--</p>
+            </fieldset>
+          </div>
+
+          <div class="column-meter">
             <fieldset class="meter-value">
               <legend class="other">
                 <p>W a g e r</p>
@@ -180,34 +189,36 @@
             </fieldset>
           </div>
         </div>
-
-        <div id="deal-container" style="display: none">
-          <button id="deal">Deal</button>
+        <div id="board"></div>
+        <div class="card-meter-container">
+          <div id="deal-container" style="display: none">
+            <button id="deal">Deal</button>
+          </div>
+          <div id="confirm-choice-container" style="display: none">
+            <button id="confirm-choice">Reveal</button>
+          </div>
         </div>
-
-        <div id="confirm-choice-container" style="display: none">
-          <button id="confirm-choice">Reveal</button>
-        </div>
+        
       </div>
-      <div class="column side-bar"></div>
+      <!-- <div class="column side-bar"><button id="fullscreen-btn">Toggle Full Screen</button></div> -->
     </div>
+  </div>
+  <div class="container body-content">
     <hr />
-      <footer>
-        <div class="footer-content">
-          <!-- <img
-            class=" "
-            src="img/kingsize dark.png"
-            alt=""
-          /> -->
-        </div>
-        <div class="footer-bottom">
-          <p>Copyright &copy;2023 KingSize Games Inc.</p>
-        </div>
-      </footer>
-    <script
-      type="text/javascript"
-      src="scripts/gm4.js"
-    ></script>
-  </body>
+    <footer>
+      <div class="footer-content">
+        <!-- <img
+          class=" "
+          src="img/kingsize dark.png"
+          alt=""
+        /> -->
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy;2023 KingSize Games Inc.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="text/javascript" src="scripts/gm4.js"></script>
+
 </html>
 
