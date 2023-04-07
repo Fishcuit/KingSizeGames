@@ -264,42 +264,42 @@ const rules = {
       { imgSource: "Minor.png", payOut: 30 },
       { imgSource: "Minor.png", payOut: 30 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Minor.png", payOut: 30 },
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Minor.png", payOut: 30 },
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Major.png", payOut: 90 },
       { imgSource: "Mega.png", payOut: 300 },
       { imgSource: "Grand.png", payOut: 3000 },
       { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
       { imgSource: "Mega.png", payOut: 90 },
@@ -312,7 +312,7 @@ const rules = {
 };
 for (let i = 0; i < 35; i++) {
   rules.deck.push({
-    imgSource: "JK.png",
+    imgSource: "bonus up.png",
     payOut: 0,
   });
 }
@@ -327,10 +327,9 @@ function startGame() {
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
-  const backgroundMusic = new Audio('sound/backround.mp3');
+  const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
-  
 
   // dealContainer.style.display = "none";
   const game = {
@@ -372,7 +371,7 @@ function startGame() {
       card.style.backgroundImage = `url("img/cards/${cardBack}")`;
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
-      
+
       card.style.animationDelay = `${index * 0.2}s`;
     }
     setTimeout(() => {
@@ -385,7 +384,6 @@ function startGame() {
       }
     }, 0);
   }
-  
 
   for (let i = 0; i < rules.dealtCards; i++) {
     const newCard = createCard(i);
@@ -438,7 +436,11 @@ function startGame() {
         );
         const previousMultiplier = game.previousHandMultipliers[index];
 
-        if (previousMultiplier) {
+        if (previousMultiplier && game.multiplier == 1) {
+          // If a bonus card has been selected, and the previous multiplier is not null
+          // and the multiplier has not been set yet, return null
+          return null;
+        } else if (previousMultiplier) {
           const previousCardMultiplier = parseInt(
             previousMultiplier.imgSource.replace("x.png", ""),
             10
@@ -454,14 +456,16 @@ function startGame() {
         }
       }
       // If the card is a Free Play card, return it, even if it's not selected
-      if (isFreePlayCard) {
+      if (isFreePlayCard && game.bonusLevel == 1) {
         return card;
+      }
+      if (game.bonusLevel > 1) {
+        return null;
       }
 
       // If the card is not a multiplier card, return null
       return isMultiplierCard ? card : null;
     });
-    console.log(game.previousHandMultipliers);
   }
 
   confirmButton.addEventListener("click", function () {
@@ -469,7 +473,7 @@ function startGame() {
     if (game.flipped) {
       return;
     }
-    
+
     game.bank -= game.bet;
     console.log(game.selected.dataset.cardIndex);
     console.log(game.deck[game.selected.dataset.cardIndex]);
@@ -478,12 +482,6 @@ function startGame() {
     const selectedMultiplier =
       game.previousHandMultipliers[game.selected.dataset.cardIndex];
 
-    const isBonusCard = selectedCard.imgSource === "bonus up.png";
-    if (isBonusCard) {
-      game.bonusLevel++;
-    } else {
-      game.bonusLevel = 1; // Reset bonusLevel to 1 if the selected card is not a bonus card
-    }
     if (selectedMultiplier) {
       const multiplierValue = parseInt(
         selectedMultiplier.imgSource.replace("x.png", ""),
@@ -493,15 +491,23 @@ function startGame() {
     } else {
       game.multiplier = 1;
     }
-    console.log(game.multiplier)
+    const isBonusCard = selectedCard.imgSource === "bonus up.png";
+    const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
+    if (isBonusCard) {
+      game.bonusLevel++;
+    } else if (isBonusDownCard) {
+      game.bonusLevel--;
+    } else {
+      game.bonusLevel = 1;
+    }
     if (isNaN(game.multiplier)) {
       game.multiplier = 1;
     }
-    console.log(game.multiplier)
+    console.log(game.multiplier);
     const increment = 1;
     const cycles =
       ((selectedCard.payOut || 0) * 1 * game.multiplier) / increment;
-    const coinSound = new Audio('sound/coin.mp3');
+    const coinSound = new Audio("sound/coin.mp3");
 
     for (let i = 0; i < cycles; i++) {
       setTimeout(() => {
@@ -528,7 +534,6 @@ function startGame() {
     }
     dealContainer.style.display = "block";
     game.bet = 1;
-    
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
@@ -539,13 +544,15 @@ function startGame() {
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
   });
-}
 
-function getBonusDeck(bonusLevel) {
-  if (bonusLevel > 1 && bonusLevel <= rules.bonusDecks.length) {
-    return rules.bonusDecks[bonusLevel - 2];
-  } else {
-    return rules.deck;
+  function getBonusDeck(bonusLevel) {
+    if (bonusLevel > 1 && bonusLevel <= rules.bonusDecks.length) {
+      game.multiplier = 1;
+      console.log(game.previousHandMultipliers);
+      return rules.bonusDecks[bonusLevel - 2];
+    } else {
+      return rules.deck;
+    }
   }
 }
 
@@ -563,16 +570,15 @@ function shuffle(deck) {
 
 startGame();
 
-const fullscreenBtn = document.getElementById('fullscreen-btn');
-const fullscreenElement = document.getElementById('canvas-wrapper');
+// const fullscreenBtn = document.getElementById('fullscreen-btn');
+// const fullscreenElement = document.getElementById('canvas-wrapper');
 
-fullscreenBtn.addEventListener('click', () => {
-  if (fullscreenElement.requestFullscreen) {
-    fullscreenElement.requestFullscreen();
-  } else if (fullscreenElement.webkitRequestFullscreen) { /* Safari */
-    fullscreenElement.webkitRequestFullscreen();
-  } else if (fullscreenElement.msRequestFullscreen) { /* IE11 */
-    fullscreenElement.msRequestFullscreen();
-  }
-});
-
+// fullscreenBtn.addEventListener('click', () => {
+//   if (fullscreenElement.requestFullscreen) {
+//     fullscreenElement.requestFullscreen();
+//   } else if (fullscreenElement.webkitRequestFullscreen) { /* Safari */
+//     fullscreenElement.webkitRequestFullscreen();
+//   } else if (fullscreenElement.msRequestFullscreen) { /* IE11 */
+//     fullscreenElement.msRequestFullscreen();
+//   }
+// });
