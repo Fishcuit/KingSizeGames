@@ -247,6 +247,12 @@ const rules = {
     },
   ],
 };
+for (let i = 0; i < 35; i++) {
+  rules.deck.push({
+    imgSource: "JK.png",
+    payOut: 0,
+  });
+}
 
 function startGame() {
   const confirmButtonContainer = document.getElementById(
@@ -277,8 +283,6 @@ function startGame() {
 
   dealHand();
 
-
-  
   function dealHand() {
     game.selected = null;
     game.flipped = false;
@@ -399,15 +403,17 @@ function startGame() {
     const selectedMultiplier =
       game.previousHandMultipliers[game.selected.dataset.cardIndex];
 
-    const isSpecialCard = [
-      "JK.png",
-      "2x.png",
-      "3x.png",
-      "4x.png",
-      "5x.png",
-      "free pick.png",
-    ].includes(selectedCard.imgSource);
-    if (!isSpecialCard) {
+    const isNotDuplicate = game.pokerHand.every(
+      (pokerCard) => pokerCard.imgSource !== selectedCard.imgSource
+    );
+
+    const specialCards =
+      game.pokerHand.length < 4
+        ? ["JK.png", "2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"]
+        : ["2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"];
+
+    const isSpecialCard = specialCards.includes(selectedCard.imgSource);
+    if (!isSpecialCard && isNotDuplicate) {
       addToPokerHand(selectedCard);
     }
 
@@ -427,7 +433,7 @@ function startGame() {
     console.log(game.multiplier);
     const increment = 1;
     const cycles =
-      ((selectedCard.payOut || 0) * game.bet * game.multiplier) / increment;
+      ((selectedCard.payOut || 0) * 1 * game.multiplier) / increment;
     const coinSound = new Audio("sound/coin.mp3");
 
     for (let i = 0; i < cycles; i++) {
@@ -442,7 +448,7 @@ function startGame() {
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
     currentWin.innerText =
-      "$" + (selectedCard.payOut || 0) * game.bet * game.multiplier;
+      "$" + (selectedCard.payOut || 0) * 1 * game.multiplier;
 
     updatePreviousMultipliers();
 
@@ -459,7 +465,8 @@ function startGame() {
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     if (game.pokerHand.length === 5) {
-      resetPokerHand()};
+      resetPokerHand();
+    }
     // for (const card of game.hand) {
     //   card.classList.remove("deal");
     // }
@@ -473,13 +480,13 @@ function startGame() {
     const pokerHandElement = document.getElementById("poker-hand");
     pokerHandElement.innerHTML = "";
   }
-  
+
   function addToPokerHand(card) {
     const pokerHandElement = document.getElementById("poker-hand");
     const pokerCard = document.createElement("pcard");
     pokerCard.classList.add("poker-card");
     pokerCard.style.backgroundImage = `url("img/cards/${card.imgSource}")`;
-    pokerHandElement.appendChild(pokerCard);  
+    pokerHandElement.appendChild(pokerCard);
     game.pokerHand.push(card);
   }
 }
@@ -495,8 +502,6 @@ function shuffle(deck) {
 
   return shuffledDeck;
 }
-
-
 
 startGame();
 

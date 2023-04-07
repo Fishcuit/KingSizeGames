@@ -500,7 +500,7 @@ function startGame() {
     console.log(game.multiplier)
     const increment = 1;
     const cycles =
-      ((selectedCard.payOut || 0) * game.bet * game.multiplier) / increment;
+      ((selectedCard.payOut || 0) * 1 * game.multiplier) / increment;
     const coinSound = new Audio('sound/coin.mp3');
 
     for (let i = 0; i < cycles; i++) {
@@ -515,7 +515,7 @@ function startGame() {
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     currentScore.innerText = "$" + game.bank;
     currentWin.innerText =
-      "$" + (selectedCard.payOut || 0) * game.bet * game.multiplier;
+      "$" + (selectedCard.payOut || 0) * 1 * game.multiplier;
 
     updatePreviousMultipliers();
 
