@@ -312,7 +312,7 @@ const rules = {
 };
 for (let i = 0; i < 35; i++) {
   rules.deck.push({
-    imgSource: "bonus up.png",
+    imgSource: "JK.png",
     payOut: 0,
   });
 }
