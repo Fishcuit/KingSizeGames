@@ -312,7 +312,7 @@ const rules = {
 };
 for (let i = 0; i < 35; i++) {
   rules.deck.push({
-    imgSource: "JK.png",
+    imgSource: "bonus up.png",
     payOut: 0,
   });
 }
@@ -493,13 +493,16 @@ function startGame() {
     }
     const isBonusCard = selectedCard.imgSource === "bonus up.png";
     const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
+    
     if (isBonusCard) {
       game.bonusLevel++;
+     
     } else if (isBonusDownCard) {
       game.bonusLevel--;
     } else {
       game.bonusLevel = 1;
     }
+    
     if (isNaN(game.multiplier)) {
       game.multiplier = 1;
     }
@@ -543,6 +546,43 @@ function startGame() {
     dealHand();
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
+    
+    const bonusPopup = document.getElementById("bonus-popup");
+    const bonusLevelElement = document.getElementById("bonus-level");
+    const bonusRewardElement = document.getElementById("bonus-reward");
+    const closePopupButton = document.getElementById("close-popup");
+    if (game.bonusLevel > 1) {
+      showBonusPopup();
+    }
+    function showBonusPopup() {
+      bonusPopup.classList.remove("hidden");
+      bonusPopup.classList.add("color-swirl");
+      bonusLevelElement.textContent = game.bonusLevel-1;
+      
+      const rewards = getReward(game.bonusLevel);
+      const rewardsHtml = rewards
+        .map((reward) => `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`)
+        .join(" ");
+      bonusRewardElement.innerHTML = `${rewardsHtml}`;
+      
+      setTimeout(() => {
+        bonusPopup.classList.remove("color-swirl");
+      }, 2000);
+      
+    }
+    
+    
+    function getReward(level) {
+      const currentDeck = rules.bonusDecks[level - 2];
+      const rewards = currentDeck.map((card) => {
+        return { imgSource: card.imgSource, payOut: card.payOut };
+      });
+      return rewards;
+    }
+    
+    closePopupButton.addEventListener("click", () => {
+      bonusPopup.classList.add("hidden");
+    });
   });
 
   function getBonusDeck(bonusLevel) {
@@ -557,28 +597,14 @@ function startGame() {
 }
 
 function shuffle(deck) {
-  const deckCopy = deck.slice();
-  const shuffledDeck = [];
-  while (deckCopy.length > 0) {
-    shuffledDeck.push(
-      deckCopy.splice(Math.floor(Math.random() * deckCopy.length), 1)[0]
-    );
+  const shuffledDeck = [...deck];
+  for (let i = shuffledDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
   }
-
   return shuffledDeck;
 }
 
 startGame();
 
-// const fullscreenBtn = document.getElementById('fullscreen-btn');
-// const fullscreenElement = document.getElementById('canvas-wrapper');
 
-// fullscreenBtn.addEventListener('click', () => {
-//   if (fullscreenElement.requestFullscreen) {
-//     fullscreenElement.requestFullscreen();
-//   } else if (fullscreenElement.webkitRequestFullscreen) { /* Safari */
-//     fullscreenElement.webkitRequestFullscreen();
-//   } else if (fullscreenElement.msRequestFullscreen) { /* IE11 */
-//     fullscreenElement.msRequestFullscreen();
-//   }
-// });
