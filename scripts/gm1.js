@@ -582,6 +582,11 @@ function startGame() {
     
     closePopupButton.addEventListener("click", () => {
       bonusPopup.classList.add("hidden");
+      for (const card of game.hand) {
+        card.classList.remove("deal");
+      }
+      dealHand()
+      
     });
   });
 

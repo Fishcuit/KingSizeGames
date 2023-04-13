@@ -1,10 +1,10 @@
-<link rel="stylesheet" type="text/css" href="css/game6.css" />
+<link rel="stylesheet" type="text/css" href="css/game1.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="css/site.css" />
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>PiQum Gems</title>
+    <title>Bonus PiQum</title>
   </head>
 
   <body>
@@ -75,15 +75,17 @@
     </header>
     <section>
       <div class="hero-banner">
-        <h1>PiQum Gems</h1>
+        <h1>Bonus PiQum</h1>
         <p>presented by</p>
         <img src="img/kingsize dark.png" alt="" />
       </div>
     </section>
-    <div id="canvas-wrapper">
+    <div id = "canvas-wrapper">
+
+    
       <div id="canvas" class="row">
         <div class="column side-bar">
-          <img class="title-logo" src="img/piqum_classic.png" alt="" />
+          <img class="title-logo" src="img/piQum_bonus.png" alt="" />
           <fieldset class="grand">
             <legend class="grand">
               <p>G r a n d</p>
@@ -122,6 +124,7 @@
             <img class="card-meter" src="img/Meter_Royals_King.png" alt="" />
             <img class="card-meter" src="img/Meter_Royals_Ace.png" alt="" />
           </div>
+      
 
           <div class="card-meter-container">
             <div class="column-meter">
@@ -159,19 +162,19 @@
               <button id="confirm-choice">Reveal</button>
             </div>
           </div>
+          
         </div>
         <!-- <div class="column side-bar"><button id="fullscreen-btn">Toggle Full Screen</button></div> -->
       </div>
     </div>
-    <div id="bonusGame" class="modal">
-      <div class="modal-content">
-        <h2>Bonus Game!</h2>
-        <h2 id="score">Score: 0</h2>
-        <div id="grid" class="grid-container"></div>
-        <button id="closeButton">Close</button>
-        <button id="revealSymbols">Reveal Symbols</button>
+    <div id="bonus-popup" class="bonus-popup hidden">
+      <div class="bonus-popup-content">
+        <h2>Bonus Level <span id="bonus-level"></span></h2>
+        <p id="bonus-reward">You could possibly win: </p>
+        <button id="close-popup">Shuffle</button>
       </div>
     </div>
+    
     <div class="container body-content">
       <hr />
       <footer>
@@ -187,7 +190,6 @@
         </div>
       </footer>
     </div>
-
     <script type="text/javascript" src="scripts/gm6.js"></script>
-  </body>
+
 </html>

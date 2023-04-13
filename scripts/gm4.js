@@ -465,6 +465,7 @@ function startGame() {
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     if (game.pokerHand.length === 5) {
+      evaluatePokerHand()
       resetPokerHand();
     }
     // for (const card of game.hand) {
@@ -474,6 +475,12 @@ function startGame() {
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
   });
+
+  function evaluatePokerHand() {
+    // Logic for evaluating the poker hand goes here.
+    // Analyze the cards in game.pokerHand and determine the score or winning combination.
+    console.log(game.pokerHand) 
+  }
 
   function resetPokerHand() {
     game.pokerHand = [];

@@ -250,11 +250,73 @@ const rules = {
       imgSource: "bonus up.png",
       payOut: 0,
     },
+    {
+      imgSource: "bonus up.png",
+      payOut: 0,
+    },
+  ],
+  bonusDecks: [
+    [
+      { imgSource: "Mini.png", payOut: 15 },
+      { imgSource: "Mini.png", payOut: 15 },
+      { imgSource: "Mini.png", payOut: 15 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus up.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30 },
+      { imgSource: "Minor.png", payOut: 30 },
+      { imgSource: "Minor.png", payOut: 30 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30 },
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30 },
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "Grand.png", payOut: 3000 },
+      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "Mega.png", payOut: 300 },
+      { imgSource: "bonus down.png", payOut: 0 },
+      { imgSource: "Grand.png", payOut: 3000 },
+      { imgSource: "Grand.png", payOut: 3000 },
+    ],
   ],
 };
-for (let i = 0; i < 35; i++) {
+for (let i = 0; i < 55; i++) {
   rules.deck.push({
-    imgSource: "bonus up.png",
+    imgSource: "JK.png",
     payOut: 0,
   });
 }
@@ -270,9 +332,6 @@ function startGame() {
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
   const backgroundMusic = new Audio("sound/backround.mp3");
-  const bonusGame = document.getElementById("bonusGame");
-  const closeButton = document.getElementById("closeButton");
-  const grid = document.getElementById("grid");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
 
@@ -286,13 +345,26 @@ function startGame() {
     bet: 1,
     multiplier: 1,
     previousHandMultipliers: [],
+    bonusLevel: 1,
   };
-  dealHand();
 
+  //If bonusLevel is greater than 1, show the cards to the player before flipping and shuffling them
+  if (game.bonusLevel > 1) {
+    dealContainer.style.display = "none";
+    confirmButtonContainer.style.display = "block";
+    confirmButton.addEventListener("click", function () {
+      dealContainer.style.display = "block";
+      confirmButtonContainer.style.display = "none";
+      dealHand();
+    });
+  } else {
+    dealHand();
+  }
   function dealHand() {
     game.selected = null;
     game.flipped = false;
-    game.deck = shuffle(rules.deck);
+    game.deck = shuffle(getBonusDeck(game.bonusLevel));
+    game.deck = shuffle(game.deck);
 
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
@@ -389,8 +461,11 @@ function startGame() {
         }
       }
       // If the card is a Free Play card, return it, even if it's not selected
-      if (isFreePlayCard) {
+      if (isFreePlayCard && game.bonusLevel == 1) {
         return card;
+      }
+      if (game.bonusLevel > 1) {
+        return null;
       }
 
       // If the card is not a multiplier card, return null
@@ -422,11 +497,17 @@ function startGame() {
       game.multiplier = 1;
     }
     const isBonusCard = selectedCard.imgSource === "bonus up.png";
+    const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
+    
     if (isBonusCard) {
-      generateGrid(0);
-      bonusGame.style.display = "block";
+      game.bonusLevel++;
+     
+    } else if (isBonusDownCard) {
+      game.bonusLevel--;
+    } else {
+      game.bonusLevel = 1;
     }
-
+    
     if (isNaN(game.multiplier)) {
       game.multiplier = 1;
     }
@@ -462,7 +543,6 @@ function startGame() {
     dealContainer.style.display = "block";
     game.bet = 1;
   });
-
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     // for (const card of game.hand) {
@@ -471,128 +551,65 @@ function startGame() {
     dealHand();
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
-  });
-}
-
-const allSymbols = ["💎", "🪨", "⭐", "🔮", "🌙", "🍀", "💣", "🎁"];
-const gridSize = 5;
-const maxClicks = 5;
-let matches = 0;
-let prevSelectedSymbols = new Set();
-let chosenGridItems = [];
-
-function generateGrid(level) {
-  const grid = document.getElementById("grid");
-  const revealSymbolsButton = document.getElementById("revealSymbols");
-  revealSymbolsButton.onclick = function () {
-    revealAllSymbols();
-  };
-  grid.innerHTML = ""; // Clear the grid content
-
-  let selections = [];
-  let symbols = allSymbols.slice(0, 2); // Start with the first two symbols
-  symbols = replaceChosenSymbols(symbols, level); // Replace chosen symbols with new ones
-
-  if (level > 0 && chosenGridItems.length > 0) {
-    const newSymbol = allSymbols[level + 1];
-    chosenGridItems.forEach((item) => {
-      item.textContent = newSymbol;
+    
+    const bonusPopup = document.getElementById("bonus-popup");
+    const bonusLevelElement = document.getElementById("bonus-level");
+    const bonusRewardElement = document.getElementById("bonus-reward");
+    const closePopupButton = document.getElementById("close-popup");
+    if (game.bonusLevel > 1) {
+      showBonusPopup();
+    }
+    function showBonusPopup() {
+      bonusPopup.classList.remove("hidden");
+      bonusPopup.classList.add("color-swirl");
+      bonusLevelElement.textContent = game.bonusLevel-1;
+      
+      const rewards = getReward(game.bonusLevel);
+      const rewardsHtml = rewards
+        .map((reward) => `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`)
+        .join(" ");
+      bonusRewardElement.innerHTML = `${rewardsHtml}`;
+      
+      setTimeout(() => {
+        bonusPopup.classList.remove("color-swirl");
+      }, 2000);
+      
+    }
+    
+    
+    function getReward(level) {
+      const currentDeck = rules.bonusDecks[level - 2];
+      const rewards = currentDeck.map((card) => {
+        return { imgSource: card.imgSource, payOut: card.payOut };
+      });
+      return rewards;
+    }
+    
+    closePopupButton.addEventListener("click", () => {
+      bonusPopup.classList.add("hidden");
     });
-    chosenGridItems = [];
-  }
-
-  for (let i = 0; i < gridSize * gridSize; i++) {
-    const gridItem = document.createElement("div");
-    gridItem.classList.add("grid-item");
-
-    const gridItemContent = document.createElement("div");
-    gridItemContent.classList.add("grid-item-content");
-    gridItemContent.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-    gridItem.appendChild(gridItemContent);
-
-    const cover = document.createElement("div");
-    cover.classList.add("cover");
-    cover.onclick = function () {
-      if (selections.length < maxClicks) {
-        cover.style.display = "none";
-        gridItem.style.opacity = 1;
-        selections.push(gridItemContent.textContent);
-
-        // Check for matches after every selection
-        const matchCounts = symbols.map((symbol) => {
-          return selections.filter((s) => s === symbol).length;
-        });
-
-        if (Math.max(...matchCounts) >= 3) {
-          matches++;
-          prevSelectedSymbols = new Set(selections); // Save the selected symbols from this game
-          endGame();
-        } else if (selections.length === maxClicks) {
-          endGame();
-        }
-      }
-    };
-    gridItem.appendChild(cover);
-    grid.appendChild(gridItem);
-  }
-
-  function endGame() {
-    // Update the score
-    const scoreEl = document.getElementById("score");
-    scoreEl.textContent = `Score: ${matches}`;
-
-    // Add the explode animation when the game ends
-    grid.classList.add("explode");
-
-    setTimeout(() => {
-      // Reset the grid after the explosion animation finishes
-      grid.classList.remove("explode");
-      selections = [];
-      generateGrid(level + 1);
-    }, 1000);
-  }
-}
-
-// Initialize the game
-
-
-const closeButton = document.getElementById("closeButton");
-closeButton.onclick = function () {
-  const bonusGame = document.getElementById("bonusGame");
-  bonusGame.style.display = "none";
-  grid.innerHTML = ""; // Clear the grid content
-};
-
-function revealAllSymbols() {
-  const covers = document.querySelectorAll(".cover");
-  covers.forEach((cover) => {
-    cover.style.display = "none";
   });
-}
 
-function replaceChosenSymbols(symbols, level) {
-    if (level === 0) return symbols;
-  
-    const newSymbol = allSymbols[level + 1];
-    const updatedSymbols = symbols.map((symbol) => {
-      return prevSelectedSymbols.has(symbol) ? newSymbol : symbol;
-    });
-  
-    prevSelectedSymbols.clear();
-    return updatedSymbols;
+  function getBonusDeck(bonusLevel) {
+    if (bonusLevel > 1 && bonusLevel <= rules.bonusDecks.length) {
+      game.multiplier = 1;
+      console.log(game.previousHandMultipliers);
+      return rules.bonusDecks[bonusLevel - 2];
+    } else {
+      return rules.deck;
+    }
   }
+}
 
 function shuffle(deck) {
-  const deckCopy = deck.slice();
-  const shuffledDeck = [];
-  while (deckCopy.length > 0) {
-    shuffledDeck.push(
-      deckCopy.splice(Math.floor(Math.random() * deckCopy.length), 1)[0]
-    );
+  const shuffledDeck = [...deck];
+  for (let i = shuffledDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
   }
-
   return shuffledDeck;
 }
 
 startGame();
+
+
