@@ -478,14 +478,13 @@ function startGame() {
   });
 
   function calculatePayout() {
-    let pokerHand = game.pokerHand
+    let pokerHand = game.pokerHand;
     // let pokerHand = [{imgSource: 'Clubs_6.png', payOut: 0}, {imgSource: 'Clubs_6.png', payOut: 0}, {imgSource: 'Clubs_7.png', payOut: 0}, {imgSource: 'Clubs_7.png', payOut: 0}, {imgSource: 'Clubs_5.png', payOut: 0}]
     let payout = 0;
     let handName = "";
 
-    console.log(pokerHand)
- 
-    
+    console.log(pokerHand);
+
     // if (isRoyalFlush(pokerHand)) {
     //   payout = payouts["Royal Flush"];
     //   handName = "Royal Flush";
@@ -507,25 +506,23 @@ function startGame() {
     if (isThreeOfAKind(pokerHand)) {
       payout = 8;
       handName = "Three of a kind";
-      console.log(handName)
+      console.log(handName);
       pokerWin.innerText = handName + " pays $" + payout;
     } else if (isTwoPair(pokerHand)) {
       payout = 2;
       handName = "Two Pairs";
-      console.log(handName)
+      console.log(handName);
       pokerWin.innerText = handName + " pays $" + payout;
     } else {
       payout = 0;
       handName = "No winner";
-      console.log(handName)
+      console.log(handName);
       pokerWin.innerText = handName + " pays $" + payout;
     }
-   
-  
+
     // // Return the payout and hand name as an object.
     // return { payout: payout, handName: handName };
   }
-  
 
   function resetPokerHand() {
     game.pokerHand = [];
@@ -545,8 +542,6 @@ function startGame() {
       calculatePayout();
     }
   }
-  
-  
 }
 
 function shuffle(deck) {
@@ -564,20 +559,23 @@ function shuffle(deck) {
 startGame();
 
 function isThreeOfAKind(pokerHand) {
-  let values = pokerHand.map(card => {
-    if (card.imgSource === 'JK.png') {
-      return 'JK';
+  let values = pokerHand.map((card) => {
+    if (card.imgSource === "JK.png") {
+      return "JK";
     } else {
-      return card.imgSource.split('_')[1].slice(0, -4);
+      return card.imgSource.split("_")[1].slice(0, -4);
     }
   });
 
   let uniqueValues = new Set(values);
 
   for (let value of uniqueValues) {
-    if (values.filter(v => v === value).length === 3) {
+    if (values.filter((v) => v === value).length === 3) {
       return true;
-    } else if (values.filter(v => v === value).length === 2 && values.filter(v => v === 'JK').length === 1) {
+    } else if (
+      values.filter((v) => v === value).length === 2 &&
+      values.filter((v) => v === "JK").length === 1
+    ) {
       return true;
     }
   }
@@ -585,9 +583,13 @@ function isThreeOfAKind(pokerHand) {
 }
 
 function isTwoPair(pokerHand) {
-  let values = pokerHand.map(card => card.imgSource.split('_')[1].slice(0, -4));
+  let values = pokerHand.map((card) =>
+    card.imgSource.split("_")[1].slice(0, -4)
+  );
 
-  let pairs = Array.from(new Set(values)).filter(value => values.filter(v => v === value).length === 2);
+  let pairs = Array.from(new Set(values)).filter(
+    (value) => values.filter((v) => v === value).length === 2
+  );
 
   if (pairs.length === 2) {
     return pairs;
@@ -595,7 +597,3 @@ function isTwoPair(pokerHand) {
 
   return false;
 }
-
-
-
-
