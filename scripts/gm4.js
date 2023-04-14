@@ -264,6 +264,7 @@ function startGame() {
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
+  const pokerWin = document.getElementById("poker-win");
   const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
@@ -465,7 +466,7 @@ function startGame() {
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     if (game.pokerHand.length === 5) {
-      evaluatePokerHand()
+      pokerWin.innerText = "--";
       resetPokerHand();
     }
     // for (const card of game.hand) {
@@ -476,11 +477,55 @@ function startGame() {
     currentWin.innerText = "--";
   });
 
-  function evaluatePokerHand() {
-    // Logic for evaluating the poker hand goes here.
-    // Analyze the cards in game.pokerHand and determine the score or winning combination.
-    console.log(game.pokerHand) 
+  function calculatePayout() {
+    let pokerHand = game.pokerHand
+    // let pokerHand = [{imgSource: 'Clubs_6.png', payOut: 0}, {imgSource: 'Clubs_6.png', payOut: 0}, {imgSource: 'Clubs_7.png', payOut: 0}, {imgSource: 'Clubs_7.png', payOut: 0}, {imgSource: 'Clubs_5.png', payOut: 0}]
+    let payout = 0;
+    let handName = "";
+
+    console.log(pokerHand)
+ 
+    
+    // if (isRoyalFlush(pokerHand)) {
+    //   payout = payouts["Royal Flush"];
+    //   handName = "Royal Flush";
+    // } else if (isStraightFlush(pokerHand)) {
+    //   payout = payouts["Straight Flush"];
+    //   handName = "Straight Flush";
+    // } else if (isFourOfAKind(pokerHand)) {
+    //   payout = payouts["Four of a Kind"];
+    //   handName = "Four of a kind";
+    // } else if (isFullHouse(pokerHand)) {
+    //   payout = payouts["Full House"];
+    //   handName = "Full House";
+    // } else if (isFlush(pokerHand)) {
+    //   payout = payouts["Flush"];
+    //   handName = "Flush";
+    // } else if (isStraight(pokerHand)) {
+    //   payout = payouts["Straight"];
+    //   handName = "Straight";
+    if (isThreeOfAKind(pokerHand)) {
+      payout = 8;
+      handName = "Three of a kind";
+      console.log(handName)
+      pokerWin.innerText = handName + " pays $" + payout;
+    } else if (isTwoPair(pokerHand)) {
+      payout = 2;
+      handName = "Two Pairs";
+      console.log(handName)
+      pokerWin.innerText = handName + " pays $" + payout;
+    } else {
+      payout = 0;
+      handName = "No winner";
+      console.log(handName)
+      pokerWin.innerText = handName + " pays $" + payout;
+    }
+   
+  
+    // // Return the payout and hand name as an object.
+    // return { payout: payout, handName: handName };
   }
+  
 
   function resetPokerHand() {
     game.pokerHand = [];
@@ -495,7 +540,13 @@ function startGame() {
     pokerCard.style.backgroundImage = `url("img/cards/${card.imgSource}")`;
     pokerHandElement.appendChild(pokerCard);
     game.pokerHand.push(card);
+    // Check if the poker hand has 5 cards after adding the new card
+    if (game.pokerHand.length === 5) {
+      calculatePayout();
+    }
   }
+  
+  
 }
 
 function shuffle(deck) {
@@ -512,17 +563,39 @@ function shuffle(deck) {
 
 startGame();
 
-const fullscreenBtn = document.getElementById("fullscreen-btn");
-const fullscreenElement = document.getElementById("canvas-wrapper");
+function isThreeOfAKind(pokerHand) {
+  let values = pokerHand.map(card => {
+    if (card.imgSource === 'JK.png') {
+      return 'JK';
+    } else {
+      return card.imgSource.split('_')[1].slice(0, -4);
+    }
+  });
 
-fullscreenBtn.addEventListener("click", () => {
-  if (fullscreenElement.requestFullscreen) {
-    fullscreenElement.requestFullscreen();
-  } else if (fullscreenElement.webkitRequestFullscreen) {
-    /* Safari */
-    fullscreenElement.webkitRequestFullscreen();
-  } else if (fullscreenElement.msRequestFullscreen) {
-    /* IE11 */
-    fullscreenElement.msRequestFullscreen();
+  let uniqueValues = new Set(values);
+
+  for (let value of uniqueValues) {
+    if (values.filter(v => v === value).length === 3) {
+      return true;
+    } else if (values.filter(v => v === value).length === 2 && values.filter(v => v === 'JK').length === 1) {
+      return true;
+    }
   }
-});
+  return false;
+}
+
+function isTwoPair(pokerHand) {
+  let values = pokerHand.map(card => card.imgSource.split('_')[1].slice(0, -4));
+
+  let pairs = Array.from(new Set(values)).filter(value => values.filter(v => v === value).length === 2);
+
+  if (pairs.length === 2) {
+    return pairs;
+  }
+
+  return false;
+}
+
+
+
+
