@@ -4,6 +4,7 @@
     justify-content: center;
     height: 270px;
     padding-left: 5px;
+    padding-bottom: 10px;
   }
   #poker-hand {
     display: flex;
@@ -35,7 +36,7 @@
     background-size: cover;
     width: 100%;
     max-width: 1325px;
-    height: 700px;
+    height: 800px;
   }
   .card-row {
     display: flex;
@@ -61,12 +62,14 @@
     width: 20vw;
     max-width: 130px;
     padding-left: 10px;
+    padding-top: 10px;
   }
   .side-bar img {
     
     /* height: 100px; */
     padding-bottom: 10px; 
     width: 200px;
+    padding-bottom: 20px;
   }
   
   .title-logo {
@@ -79,6 +82,7 @@
     display: flex;
     justify-content: center;
     justify-self: center;
+    padding-bottom: 10px;
     
   }
   
@@ -149,8 +153,8 @@
     border-radius: 10px;
     -webkit-box-shadow: 2px 2px 3px 0px #000000;
     box-shadow: 2px 2px 3px 0px #000000;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
+    /* animation: glowing-border 2s infinite; */
+    
   }
   
   .card.selected {
@@ -179,10 +183,10 @@
   }
   
   #deal {
-    font-size: 25px;
+    font-size: 50px;
     font-family: Arial;
-    width: 105px;
-    height: 54px;
+    width: 175px;
+    height: 114px;
     border-width: 1px;
     color: #fff;
     border-color: #d02718;
@@ -201,10 +205,10 @@
   }
   
   #confirm-choice {
-    font-size: 25px;
+    font-size: 50px;
     font-family: Arial;
-    width: 105px;
-    height: 54px;
+    width: 175px;
+    height: 114px;
     border-width: 1px;
     color: #fff;
     border-color: rgba(189, 16, 224, 1);
@@ -378,6 +382,18 @@
       box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
     }
   }
+
+  @keyframes glowing-border-gold {
+    0% {
+      box-shadow: 0 0 5px #f1ce04, 0 0 10px #f1ce04, 0 0 15px #ff0000, 0 0 20px #f1ce04;
+    }
+    50% {
+      box-shadow: 0 0 10px #f1ce04, 0 0 20px #f1ce04, 0 0 30px #f1ce04, 0 0 40px #f1ce04;
+    }
+    100% {
+      box-shadow: 0 0 5px #f1ce04, 0 0 10px #f1ce04, 0 0 15px #f1ce04, 0 0 20px #f1ce04;
+    }
+  }
   
   @keyframes glowing-text {
     0% {
@@ -393,6 +409,7 @@
   
   .card:nth-child(1) {
     animation-delay: 0.1s;
+
   }
   
   .card:nth-child(2) {
@@ -409,4 +426,24 @@
   
   .card:nth-child(5) {
     animation-delay: 0.5s;
+  }
+
+  .poker-card:nth-child(1) {
+    animation: glowing-border 2s infinite;
+  }
+  
+  .poker-card:nth-child(2) {
+    animation: glowing-border 2s infinite;
+  }
+  
+  .poker-card:nth-child(3) {
+    animation: glowing-border 2s infinite;
+  }
+  
+  .poker-card:nth-child(4) {
+    animation: glowing-border 2s infinite;
+  }
+  
+  .poker-card:nth-child(5) {
+    animation: glowing-border-gold 2s infinite;
   }

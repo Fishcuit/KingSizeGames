@@ -35,7 +35,7 @@
   background-size: cover;
   width: 100%;
   max-width: 1325px;
-  height: 475px;
+  height: 575px;
 }
 .card-row {
   display: flex;
@@ -156,23 +156,6 @@ HR {
   width: 100%;
 }
 
-#deal {
-  font-size: 25px;
-  font-family: Arial;
-  width: 105px;
-  height: 54px;
-  border-width: 1px;
-  color: #fff;
-  border-color: #d02718;
-  font-weight: bold;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  box-shadow: inset 0px 1px 0px 0px #f5978e;
-  text-shadow: inset 0px 1px 0px #810e05;
-  background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
-}
 
 #close-popup {
   font-size: 25px;
@@ -192,15 +175,33 @@ HR {
   background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
 }
 
+#deal {
+  font-size: 50px;
+  font-family: Arial;
+  width: 175px;
+  height: 114px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #d02718;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #f5978e;
+  text-shadow: inset 0px 1px 0px #810e05;
+  background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
+}
+
 #deal:hover {
   background: linear-gradient(#ed1502, #f24537);
 }
 
 #confirm-choice {
-  font-size: 25px;
+  font-size: 50px;
   font-family: Arial;
-  width: 105px;
-  height: 54px;
+  width: 175px;
+  height: 114px;
   border-width: 1px;
   color: #fff;
   border-color: rgba(189, 16, 224, 1);
@@ -421,7 +422,11 @@ legend.other {
 }
 
 .bonus-popup-content {
-  background-color: rgb(255, 255, 255);
+  background-image: url("../img/bonus_bg.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  color: antiquewhite;
   padding: 20px;
   width: 50%;
   height: 50%;

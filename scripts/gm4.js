@@ -247,7 +247,7 @@ const rules = {
     },
   ],
 };
-for (let i = 0; i < 35; i++) {
+for (let i = 0; i < 37; i++) {
   rules.deck.push({
     imgSource: "JK.png",
     payOut: 0,
@@ -281,7 +281,7 @@ function startGame() {
     previousHandMultipliers: [],
     pokerHand: [],
   };
-
+  displayBlankPokerHand();
   dealHand();
 
   function dealHand() {
@@ -413,10 +413,7 @@ function startGame() {
         ? ["JK.png", "2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"]
         : ["2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"];
 
-    const isSpecialCard = specialCards.includes(selectedCard.imgSource);
-    if (!isSpecialCard && isNotDuplicate) {
-      addToPokerHand(selectedCard);
-    }
+    
 
     if (selectedMultiplier) {
       const multiplierValue = parseInt(
@@ -462,6 +459,11 @@ function startGame() {
     }
     dealContainer.style.display = "block";
     game.bet = 1;
+
+    const isSpecialCard = specialCards.includes(selectedCard.imgSource);
+    if (!isSpecialCard && isNotDuplicate) {
+      addToPokerHand(selectedCard);
+    }
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
@@ -507,17 +509,17 @@ function startGame() {
       payout = 8;
       handName = "Three of a kind";
       console.log(handName);
-      pokerWin.innerText = handName + " pays $" + payout;
+      pokerWin.innerText = handName + " pays: $" + payout;
     } else if (isTwoPair(pokerHand)) {
       payout = 2;
       handName = "Two Pairs";
       console.log(handName);
-      pokerWin.innerText = handName + " pays $" + payout;
+      pokerWin.innerText = handName + " pays: $" + payout;
     } else {
       payout = 0;
       handName = "No winner";
       console.log(handName);
-      pokerWin.innerText = handName + " pays $" + payout;
+      pokerWin.innerText = handName;
     }
 
     // // Return the payout and hand name as an object.
@@ -527,21 +529,34 @@ function startGame() {
   function resetPokerHand() {
     game.pokerHand = [];
     const pokerHandElement = document.getElementById("poker-hand");
-    pokerHandElement.innerHTML = "";
+    for (const pokerCard of pokerHandElement.children) {
+      pokerCard.style.backgroundImage = `url("img/cards/XX.png")`;
+    }
   }
+  
 
   function addToPokerHand(card) {
     const pokerHandElement = document.getElementById("poker-hand");
-    const pokerCard = document.createElement("pcard");
-    pokerCard.classList.add("poker-card");
+    const pokerCard = pokerHandElement.children[game.pokerHand.length];
     pokerCard.style.backgroundImage = `url("img/cards/${card.imgSource}")`;
-    pokerHandElement.appendChild(pokerCard);
     game.pokerHand.push(card);
+  
     // Check if the poker hand has 5 cards after adding the new card
     if (game.pokerHand.length === 5) {
       calculatePayout();
     }
   }
+  
+  function displayBlankPokerHand() {
+    const pokerHandElement = document.getElementById("poker-hand");
+    for (let i = 0; i < 5; i++) {
+      const pokerCard = document.createElement("pcard");
+      pokerCard.classList.add("poker-card");
+      pokerCard.style.backgroundImage = `url("img/cards/XX.png")`;
+      pokerHandElement.appendChild(pokerCard);
+    }
+  }
+  
 }
 
 function shuffle(deck) {
@@ -583,17 +598,25 @@ function isThreeOfAKind(pokerHand) {
 }
 
 function isTwoPair(pokerHand) {
-  let values = pokerHand.map((card) =>
-    card.imgSource.split("_")[1].slice(0, -4)
-  );
+  let values = pokerHand.map((card) => {
+    if (card.imgSource === "JK.png") {
+      return "JK";
+    } else {
+      return card.imgSource.split("_")[1].slice(0, -4);
+    }
+  });
 
-  let pairs = Array.from(new Set(values)).filter(
+  let jokerCount = values.filter((v) => v === "JK").length;
+  let uniqueValues = new Set(values);
+
+  let pairs = Array.from(uniqueValues).filter(
     (value) => values.filter((v) => v === value).length === 2
   );
 
-  if (pairs.length === 2) {
+  if (pairs.length === 2 || (pairs.length === 1 && jokerCount === 1)) {
     return pairs;
   }
 
   return false;
 }
+

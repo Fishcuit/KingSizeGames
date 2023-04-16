@@ -149,10 +149,10 @@ HR {
 }
 
 #deal {
-  font-size: 25px;
+  font-size: 50px;
   font-family: Arial;
-  width: 105px;
-  height: 54px;
+  width: 175px;
+  height: 114px;
   border-width: 1px;
   color: #fff;
   border-color: #d02718;
@@ -171,10 +171,10 @@ HR {
 }
 
 #confirm-choice {
-  font-size: 25px;
+  font-size: 50px;
   font-family: Arial;
-  width: 105px;
-  height: 54px;
+  width: 175px;
+  height: 114px;
   border-width: 1px;
   color: #fff;
   border-color: rgba(189, 16, 224, 1);
@@ -191,6 +191,7 @@ HR {
 #confirm-choice:hover {
   background: linear-gradient(rgba(189, 16, 224, 1), rgba(189, 16, 224, 1));
 }
+
 /* #current-score {
       color: white;
       font-size:25px;
