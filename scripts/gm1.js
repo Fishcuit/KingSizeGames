@@ -436,7 +436,6 @@ function startGame() {
         game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
-    console.log(i);
   }
   dealHand();
 

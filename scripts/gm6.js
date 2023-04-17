@@ -57,18 +57,22 @@ const rules = {
     {
       imgSource: "Spades_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Spades_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Spades_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Spades_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Diamonds_2.png",
@@ -109,18 +113,22 @@ const rules = {
     {
       imgSource: "Diamonds_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Diamonds_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Diamonds_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Diamonds_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Hearts_2.png",
@@ -161,18 +169,22 @@ const rules = {
     {
       imgSource: "Hearts_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Hearts_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Hearts_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Hearts_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Clubs_2.png",
@@ -213,18 +225,22 @@ const rules = {
     {
       imgSource: "Clubs_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Clubs_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Clubs_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Clubs_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "2x.png",
@@ -249,68 +265,70 @@ const rules = {
     {
       imgSource: "bonus up.png",
       payOut: 0,
+      name: "Bonus",
     },
     {
       imgSource: "bonus up.png",
       payOut: 0,
+      name: "Bonus",
     },
   ],
   bonusDecks: [
     [
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus down.png", payOut: 0 },
-      { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "Grand.png", payOut: 3000 },
+      { imgSource: "Mega.png", payOut: 90, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
     ],
   ],
 };
@@ -331,6 +349,7 @@ function startGame() {
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
+  const message = document.getElementById("messaging")
   const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
@@ -364,8 +383,7 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
-    game.deck = shuffle(game.deck);
-
+    
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
       const previousMultiplier = game.previousHandMultipliers[index];
@@ -403,6 +421,7 @@ function startGame() {
       game.selected = newCard;
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
+      message.innerText = "Press Reveal to continue!"
 
       // Check if the card back is a Free Play card
       const previousCard =
@@ -418,6 +437,7 @@ function startGame() {
         // Set the bet to 0 when a Free Play card back is selected
         game.bet = 0;
         currentWager.innerText = "$" + game.bet;
+
         game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
@@ -435,12 +455,18 @@ function startGame() {
       const isMultiplierCard = card.imgSource.match(/\dx\.png$/);
       const isFreePlayCard = card.imgSource.match(/free\ pick\.png$/);
 
+      
+
       if (isMultiplierCard && index == game.selected.dataset.cardIndex) {
         const selectedCardMultiplier = parseInt(
           card.imgSource.replace("x.png", ""),
           10
         );
         const previousMultiplier = game.previousHandMultipliers[index];
+        const isFreePlayCardBack =
+          previousMultiplier &&
+          previousMultiplier.imgSource === "free pick.png";
+          
 
         if (previousMultiplier && game.multiplier == 1) {
           // If a bonus card has been selected, and the previous multiplier is not null
@@ -459,12 +485,14 @@ function startGame() {
             imgSource: `${newMultiplierValue}x.png`,
             payOut: 0,
           };
+          
         }
       }
       // If the card is a Free Play card, return it, even if it's not selected
       if (isFreePlayCard && game.bonusLevel == 1) {
         return card;
       }
+
       if (game.bonusLevel > 1) {
         return null;
       }
@@ -472,6 +500,7 @@ function startGame() {
       // If the card is not a multiplier card, return null
       return isMultiplierCard ? card : null;
     });
+    console.log(JSON.stringify(game.previousHandMultipliers))
   }
 
   confirmButton.addEventListener("click", function () {
@@ -488,7 +517,10 @@ function startGame() {
     const selectedMultiplier =
       game.previousHandMultipliers[game.selected.dataset.cardIndex];
 
-    if (selectedMultiplier) {
+    if (
+      selectedMultiplier &&
+      selectedMultiplier.imgSource !== "free pick.png"
+    ) {
       const multiplierValue = parseInt(
         selectedMultiplier.imgSource.replace("x.png", ""),
         10
@@ -497,21 +529,18 @@ function startGame() {
     } else {
       game.multiplier = 1;
     }
+
     const isBonusCard = selectedCard.imgSource === "bonus up.png";
     const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
-    
+
     if (isBonusCard) {
       game.bonusLevel++;
-     
     } else if (isBonusDownCard) {
       game.bonusLevel--;
     } else {
       game.bonusLevel = 1;
     }
-    
-    if (isNaN(game.multiplier)) {
-      game.multiplier = 1;
-    }
+
     console.log(game.multiplier);
     const increment = 1;
     const cycles =
@@ -528,6 +557,15 @@ function startGame() {
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
+    if (selectedCard.payOut > 0 && game.multiplier === 1) {
+      message.innerText = selectedCard.name + " pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else if (selectedCard.payOut > 0 && game.multiplier > 1){
+      message.innerText = game.multiplier + "x " + selectedCard.name + "  pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else if (selectedCard.name == 'Bonus'){
+      message.innerText = "Bonus Level Achieved. Good Luck" ;
+    }  else {
+      message.innerText = "No Winner.\n Press Deal to Play again!";
+    }
     currentScore.innerText = "$" + game.bank;
     currentWin.innerText =
       "$" + (selectedCard.payOut || 0) * 1 * game.multiplier;
@@ -552,7 +590,8 @@ function startGame() {
     dealHand();
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
-    
+    message.innerText = "Pick any Card to play!"
+
     const bonusPopup = document.getElementById("bonus-popup");
     const bonusLevelElement = document.getElementById("bonus-level");
     const bonusRewardElement = document.getElementById("bonus-reward");
@@ -563,21 +602,22 @@ function startGame() {
     function showBonusPopup() {
       bonusPopup.classList.remove("hidden");
       bonusPopup.classList.add("color-swirl");
-      bonusLevelElement.textContent = game.bonusLevel-1;
-      
+      bonusLevelElement.textContent = game.bonusLevel - 1;
+
       const rewards = getReward(game.bonusLevel);
       const rewardsHtml = rewards
-        .map((reward) => `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`)
+        .map(
+          (reward) =>
+            `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`
+        )
         .join(" ");
       bonusRewardElement.innerHTML = `${rewardsHtml}`;
-      
+
       setTimeout(() => {
         bonusPopup.classList.remove("color-swirl");
       }, 2000);
-      
     }
-    
-    
+
     function getReward(level) {
       const currentDeck = rules.bonusDecks[level - 2];
       const rewards = currentDeck.map((card) => {
@@ -585,9 +625,13 @@ function startGame() {
       });
       return rewards;
     }
-    
+
     closePopupButton.addEventListener("click", () => {
       bonusPopup.classList.add("hidden");
+      for (const card of game.hand) {
+        card.classList.remove("deal");
+      }
+      dealHand();
     });
   });
 
@@ -612,5 +656,3 @@ function shuffle(deck) {
 }
 
 startGame();
-
-

@@ -341,9 +341,10 @@ function startGame() {
         // Set the bet to 0 when a Free Play card back is selected
         game.bet = 0;
         currentWager.innerText = "$" + game.bet;
+
+        game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
-    console.log(i);
   }
   dealHand();
 
@@ -413,8 +414,6 @@ function startGame() {
         ? ["JK.png", "2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"]
         : ["2x.png", "3x.png", "4x.png", "5x.png", "free pick.png"];
 
-    
-
     if (selectedMultiplier) {
       const multiplierValue = parseInt(
         selectedMultiplier.imgSource.replace("x.png", ""),
@@ -444,9 +443,11 @@ function startGame() {
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
+    pokerPayout = calculatePayout()
+    
     currentScore.innerText = "$" + game.bank;
     currentWin.innerText =
-      "$" + (selectedCard.payOut || 0) * 1 * game.multiplier;
+      "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
 
     updatePreviousMultipliers();
 
@@ -509,54 +510,75 @@ function startGame() {
       payout = 8;
       handName = "Three of a kind";
       console.log(handName);
-      pokerWin.innerText = handName + " pays: $" + payout;
     } else if (isTwoPair(pokerHand)) {
       payout = 2;
       handName = "Two Pairs";
       console.log(handName);
-      pokerWin.innerText = handName + " pays: $" + payout;
     } else {
       payout = 0;
       handName = "No winner";
       console.log(handName);
-      pokerWin.innerText = handName;
     }
 
-    // // Return the payout and hand name as an object.
-    // return { payout: payout, handName: handName };
+    const increment = 1;
+    const cycles = ((payout || 0) * 1) / increment;
+    const coinSound = new Audio("sound/coin.mp3");
+
+    for (let i = 0; i < cycles; i++) {
+      setTimeout(() => {
+        game.bank += increment;
+        currentScore.innerText = "$" + game.bank;
+        coinSound.currentTime = 0; // Reset the playback position
+        coinSound.play();
+        // Update the player's total display here, if necessary
+      }, i * 100); // Adjust the delay time as needed
+    }
+
+    currentScore.innerText = "$" + game.bank;
+    pokerWin.innerText = handName + " pays: " + payout || "No Winner";
+
+    return payout
   }
 
   function resetPokerHand() {
     game.pokerHand = [];
+
+    // Clear the pokerHandElement
     const pokerHandElement = document.getElementById("poker-hand");
-    for (const pokerCard of pokerHandElement.children) {
-      pokerCard.style.backgroundImage = `url("img/cards/XX.png")`;
-    }
+    pokerHandElement.innerHTML = "";
+
+    // Call the displayBlankPokerHand function to set the card images
+    displayBlankPokerHand();
   }
-  
 
   function addToPokerHand(card) {
     const pokerHandElement = document.getElementById("poker-hand");
     const pokerCard = pokerHandElement.children[game.pokerHand.length];
     pokerCard.style.backgroundImage = `url("img/cards/${card.imgSource}")`;
     game.pokerHand.push(card);
-  
+
     // Check if the poker hand has 5 cards after adding the new card
     if (game.pokerHand.length === 5) {
       calculatePayout();
     }
   }
-  
+
   function displayBlankPokerHand() {
     const pokerHandElement = document.getElementById("poker-hand");
     for (let i = 0; i < 5; i++) {
       const pokerCard = document.createElement("pcard");
       pokerCard.classList.add("poker-card");
-      pokerCard.style.backgroundImage = `url("img/cards/XX.png")`;
+
+      if (i === 4) {
+        // Set the background image of the last card to wild.png
+        pokerCard.style.backgroundImage = `url("img/cards/wild.png")`;
+      } else {
+        pokerCard.style.backgroundImage = `url("img/cards/XX.png")`;
+      }
+
       pokerHandElement.appendChild(pokerCard);
     }
   }
-  
 }
 
 function shuffle(deck) {
@@ -619,4 +641,3 @@ function isTwoPair(pokerHand) {
 
   return false;
 }
-
