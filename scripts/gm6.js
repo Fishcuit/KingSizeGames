@@ -418,6 +418,7 @@ function startGame() {
         // Set the bet to 0 when a Free Play card back is selected
         game.bet = 0;
         currentWager.innerText = "$" + game.bet;
+        game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
     console.log(i);

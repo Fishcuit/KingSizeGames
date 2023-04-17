@@ -312,7 +312,7 @@ const rules = {
 };
 for (let i = 0; i < 35; i++) {
   rules.deck.push({
-    imgSource: "JK.png",
+    imgSource: "free pick.png",
     payOut: 0,
   });
 }
@@ -360,7 +360,7 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
-
+    
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
       const previousMultiplier = game.previousHandMultipliers[index];
@@ -413,6 +413,8 @@ function startGame() {
         // Set the bet to 0 when a Free Play card back is selected
         game.bet = 0;
         currentWager.innerText = "$" + game.bet;
+
+        game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
     console.log(i);
@@ -429,12 +431,18 @@ function startGame() {
       const isMultiplierCard = card.imgSource.match(/\dx\.png$/);
       const isFreePlayCard = card.imgSource.match(/free\ pick\.png$/);
 
+      
+
       if (isMultiplierCard && index == game.selected.dataset.cardIndex) {
         const selectedCardMultiplier = parseInt(
           card.imgSource.replace("x.png", ""),
           10
         );
         const previousMultiplier = game.previousHandMultipliers[index];
+        const isFreePlayCardBack =
+          previousMultiplier &&
+          previousMultiplier.imgSource === "free pick.png";
+          
 
         if (previousMultiplier && game.multiplier == 1) {
           // If a bonus card has been selected, and the previous multiplier is not null
@@ -453,12 +461,14 @@ function startGame() {
             imgSource: `${newMultiplierValue}x.png`,
             payOut: 0,
           };
+          
         }
       }
       // If the card is a Free Play card, return it, even if it's not selected
       if (isFreePlayCard && game.bonusLevel == 1) {
         return card;
       }
+
       if (game.bonusLevel > 1) {
         return null;
       }
@@ -466,6 +476,7 @@ function startGame() {
       // If the card is not a multiplier card, return null
       return isMultiplierCard ? card : null;
     });
+    console.log(JSON.stringify(game.previousHandMultipliers))
   }
 
   confirmButton.addEventListener("click", function () {
@@ -482,7 +493,10 @@ function startGame() {
     const selectedMultiplier =
       game.previousHandMultipliers[game.selected.dataset.cardIndex];
 
-    if (selectedMultiplier) {
+    if (
+      selectedMultiplier &&
+      selectedMultiplier.imgSource !== "free pick.png"
+    ) {
       const multiplierValue = parseInt(
         selectedMultiplier.imgSource.replace("x.png", ""),
         10
@@ -491,21 +505,18 @@ function startGame() {
     } else {
       game.multiplier = 1;
     }
+
     const isBonusCard = selectedCard.imgSource === "bonus up.png";
     const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
-    
+
     if (isBonusCard) {
       game.bonusLevel++;
-     
     } else if (isBonusDownCard) {
       game.bonusLevel--;
     } else {
       game.bonusLevel = 1;
     }
-    
-    if (isNaN(game.multiplier)) {
-      game.multiplier = 1;
-    }
+
     console.log(game.multiplier);
     const increment = 1;
     const cycles =
@@ -546,7 +557,7 @@ function startGame() {
     dealHand();
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
-    
+
     const bonusPopup = document.getElementById("bonus-popup");
     const bonusLevelElement = document.getElementById("bonus-level");
     const bonusRewardElement = document.getElementById("bonus-reward");
@@ -557,21 +568,22 @@ function startGame() {
     function showBonusPopup() {
       bonusPopup.classList.remove("hidden");
       bonusPopup.classList.add("color-swirl");
-      bonusLevelElement.textContent = game.bonusLevel-1;
-      
+      bonusLevelElement.textContent = game.bonusLevel - 1;
+
       const rewards = getReward(game.bonusLevel);
       const rewardsHtml = rewards
-        .map((reward) => `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`)
+        .map(
+          (reward) =>
+            `<img src="img/cards/${reward.imgSource}" alt="${reward.imgSource}">`
+        )
         .join(" ");
       bonusRewardElement.innerHTML = `${rewardsHtml}`;
-      
+
       setTimeout(() => {
         bonusPopup.classList.remove("color-swirl");
       }, 2000);
-      
     }
-    
-    
+
     function getReward(level) {
       const currentDeck = rules.bonusDecks[level - 2];
       const rewards = currentDeck.map((card) => {
@@ -579,14 +591,13 @@ function startGame() {
       });
       return rewards;
     }
-    
+
     closePopupButton.addEventListener("click", () => {
       bonusPopup.classList.add("hidden");
       for (const card of game.hand) {
         card.classList.remove("deal");
       }
-      dealHand()
-      
+      dealHand();
     });
   });
 
@@ -611,5 +622,3 @@ function shuffle(deck) {
 }
 
 startGame();
-
-
