@@ -57,18 +57,22 @@ const rules = {
     {
       imgSource: "Spades_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Spades_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Spades_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Spades_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Diamonds_2.png",
@@ -109,18 +113,22 @@ const rules = {
     {
       imgSource: "Diamonds_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Diamonds_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Diamonds_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Diamonds_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Hearts_2.png",
@@ -161,18 +169,22 @@ const rules = {
     {
       imgSource: "Hearts_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Hearts_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Hearts_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Hearts_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Clubs_2.png",
@@ -213,18 +225,22 @@ const rules = {
     {
       imgSource: "Clubs_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Clubs_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Clubs_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Clubs_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "2x.png",
@@ -249,70 +265,71 @@ const rules = {
     {
       imgSource: "bonus up.png",
       payOut: 0,
+      name: "Bonus",
     },
   ],
   bonusDecks: [
     [
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "Mini.png", payOut: 15 },
-      { imgSource: "bonus up.png", payOut: 0 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Minor.png", payOut: 30 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Major.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "bonus up.png", payOut: 0 },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
       { imgSource: "bonus down.png", payOut: 0 },
     ],
     [
-      { imgSource: "Mega.png", payOut: 90 },
-      { imgSource: "Mega.png", payOut: 300 },
-      { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "Grand.png", payOut: 3000 },
-      { imgSource: "Grand.png", payOut: 3000 },
+      { imgSource: "Mega.png", payOut: 90, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
     ],
   ],
 };
 for (let i = 0; i < 35; i++) {
   rules.deck.push({
-    imgSource: "free pick.png",
+    imgSource: "JK.png",
     payOut: 0,
   });
 }
@@ -327,6 +344,7 @@ function startGame() {
   const currentScore = document.getElementById("current-score");
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
+  const message = document.getElementById("messaging")
   const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
@@ -398,6 +416,7 @@ function startGame() {
       game.selected = newCard;
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
+      message.innerText = "Press Reveal to continue!"
 
       // Check if the card back is a Free Play card
       const previousCard =
@@ -533,6 +552,15 @@ function startGame() {
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
+    if (selectedCard.payOut > 0 && game.multiplier === 1) {
+      message.innerText = selectedCard.name + " pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else if (selectedCard.payOut > 0 && game.multiplier > 1){
+      message.innerText = game.multiplier + "x " + selectedCard.name + "  pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else if (selectedCard.name == 'Bonus'){
+      message.innerText = "Bonus Level Achieved. Good Luck" ;
+    }  else {
+      message.innerText = "No Winner.\n Press Deal to Play again!";
+    }
     currentScore.innerText = "$" + game.bank;
     currentWin.innerText =
       "$" + (selectedCard.payOut || 0) * 1 * game.multiplier;
@@ -557,6 +585,7 @@ function startGame() {
     dealHand();
     dealContainer.style.display = "none";
     currentWin.innerText = "--";
+    message.innerText = "Pick any Card to play!"
 
     const bonusPopup = document.getElementById("bonus-popup");
     const bonusLevelElement = document.getElementById("bonus-level");
