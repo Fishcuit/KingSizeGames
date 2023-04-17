@@ -443,11 +443,11 @@ function startGame() {
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
-    pokerPayout = calculatePayout()
+   
     
     currentScore.innerText = "$" + game.bank;
-    currentWin.innerText =
-      "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
+    // currentWin.innerText =
+    //   "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier);
 
     updatePreviousMultipliers();
 
@@ -465,6 +465,13 @@ function startGame() {
     if (!isSpecialCard && isNotDuplicate) {
       addToPokerHand(selectedCard);
     }
+    if (game.pokerHand.length === 5) {
+      pokerPayout = calculatePayout()
+    } else {
+      pokerPayout =0 
+    }
+    currentWin.innerText =
+      "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
@@ -509,15 +516,12 @@ function startGame() {
     if (isThreeOfAKind(pokerHand)) {
       payout = 8;
       handName = "Three of a kind";
-      console.log(handName);
     } else if (isTwoPair(pokerHand)) {
       payout = 2;
       handName = "Two Pairs";
-      console.log(handName);
     } else {
       payout = 0;
-      handName = "No winner";
-      console.log(handName);
+      handName = "No winner"; 
     }
 
     const increment = 1;
