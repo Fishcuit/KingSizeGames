@@ -378,6 +378,7 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
+    game.deck = shuffle(getBonusDeck(game.bonusLevel));
     
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs

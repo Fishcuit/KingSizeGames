@@ -288,6 +288,7 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(rules.deck);
+    game.deck = shuffle(rules.deck);
 
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
