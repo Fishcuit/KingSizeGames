@@ -3,6 +3,15 @@
     background-color: rgba(0, 0, 21, 1);
 }
 
+.registered-trademark {
+    display: inline-block;
+    padding: 0.1em 0;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 0.4em;
+  }
+  
+
 
 
 .heeder-large-screen {
@@ -88,7 +97,11 @@ h3 {
     /* background-color:	rgba(0, 0, 47,0.3); */
     justify-content: space-evenly;
 }
-
+.patent {
+    font-size: 10px;
+    color: white;
+    text-align: center;
+}
 .game-list {
     margin: 30px;
     ;
@@ -470,14 +483,15 @@ html {
 }
 
 .footer-bottom {
+    text-align: center;
     background: #000;
     width: 100vw;
     padding: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
     .footer-bottom p {
-        float: left;
-        font-size: 14px;
+        text-align: center;
+        font-size: 10px;
         word-spacing: 2px;
         text-transform: capitalize;
         color: white;
