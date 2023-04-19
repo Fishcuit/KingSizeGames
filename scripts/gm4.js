@@ -588,7 +588,7 @@ function startGame() {
       pokerPayout = 0;
     }
     currentWin.innerText =
-      "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
+      "$" + (((selectedCard.payOut || 0) * 1 * game.multiplier) + pokerPayout);
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
@@ -648,20 +648,21 @@ function startGame() {
       handName = "No winner";
     }
 
-    const increment = 1;
-    const cycles = ((payout || 0) * 1) / increment;
-    const coinSound = new Audio("sound/coin.mp3");
+    // const increment = 1;
+    // const cycles = ((payout || 0) * 1) / increment;
+    // const coinSound = new Audio("sound/coin.mp3");
 
-    for (let i = 0; i < cycles; i++) {
-      setTimeout(() => {
-        game.bank += increment;
-        currentScore.innerText = "$" + game.bank;
-        coinSound.currentTime = 0; // Reset the playback position
-        coinSound.play();
-        // Update the player's total display here, if necessary
-      }, i * 100); // Adjust the delay time as needed
-    }
+    // for (let i = 0; i < cycles; i++) {
+    //   setTimeout(() => {
+    //     game.bank += increment;
+    //     currentScore.innerText = "$" + game.bank;
+    //     coinSound.currentTime = 0; // Reset the playback position
+    //     coinSound.play();
+    //     // Update the player's total display here, if necessary
+    //   }, i * 100); // Adjust the delay time as needed
+    // }
 
+    game.bank += payout;
     currentScore.innerText = "$" + game.bank;
     pokerWin.innerText = handName + " pays: " + payout || "No Winner";
 
@@ -686,9 +687,9 @@ function startGame() {
     game.pokerHand.push(card);
 
     // Check if the poker hand has 5 cards after adding the new card
-    if (game.pokerHand.length === 5) {
-      calculatePayout();
-    }
+    // if (game.pokerHand.length === 5) {
+    //   calculatePayout();
+    // }
   }
 
   function displayBlankPokerHand() {
