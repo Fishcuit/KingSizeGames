@@ -18,210 +18,289 @@ const rules = {
   dealtCards: 5,
   deck: [
     {
+      suit: "Spades",
+      value: "2",
       imgSource: "Spades_2.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "3",
       imgSource: "Spades_3.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "4",
       imgSource: "Spades_4.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "5",
       imgSource: "Spades_5.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "6",
       imgSource: "Spades_6.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "7",
       imgSource: "Spades_7.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "8",
       imgSource: "Spades_8.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "9",
       imgSource: "Spades_9.png",
       payOut: 0,
     },
     {
+      suit: "Spades",
+      value: "10",
       imgSource: "Spades_10.png",
       payOut: 0,
     },
+    { suit: "Spades", value: "J", imgSource: "Spades_J.png", payOut: 1 },
+    { suit: "Spades", value: "Q", imgSource: "Spades_Q.png", payOut: 2 },
+    { suit: "Spades", value: "K", imgSource: "Spades_K.png", payOut: 3 },
+    { suit: "Spades", value: "A", imgSource: "Spades_A.png", payOut: 4 },
     {
-      imgSource: "Spades_J.png",
-      payOut: 1,
-    },
-    {
-      imgSource: "Spades_Q.png",
-      payOut: 2,
-    },
-    {
-      imgSource: "Spades_K.png",
-      payOut: 3,
-    },
-    {
-      imgSource: "Spades_A.png",
-      payOut: 4,
-    },
-    {
+      suit: "Diamonds",
+      value: "2",
       imgSource: "Diamonds_2.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "3",
       imgSource: "Diamonds_3.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "4",
       imgSource: "Diamonds_4.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "5",
       imgSource: "Diamonds_5.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "6",
       imgSource: "Diamonds_6.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "7",
       imgSource: "Diamonds_7.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "8",
       imgSource: "Diamonds_8.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "9",
       imgSource: "Diamonds_9.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "10",
       imgSource: "Diamonds_10.png",
       payOut: 0,
     },
     {
+      suit: "Diamonds",
+      value: "J",
       imgSource: "Diamonds_J.png",
       payOut: 1,
     },
     {
+      suit: "Diamonds",
+      value: "Q",
       imgSource: "Diamonds_Q.png",
       payOut: 2,
     },
     {
+      suit: "Diamonds",
+      value: "K",
       imgSource: "Diamonds_K.png",
       payOut: 3,
     },
     {
+      suit: "Diamonds",
+      value: "A",
       imgSource: "Diamonds_A.png",
       payOut: 4,
     },
     {
+      suit: "Hearts",
+      value: "2",
       imgSource: "Hearts_2.png",
       payOut: 0,
     },
+    { suit: "Hearts", value: "3", imgSource: "Hearts_3.png", payOut: 0 },
     {
-      imgSource: "Hearts_3.png",
-      payOut: 0,
-    },
-    {
+      suit: "Hearts",
+      value: "4",
       imgSource: "Hearts_4.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "5",
       imgSource: "Hearts_5.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "6",
       imgSource: "Hearts_6.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "7",
       imgSource: "Hearts_7.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "8",
       imgSource: "Hearts_8.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "9",
       imgSource: "Hearts_9.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "10",
       imgSource: "Hearts_10.png",
       payOut: 0,
     },
     {
+      suit: "Hearts",
+      value: "J",
       imgSource: "Hearts_J.png",
       payOut: 1,
     },
     {
+      suit: "Hearts",
+      value: "Q",
       imgSource: "Hearts_Q.png",
       payOut: 2,
     },
     {
+      suit: "Hearts",
+      value: "K",
       imgSource: "Hearts_K.png",
       payOut: 3,
     },
     {
+      suit: "Hearts",
+      value: "A",
       imgSource: "Hearts_A.png",
       payOut: 4,
     },
     {
+      suit: "Clubs",
+      value: "2",
       imgSource: "Clubs_2.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "3",
       imgSource: "Clubs_3.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "4",
       imgSource: "Clubs_4.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "5",
       imgSource: "Clubs_5.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "6",
       imgSource: "Clubs_6.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "7",
       imgSource: "Clubs_7.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "8",
       imgSource: "Clubs_8.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "9",
       imgSource: "Clubs_9.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "10",
       imgSource: "Clubs_10.png",
       payOut: 0,
     },
     {
+      suit: "Clubs",
+      value: "J",
       imgSource: "Clubs_J.png",
       payOut: 1,
     },
     {
+      suit: "Clubs",
+      value: "Q",
       imgSource: "Clubs_Q.png",
       payOut: 2,
     },
     {
+      suit: "Clubs",
+      value: "K",
       imgSource: "Clubs_K.png",
       payOut: 3,
     },
     {
+      suit: "Clubs",
+      value: "A",
       imgSource: "Clubs_A.png",
       payOut: 4,
     },
@@ -249,6 +328,8 @@ const rules = {
 };
 for (let i = 0; i < 37; i++) {
   rules.deck.push({
+    suit: "Wild",
+    value: "0",
     imgSource: "JK.png",
     payOut: 0,
   });
@@ -265,6 +346,7 @@ function startGame() {
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
   const pokerWin = document.getElementById("poker-win");
+  const message = document.getElementById("messaging")
   const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
@@ -327,6 +409,7 @@ function startGame() {
       game.selected = newCard;
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
+      message.innerText = "Press Reveal to continue!"
 
       // Check if the card back is a Free Play card
       const previousCard =
@@ -444,8 +527,13 @@ function startGame() {
       }, i * 100); // Adjust the delay time as needed
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
-   
-    
+    if (selectedCard.payOut > 0 && game.multiplier === 1) {
+      message.innerText = selectedCard.name + " pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else if (selectedCard.payOut > 0 && game.multiplier > 1){
+      message.innerText = game.multiplier + "x " + selectedCard.name + "  pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+    } else {
+      message.innerText = "No Winner.\n Press Deal to Play again!";
+    }
     currentScore.innerText = "$" + game.bank;
     // currentWin.innerText =
     //   "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier);
@@ -461,15 +549,16 @@ function startGame() {
     }
     dealContainer.style.display = "block";
     game.bet = 1;
-
+    const existingText = message.innerText;
     const isSpecialCard = specialCards.includes(selectedCard.imgSource);
     if (!isSpecialCard && isNotDuplicate) {
       addToPokerHand(selectedCard);
+      message.innerText = existingText + '\n' + selectedCard.value + ' of ' + selectedCard.suit + " added to poker hand!"
     }
     if (game.pokerHand.length === 5) {
-      pokerPayout = calculatePayout()
+      pokerPayout = calculatePayout();
     } else {
-      pokerPayout =0 
+      pokerPayout = 0;
     }
     currentWin.innerText =
       "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
@@ -485,6 +574,12 @@ function startGame() {
     // }
     dealHand();
     dealContainer.style.display = "none";
+    message.innerText = "Pick any Card to play!"
+    if (game.pokerHand.length === 4) {
+      message.innerText = "Pick any Card to play!\nNext poker card can be a wild joker!"
+    } else {
+      message.innerText = "Pick any Card to play!"
+    }
     currentWin.innerText = "--";
   });
 
@@ -496,25 +591,25 @@ function startGame() {
 
     console.log(pokerHand);
 
-    // if (isRoyalFlush(pokerHand)) {
-    //   payout = payouts["Royal Flush"];
-    //   handName = "Royal Flush";
-    // } else if (isStraightFlush(pokerHand)) {
-    //   payout = payouts["Straight Flush"];
-    //   handName = "Straight Flush";
-    // } else if (isFourOfAKind(pokerHand)) {
-    //   payout = payouts["Four of a Kind"];
-    //   handName = "Four of a kind";
-    // } else if (isFullHouse(pokerHand)) {
-    //   payout = payouts["Full House"];
-    //   handName = "Full House";
-    // } else if (isFlush(pokerHand)) {
-    //   payout = payouts["Flush"];
-    //   handName = "Flush";
-    // } else if (isStraight(pokerHand)) {
-    //   payout = payouts["Straight"];
-    //   handName = "Straight";
-    if (isThreeOfAKind(pokerHand)) {
+    if (isRoyalFlush(pokerHand)) {
+      payout = 1000;
+      handName = "Royal Flush";
+    } else if (isStraightFlush(pokerHand)) {
+      payout = 500;
+      handName = "Straight Flush";
+    } else if (isFourOfAKind(pokerHand)) {
+      payout = 50;
+      handName = "Four of a kind";
+    } else if (isFullHouse(pokerHand)) {
+      payout = 40;
+      handName = "Full House";
+    } else if (isFlush(pokerHand)) {
+      payout = 30;
+      handName = "Flush";
+    } else if (isStraight(pokerHand)) {
+      payout = 20;
+      handName = "Straight";
+    } else if (isThreeOfAKind(pokerHand)) {
       payout = 8;
       handName = "Three of a kind";
     } else if (isTwoPair(pokerHand)) {
@@ -522,7 +617,7 @@ function startGame() {
       handName = "Two Pairs";
     } else {
       payout = 0;
-      handName = "No winner"; 
+      handName = "No winner";
     }
 
     const increment = 1;
@@ -542,7 +637,7 @@ function startGame() {
     currentScore.innerText = "$" + game.bank;
     pokerWin.innerText = handName + " pays: " + payout || "No Winner";
 
-    return payout
+    return payout;
   }
 
   function resetPokerHand() {
@@ -600,8 +695,35 @@ function shuffle(deck) {
 
 startGame();
 
-function isThreeOfAKind(pokerHand) {
-  let values = pokerHand.map((card) => {
+function isFourOfAKind(pokerHand) {
+  const counts = {};
+
+  pokerHand.forEach((card) => {
+    if (card.imgSource === "JK.png") {
+      // Count wild jokers
+      counts["JK"] = (counts["JK"] || 0) + 1;
+    } else {
+      // Count the values of other cards
+      const value = card.value;
+      counts[value] = (counts[value] || 0) + 1;
+    }
+  });
+
+  const wildCount = counts["JK"] || 0;
+
+  // Check if there's a four of a kind
+  for (const count of Object.values(counts)) {
+    if (count + wildCount >= 4 && count > 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+
+function isFullHouse(pokerHand) {
+  const values = pokerHand.map((card) => {
     if (card.imgSource === "JK.png") {
       return "JK";
     } else {
@@ -609,16 +731,113 @@ function isThreeOfAKind(pokerHand) {
     }
   });
 
+  const valueCounts = {};
+  let wildCount = 0;
+
+  values.forEach((value) => {
+    if (value === "JK") {
+      wildCount++;
+    } else {
+      valueCounts[value] = (valueCounts[value] || 0) + 1;
+    }
+  });
+
+  const counts = Object.values(valueCounts);
+
+  if (wildCount === 0) {
+    return (
+      (counts.includes(3) && counts.includes(2)) ||
+      (counts.includes(4) && counts.includes(1))
+    );
+  } else if (wildCount === 1) {
+    return (
+      counts.includes(4) || (counts.includes(3) && counts.includes(1)) || counts.includes(2)
+    );
+  } else if (wildCount === 2) {
+    return counts.includes(3) || counts.includes(1) || counts.includes(2);
+  } else {
+    return true;
+  }
+}
+
+
+function isFlush(pokerHand) {
+  const suits = pokerHand.map((card) => {
+    if (card.imgSource === "JK.png") {
+      return "JK";
+    } else {
+      return card.suit;
+    }
+  });
+
+  const suitCounts = {};
+  let wildCount = 0;
+
+  suits.forEach((suit) => {
+    if (suit === "JK") {
+      wildCount++;
+    } else {
+      suitCounts[suit] = (suitCounts[suit] || 0) + 1;
+    }
+  });
+
+  return (
+    Object.values(suitCounts).some((count) => count + wildCount >= 5) ||
+    wildCount === 5
+  );
+}
+
+function isStraight(pokerHand) {
+  const cardValues = [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A",
+  ];
+
+  let values = pokerHand.map((card) => card.value);
+  let wildCount = values.filter((value) => value === "0").length;
+  values = values.filter((value) => value !== "0");
+  values.sort((a, b) => cardValues.indexOf(a) - cardValues.indexOf(b));
+
+  for (let i = 0; i < values.length - 1; i++) {
+    const difference =
+      cardValues.indexOf(values[i + 1]) - cardValues.indexOf(values[i]);
+    if (difference !== 1) {
+      if (wildCount >= difference - 1) {
+        wildCount -= difference - 1;
+      } else {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function isThreeOfAKind(pokerHand) {
+  let values = pokerHand.map((card) => card.value);
+
   let uniqueValues = new Set(values);
 
   for (let value of uniqueValues) {
-    if (values.filter((v) => v === value).length === 3) {
-      return true;
-    } else if (
-      values.filter((v) => v === value).length === 2 &&
-      values.filter((v) => v === "JK").length === 1
-    ) {
-      return true;
+    if (value !== "0") {
+      if (values.filter((v) => v === value).length === 3) {
+        return true;
+      } else if (
+        values.filter((v) => v === value).length === 2 &&
+        values.filter((v) => v === "0").length === 1
+      ) {
+        return true;
+      }
     }
   }
   return false;
