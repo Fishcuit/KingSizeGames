@@ -382,7 +382,6 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(rules.deck);
-    game.deck = shuffle(rules.deck);
 
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
@@ -859,6 +858,9 @@ function isStraight(pokerHand) {
   values.sort((a, b) => cardValues.indexOf(a) - cardValues.indexOf(b));
 
   for (let i = 0; i < values.length - 1; i++) {
+    if (values[i] === values[i + 1]) {
+      return false;
+    }
     const difference =
       cardValues.indexOf(values[i + 1]) - cardValues.indexOf(values[i]);
     if (difference !== 1) {
@@ -871,6 +873,7 @@ function isStraight(pokerHand) {
   }
   return true;
 }
+
 
 function isThreeOfAKind(pokerHand) {
   let values = pokerHand.map((card) => card.value);
