@@ -724,6 +724,25 @@ function shuffle(deck) {
 
 startGame();
 
+function isRoyalFlush(pokerHand) {
+  if (isStraightFlush(pokerHand)) {
+    const sortedHand = sortPokerHand(pokerHand);
+    const hasTen = sortedHand.some(card => card.value === "10") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+    const hasJ = sortedHand.some(card => card.value === "J") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+    const hasQ = sortedHand.some(card => card.value === "Q") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+    const hasK = sortedHand.some(card => card.value === "K") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+    const hasA = sortedHand.some(card => card.value === "A") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+
+    return hasTen && hasJ && hasQ && hasK && hasA;
+  }
+  return false;
+}
+
+
+function isStraightFlush(pokerHand) {
+  return isStraight(pokerHand) && isFlush(pokerHand);
+}
+
 function isFourOfAKind(pokerHand) {
   const counts = {};
 
@@ -752,10 +771,10 @@ function isFourOfAKind(pokerHand) {
 
 function isFullHouse(pokerHand) {
   const values = pokerHand.map((card) => {
-    if (card.imgSource === "JK.png") {
+    if (card.value === "0") {
       return "JK";
     } else {
-      return card.imgSource.split("_")[1].slice(0, -4);
+      return card.value;
     }
   });
 
@@ -773,22 +792,23 @@ function isFullHouse(pokerHand) {
   const counts = Object.values(valueCounts);
 
   if (wildCount === 0) {
-    return (
-      (counts.includes(3) && counts.includes(2)) ||
-      (counts.includes(4) && counts.includes(1))
-    );
+    return counts.includes(3) && counts.includes(2);
   } else if (wildCount === 1) {
     return (
-      counts.includes(4) ||
-      (counts.includes(3) && counts.includes(1)) ||
-      counts.includes(2)
+      (counts.includes(3) && counts.some((count) => count === 1)) ||
+      (counts.includes(2) && counts.filter((count) => count === 2).length === 2)
     );
   } else if (wildCount === 2) {
-    return counts.includes(3) || counts.includes(1) || counts.includes(2);
+    return (
+      counts.includes(3) ||
+      counts.includes(2) ||
+      counts.filter((count) => count === 1).length >= 3
+    );
   } else {
     return true;
   }
 }
+
 
 function isFlush(pokerHand) {
   const suits = pokerHand.map((card) => {
@@ -894,3 +914,25 @@ function isTwoPair(pokerHand) {
 
   return false;
 }
+
+function sortPokerHand(pokerHand) {
+  const valueOrder = {
+    "0": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "J": 11,
+    "Q": 12,
+    "K": 13,
+    "A": 14,
+  };
+
+  return pokerHand.slice().sort((a, b) => valueOrder[a.value] - valueOrder[b.value]);
+}
+
