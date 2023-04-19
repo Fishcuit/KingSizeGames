@@ -71,10 +71,10 @@ const rules = {
       imgSource: "Spades_10.png",
       payOut: 0,
     },
-    { suit: "Spades", value: "J", imgSource: "Spades_J.png", payOut: 1 },
-    { suit: "Spades", value: "Q", imgSource: "Spades_Q.png", payOut: 2 },
-    { suit: "Spades", value: "K", imgSource: "Spades_K.png", payOut: 3 },
-    { suit: "Spades", value: "A", imgSource: "Spades_A.png", payOut: 4 },
+    { suit: "Spades", value: "J", imgSource: "Spades_J.png", payOut: 1, name: "Jack" },
+    { suit: "Spades", value: "Q", imgSource: "Spades_Q.png", payOut: 2, name: "Queen" },
+    { suit: "Spades", value: "K", imgSource: "Spades_K.png", payOut: 3, name: "King" },
+    { suit: "Spades", value: "A", imgSource: "Spades_A.png", payOut: 4, name: "Ace" },
     {
       suit: "Diamonds",
       value: "2",
@@ -134,24 +134,28 @@ const rules = {
       value: "J",
       imgSource: "Diamonds_J.png",
       payOut: 1,
+      name: "Jack"
     },
     {
       suit: "Diamonds",
       value: "Q",
       imgSource: "Diamonds_Q.png",
       payOut: 2,
+      name: "Queen"
     },
     {
       suit: "Diamonds",
       value: "K",
       imgSource: "Diamonds_K.png",
       payOut: 3,
+      name: "King"
     },
     {
       suit: "Diamonds",
       value: "A",
       imgSource: "Diamonds_A.png",
       payOut: 4,
+      name: "Ace"
     },
     {
       suit: "Hearts",
@@ -207,24 +211,28 @@ const rules = {
       value: "J",
       imgSource: "Hearts_J.png",
       payOut: 1,
+      name: "Jack"
     },
     {
       suit: "Hearts",
       value: "Q",
       imgSource: "Hearts_Q.png",
       payOut: 2,
+      name: "Queen"
     },
     {
       suit: "Hearts",
       value: "K",
       imgSource: "Hearts_K.png",
       payOut: 3,
+      name: "King"
     },
     {
       suit: "Hearts",
       value: "A",
       imgSource: "Hearts_A.png",
       payOut: 4,
+      name: "Ace"
     },
     {
       suit: "Clubs",
@@ -285,24 +293,28 @@ const rules = {
       value: "J",
       imgSource: "Clubs_J.png",
       payOut: 1,
+      name: "Jack"
     },
     {
       suit: "Clubs",
       value: "Q",
       imgSource: "Clubs_Q.png",
       payOut: 2,
+      name: "Queen"
     },
     {
       suit: "Clubs",
       value: "K",
       imgSource: "Clubs_K.png",
       payOut: 3,
+      name: "King"
     },
     {
       suit: "Clubs",
       value: "A",
       imgSource: "Clubs_A.png",
       payOut: 4,
+      name: "Ace"
     },
     {
       imgSource: "2x.png",
@@ -346,7 +358,7 @@ function startGame() {
   const currentWager = document.getElementById("current-wager");
   const currentWin = document.getElementById("current-win");
   const pokerWin = document.getElementById("poker-win");
-  const message = document.getElementById("messaging")
+  const message = document.getElementById("messaging");
   const backgroundMusic = new Audio("sound/backround.mp3");
   backgroundMusic.loop = true; // Loop the background music
   backgroundMusic.volume = 0.5; // Set the volume level (0.0 to 1.0)
@@ -409,7 +421,7 @@ function startGame() {
       game.selected = newCard;
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
-      message.innerText = "Press Reveal to continue!"
+      message.innerText = "Press Reveal to continue!";
 
       // Check if the card back is a Free Play card
       const previousCard =
@@ -528,9 +540,19 @@ function startGame() {
     }
     // game.bank += (selectedCard.payOut || 0) * game.bet * game.multiplier;
     if (selectedCard.payOut > 0 && game.multiplier === 1) {
-      message.innerText = selectedCard.name + " pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
-    } else if (selectedCard.payOut > 0 && game.multiplier > 1){
-      message.innerText = game.multiplier + "x " + selectedCard.name + "  pays $" + selectedCard.payOut* game.multiplier + ". \n Press Deal to Play again." ;
+      message.innerText =
+        selectedCard.name +
+        " pays $" +
+        selectedCard.payOut * game.multiplier +
+        ". \n Press Deal to Play again.";
+    } else if (selectedCard.payOut > 0 && game.multiplier > 1) {
+      message.innerText =
+        game.multiplier +
+        "x " +
+        selectedCard.name +
+        "  pays $" +
+        selectedCard.payOut * game.multiplier +
+        ". \n Press Deal to Play again.";
     } else {
       message.innerText = "No Winner.\n Press Deal to Play again!";
     }
@@ -553,7 +575,13 @@ function startGame() {
     const isSpecialCard = specialCards.includes(selectedCard.imgSource);
     if (!isSpecialCard && isNotDuplicate) {
       addToPokerHand(selectedCard);
-      message.innerText = existingText + '\n' + selectedCard.value + ' of ' + selectedCard.suit + " added to poker hand!"
+      message.innerText =
+        existingText +
+        "\n" +
+        selectedCard.value +
+        " of " +
+        selectedCard.suit +
+        " added to poker hand!";
     }
     if (game.pokerHand.length === 5) {
       pokerPayout = calculatePayout();
@@ -574,11 +602,12 @@ function startGame() {
     // }
     dealHand();
     dealContainer.style.display = "none";
-    message.innerText = "Pick any Card to play!"
+    message.innerText = "Pick any Card to play!";
     if (game.pokerHand.length === 4) {
-      message.innerText = "Pick any Card to play!\nNext poker card can be a wild joker!"
+      message.innerText =
+        "Pick any Card to play!\nNext poker card can be a wild joker!";
     } else {
-      message.innerText = "Pick any Card to play!"
+      message.innerText = "Pick any Card to play!";
     }
     currentWin.innerText = "--";
   });
@@ -721,7 +750,6 @@ function isFourOfAKind(pokerHand) {
   return false;
 }
 
-
 function isFullHouse(pokerHand) {
   const values = pokerHand.map((card) => {
     if (card.imgSource === "JK.png") {
@@ -751,7 +779,9 @@ function isFullHouse(pokerHand) {
     );
   } else if (wildCount === 1) {
     return (
-      counts.includes(4) || (counts.includes(3) && counts.includes(1)) || counts.includes(2)
+      counts.includes(4) ||
+      (counts.includes(3) && counts.includes(1)) ||
+      counts.includes(2)
     );
   } else if (wildCount === 2) {
     return counts.includes(3) || counts.includes(1) || counts.includes(2);
@@ -759,7 +789,6 @@ function isFullHouse(pokerHand) {
     return true;
   }
 }
-
 
 function isFlush(pokerHand) {
   const suits = pokerHand.map((card) => {
