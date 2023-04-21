@@ -71,10 +71,34 @@ const rules = {
       imgSource: "Spades_10.png",
       payOut: 0,
     },
-    { suit: "Spades", value: "J", imgSource: "Spades_J.png", payOut: 1, name: "Jack" },
-    { suit: "Spades", value: "Q", imgSource: "Spades_Q.png", payOut: 2, name: "Queen" },
-    { suit: "Spades", value: "K", imgSource: "Spades_K.png", payOut: 3, name: "King" },
-    { suit: "Spades", value: "A", imgSource: "Spades_A.png", payOut: 4, name: "Ace" },
+    {
+      suit: "Spades",
+      value: "J",
+      imgSource: "Spades_J.png",
+      payOut: 1,
+      name: "Jack",
+    },
+    {
+      suit: "Spades",
+      value: "Q",
+      imgSource: "Spades_Q.png",
+      payOut: 2,
+      name: "Queen",
+    },
+    {
+      suit: "Spades",
+      value: "K",
+      imgSource: "Spades_K.png",
+      payOut: 3,
+      name: "King",
+    },
+    {
+      suit: "Spades",
+      value: "A",
+      imgSource: "Spades_A.png",
+      payOut: 4,
+      name: "Ace",
+    },
     {
       suit: "Diamonds",
       value: "2",
@@ -134,28 +158,28 @@ const rules = {
       value: "J",
       imgSource: "Diamonds_J.png",
       payOut: 1,
-      name: "Jack"
+      name: "Jack",
     },
     {
       suit: "Diamonds",
       value: "Q",
       imgSource: "Diamonds_Q.png",
       payOut: 2,
-      name: "Queen"
+      name: "Queen",
     },
     {
       suit: "Diamonds",
       value: "K",
       imgSource: "Diamonds_K.png",
       payOut: 3,
-      name: "King"
+      name: "King",
     },
     {
       suit: "Diamonds",
       value: "A",
       imgSource: "Diamonds_A.png",
       payOut: 4,
-      name: "Ace"
+      name: "Ace",
     },
     {
       suit: "Hearts",
@@ -211,28 +235,28 @@ const rules = {
       value: "J",
       imgSource: "Hearts_J.png",
       payOut: 1,
-      name: "Jack"
+      name: "Jack",
     },
     {
       suit: "Hearts",
       value: "Q",
       imgSource: "Hearts_Q.png",
       payOut: 2,
-      name: "Queen"
+      name: "Queen",
     },
     {
       suit: "Hearts",
       value: "K",
       imgSource: "Hearts_K.png",
       payOut: 3,
-      name: "King"
+      name: "King",
     },
     {
       suit: "Hearts",
       value: "A",
       imgSource: "Hearts_A.png",
       payOut: 4,
-      name: "Ace"
+      name: "Ace",
     },
     {
       suit: "Clubs",
@@ -293,28 +317,28 @@ const rules = {
       value: "J",
       imgSource: "Clubs_J.png",
       payOut: 1,
-      name: "Jack"
+      name: "Jack",
     },
     {
       suit: "Clubs",
       value: "Q",
       imgSource: "Clubs_Q.png",
       payOut: 2,
-      name: "Queen"
+      name: "Queen",
     },
     {
       suit: "Clubs",
       value: "K",
       imgSource: "Clubs_K.png",
       payOut: 3,
-      name: "King"
+      name: "King",
     },
     {
       suit: "Clubs",
       value: "A",
       imgSource: "Clubs_A.png",
       payOut: 4,
-      name: "Ace"
+      name: "Ace",
     },
     {
       imgSource: "2x.png",
@@ -588,7 +612,7 @@ function startGame() {
       pokerPayout = 0;
     }
     currentWin.innerText =
-      "$" + (((selectedCard.payOut || 0) * 1 * game.multiplier) + pokerPayout);
+      "$" + ((selectedCard.payOut || 0) * 1 * game.multiplier + pokerPayout);
   });
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
@@ -727,17 +751,26 @@ startGame();
 function isRoyalFlush(pokerHand) {
   if (isStraightFlush(pokerHand)) {
     const sortedHand = sortPokerHand(pokerHand);
-    const hasTen = sortedHand.some(card => card.value === "10") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
-    const hasJ = sortedHand.some(card => card.value === "J") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
-    const hasQ = sortedHand.some(card => card.value === "Q") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
-    const hasK = sortedHand.some(card => card.value === "K") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
-    const hasA = sortedHand.some(card => card.value === "A") || sortedHand.some(card => card.value === "0" && card.suit === "Wild");
+    const hasTen =
+      sortedHand.some((card) => card.value === "10") ||
+      sortedHand.some((card) => card.value === "0" && card.suit === "Wild");
+    const hasJ =
+      sortedHand.some((card) => card.value === "J") ||
+      sortedHand.some((card) => card.value === "0" && card.suit === "Wild");
+    const hasQ =
+      sortedHand.some((card) => card.value === "Q") ||
+      sortedHand.some((card) => card.value === "0" && card.suit === "Wild");
+    const hasK =
+      sortedHand.some((card) => card.value === "K") ||
+      sortedHand.some((card) => card.value === "0" && card.suit === "Wild");
+    const hasA =
+      sortedHand.some((card) => card.value === "A") ||
+      sortedHand.some((card) => card.value === "0" && card.suit === "Wild");
 
     return hasTen && hasJ && hasQ && hasK && hasA;
   }
   return false;
 }
-
 
 function isStraightFlush(pokerHand) {
   return isStraight(pokerHand) && isFlush(pokerHand);
@@ -809,7 +842,6 @@ function isFullHouse(pokerHand) {
   }
 }
 
-
 function isFlush(pokerHand) {
   const suits = pokerHand.map((card) => {
     if (card.imgSource === "JK.png") {
@@ -875,7 +907,6 @@ function isStraight(pokerHand) {
   return true;
 }
 
-
 function isThreeOfAKind(pokerHand) {
   let values = pokerHand.map((card) => card.value);
 
@@ -921,22 +952,23 @@ function isTwoPair(pokerHand) {
 
 function sortPokerHand(pokerHand) {
   const valueOrder = {
-    "0": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "10": 10,
-    "J": 11,
-    "Q": 12,
-    "K": 13,
-    "A": 14,
+    0: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+    J: 11,
+    Q: 12,
+    K: 13,
+    A: 14,
   };
 
-  return pokerHand.slice().sort((a, b) => valueOrder[a.value] - valueOrder[b.value]);
+  return pokerHand
+    .slice()
+    .sort((a, b) => valueOrder[a.value] - valueOrder[b.value]);
 }
-
