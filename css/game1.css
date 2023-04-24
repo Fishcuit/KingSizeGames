@@ -84,6 +84,16 @@
   }
 }
 
+.card-meter-container2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-device-height: 900px) {
+  .card-meter-container2 {
+    padding-bottom: 0px;
+  }
+}
+
 .card-meter {
   width: 150px;
   height: auto;
@@ -414,7 +424,6 @@ legend.other {
   align-items: center;
 }
 
-
 .bonus-popup-content {
   background-image: url("../img/bonus_bg.png");
   background-position: top;
@@ -494,7 +503,11 @@ legend.other {
 @media screen and (max-device-height: 900px) {
   #messaging {
     font-size: 16px;
-    padding: 6px;
-    margin: 5px auto;
+    padding: 6px 20px;
+    margin: 5px 0px;
+    width: 50%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
   }
 }
