@@ -414,6 +414,7 @@ legend.other {
   align-items: center;
 }
 
+
 .bonus-popup-content {
   background-image: url("../img/bonus_bg.png");
   background-position: top;
@@ -425,6 +426,13 @@ legend.other {
   height: 50%;
   border-radius: 10px;
   text-align: center;
+}
+
+@media screen and (max-device-height: 900px) {
+  #bonus-reward img {
+    width: 100px;
+    height: 134px;
+  }
 }
 
 .hidden {
