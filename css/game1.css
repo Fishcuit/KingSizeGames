@@ -87,6 +87,7 @@
 .card-meter-container2 {
   display: flex;
   justify-content: space-evenly;
+  margin: 12px 0px;
 }
 @media screen and (max-device-height: 900px) {
   .card-meter-container2 {
@@ -496,8 +497,12 @@ legend.other {
   border-radius: 8px;
   padding: 12px;
   text-align: center;
-  margin: 20px auto;
+  margin: 5px 0px;
+  width: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-device-height: 900px) {
@@ -505,9 +510,9 @@ legend.other {
     font-size: 16px;
     padding: 6px 20px;
     margin: 5px 0px;
-    width: 50%; 
-    white-space: nowrap; 
-    overflow: hidden; 
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 }
