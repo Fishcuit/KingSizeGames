@@ -23,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 70px;
   /* background-image: url("../img/Board.jpg"); */
 }
 
@@ -38,7 +39,7 @@
 @media screen and (max-device-height: 900px) {
   #canvas {
     width: 900px;
-    height: 675px;
+    height: 450px;
   }
 }
 
