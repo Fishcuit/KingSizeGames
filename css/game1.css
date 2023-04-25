@@ -11,6 +11,14 @@
     height: 200px;
   }
 }
+
+@media screen and (max-device-width: 400px) {
+  #board {
+    height: 350px;
+  }
+}
+
+
 #show-cards {
   display: flex;
   align-items: center;
@@ -25,6 +33,12 @@
   align-items: center;
   margin-top: 70px;
   /* background-image: url("../img/Board.jpg"); */
+}
+@media screen and (max-device-width: 400px) {
+  #canvas-wrapper {
+    
+    padding-top: 30%;
+  }
 }
 
 #canvas {
@@ -42,6 +56,14 @@
     height: 450px;
   }
 }
+
+@media screen and (max-device-width: 400px) {
+  #canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 .row {
   display: flex;
@@ -85,12 +107,23 @@
   }
 }
 
+@media screen and (max-device-width: 400px) {
+  .card-meter-container {
+    padding-bottom: 0px;
+  }
+}
+
 .card-meter-container2 {
   display: flex;
   justify-content: space-evenly;
   margin: 12px 0px;
 }
 @media screen and (max-device-height: 900px) {
+  .card-meter-container2 {
+    padding-bottom: 0px;
+  }
+}
+@media screen and (max-device-width: 400px) {
   .card-meter-container2 {
     padding-bottom: 0px;
   }
@@ -124,6 +157,25 @@
     box-sizing: border-box;
     width: 115px;
     height: 164px;
+    margin: 8px;
+    float: left;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px #555555 solid;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 3px 0px #000000;
+    box-shadow: 2px 2px 3px 0px #000000;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-device-width: 400px) {
+  .card {
+    box-sizing: border-box;
+    width: 150px;
+    height: 214px;
     margin: 8px;
     float: left;
     background-color: white;
@@ -173,6 +225,15 @@
   .card.selected {
     width: 125px;
     height: 175px;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
+  }
+}
+
+@media screen and (max-device-width: 400px) {
+  .card.card.selected {
+    width: 155px;
+    height: 225px;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
@@ -240,6 +301,15 @@ HR {
   }
 }
 
+@media screen and (max-device-width: 400px) {
+  #deal {
+    font-size: 40px;
+    font-family: Arial;
+    width: 170px;
+    height: 150px;
+  }
+}
+
 #deal:hover {
   background: linear-gradient(#ed1502, #f24537);
 }
@@ -268,6 +338,15 @@ HR {
     font-family: Arial;
     width: 150px;
     height: 65px;
+  }
+}
+
+@media screen and (max-device-width: 400px) {
+  #confirm-choice {
+    font-size: 40px;
+    font-family: Arial;
+    width: 170px;
+    height: 150px;
   }
 }
 
@@ -510,6 +589,18 @@ legend.other {
   #messaging {
     font-size: 16px;
     padding: 6px 20px;
+    margin: 5px 0px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-device-width: 400px) {
+  #messaging {
+    font-size: 25px;
+    padding: 0px 20px;
     margin: 5px 0px;
     width: 50%;
     white-space: nowrap;
