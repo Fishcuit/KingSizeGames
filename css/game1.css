@@ -12,7 +12,7 @@
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #board {
     height: 350px;
   }
@@ -34,7 +34,7 @@
   margin-top: 70px;
   /* background-image: url("../img/Board.jpg"); */
 }
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #canvas-wrapper {
     
     padding-top: 30%;
@@ -57,7 +57,7 @@
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #canvas {
     width: 100%;
     height: auto;
@@ -107,7 +107,7 @@
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   .card-meter-container {
     padding-bottom: 0px;
   }
@@ -123,7 +123,7 @@
     padding-bottom: 0px;
   }
 }
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   .card-meter-container2 {
     padding-bottom: 0px;
   }
@@ -171,7 +171,7 @@
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   .card {
     box-sizing: border-box;
     width: 150px;
@@ -230,7 +230,7 @@
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   .card.card.selected {
     width: 155px;
     height: 225px;
@@ -301,7 +301,7 @@ HR {
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #deal {
     font-size: 40px;
     font-family: Arial;
@@ -341,7 +341,7 @@ HR {
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #confirm-choice {
     font-size: 40px;
     font-family: Arial;
@@ -597,7 +597,7 @@ legend.other {
   }
 }
 
-@media screen and (max-device-width: 415px) {
+@media screen and (max-device-width: 450px) {
   #messaging {
     font-size: 25px;
     padding: 0px 20px;
