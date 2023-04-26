@@ -104,7 +104,6 @@ html {
 @media screen and (max-device-width: 450px) {
   #canvas {
     width: 100%;
-
   }
 }
 
@@ -127,15 +126,23 @@ html {
   max-width: 130px;
   padding-left: 10px;
 }
+@media screen and (max-device-width: 896px) {
+  .side-bar {
+    width: 20vw;
+    max-width: 15vw;
+    padding-left: 0px;
+  }
+}
 .side-bar img {
   /* height: 100px; */
-  padding-bottom: 0px;
+  padding-bottom: 10px;
   width: 200px;
 }
-
-.title-logo {
-  float: left;
-  width: 200px;
+@media screen and (max-device-width: 896px) {
+  .side-bar img {
+    padding-bottom: 0px;
+    width: 0px;
+  }
 }
 
 .card-meter-container {
@@ -222,7 +229,7 @@ html {
     margin: 3px;
     float: left;
     background-color: white;
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     border: 1px #555555 solid;
@@ -275,7 +282,6 @@ html {
   animation: glowing-border 2s infinite;
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
-
 
 .card.selected {
   width: 175px;
@@ -673,9 +679,3 @@ legend.other {
     text-overflow: ellipsis;
   }
 }
-
-
-
-
-
-
