@@ -19,31 +19,21 @@ html {
   padding-left: 5px;
 }
 
-@media screen and (max-device-width: 1300px) {
-  #board {
-    height: 100%;
-  }
-}
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
   #board {
     height: 40vh;
     width: 100%;
   }
 }
 
-@media screen and (max-device-width: 667px) {
+@media screen and (max-device-width: 667px) and (max-device-height: 450px){
   #board {
     height: 40vh;
     width: 100%;
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  #board {
-    height: 350px;
-    width: 100%;
-  }
-}
+
 
 #show-cards {
   display: flex;
@@ -57,11 +47,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding-top: 40%;
+  
   position: relative;
   /* background-image: url("../img/Board.jpg"); */
 }
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   #canvas-wrapper {
     position: fixed;
     top: 0;
@@ -69,6 +60,7 @@ html {
     width: 100%;
     height: 100%;
     z-index: 9999;
+    padding-top: 0px;
   }
 }
 
@@ -83,29 +75,18 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 
-  width: 1200px;
+  width: 100%;
   height: 675px;
 }
 
-@media screen and (max-device-width: 1300px) {
-  #canvas {
-    width: 900px;
-    height: 450px;
-  }
-}
 
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   #canvas {
     width: 100%;
     height: 100%;
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  #canvas {
-    width: 100%;
-  }
-}
 
 .row {
   display: flex;
@@ -126,7 +107,7 @@ html {
   max-width: 130px;
   padding-left: 10px;
 }
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   .side-bar {
     width: 20vw;
     max-width: 15vw;
@@ -138,7 +119,7 @@ html {
   padding-bottom: 10px;
   width: 200px;
 }
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   .side-bar img {
     padding-bottom: 0px;
     width: 0px;
@@ -157,11 +138,7 @@ html {
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  .card-meter-container {
-    padding-bottom: 0px;
-  }
-}
+
 
 .card-meter-container2 {
   display: flex;
@@ -173,11 +150,7 @@ html {
     padding-bottom: 0px;
   }
 }
-@media screen and (max-device-width: 450px) {
-  .card-meter-container2 {
-    padding-bottom: 0px;
-  }
-}
+
 
 .card-meter {
   width: 150px;
@@ -202,26 +175,8 @@ html {
   opacity: 0;
 }
 
-@media screen and (max-device-width: 1300px) {
-  .card {
-    box-sizing: border-box;
-    width: 115px;
-    height: 164px;
-    margin: 8px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    opacity: 0;
-  }
-}
 
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   .card {
     box-sizing: border-box;
     width: 14vw;
@@ -273,16 +228,8 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-@media screen and (max-device-width: 1300px) {
-  .card.selected {
-    width: 125px;
-    height: 175px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-}
 
-@media screen and (max-device-width: 896px) {
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   .card.selected {
     width: 14vw;
     height: 35vh;
@@ -346,16 +293,9 @@ HR {
   background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
 }
 
-@media screen and (max-device-width: 1300px) {
-  #deal {
-    font-size: 30px;
-    font-family: Arial;
-    width: 150px;
-    height: 65px;
-  }
-}
 
-@media screen and (max-device-width: 896px) {
+
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   #deal {
     width: 20vw;
     height: 20vh;
@@ -387,15 +327,8 @@ HR {
   background: linear-gradient(rgba(189, 16, 224, 1), rgba(189, 16, 224, 1));
 }
 
-@media screen and (max-device-width: 1300px) {
-  #confirm-choice {
-    font-size: 30px;
-    font-family: Arial;
-    width: 150px;
-    height: 65px;
-  }
-}
-@media screen and (max-device-width: 896px) {
+
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   #confirm-choice {
     width: 20vw;
     height: 20vh;
@@ -551,6 +484,7 @@ legend.other {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10000;
 }
 
 .bonus-popup-content {
@@ -558,20 +492,16 @@ legend.other {
   background-position: top;
   background-repeat: no-repeat;
   background-size: auto;
+  align-items: center;
+  justify-content: center;
   color: antiquewhite;
   padding: 20px;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 75%;
   border-radius: 10px;
   text-align: center;
 }
 
-@media screen and (max-device-width: 1300px) {
-  #bonus-reward img {
-    width: 100px;
-    height: 134px;
-  }
-}
 
 .hidden {
   display: none;
@@ -633,18 +563,8 @@ legend.other {
   text-overflow: ellipsis;
 }
 
-@media screen and (max-device-width: 1300px) {
-  #messaging {
-    font-size: 16px;
-    padding: 6px 20px;
-    margin: 5px 0px;
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-@media screen and (max-device-width: 896px) {
+
+@media screen and (max-device-width: 896px) and (max-device-height: 450px){
   #messaging {
     font-size: 16px;
     padding: 0px 10px;
