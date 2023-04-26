@@ -26,19 +26,22 @@ html {
 }
 @media screen and (max-device-width: 896px) {
   #board {
-    height: 300px;
+    height: 250px;
+    width: 100%;
   }
 }
 
 @media screen and (max-device-width: 667px) {
   #board {
     height: 200px;
+    width: 100%;
   }
 }
 
 @media screen and (max-device-width: 450px) {
   #board {
     height: 350px;
+    width: 100%;
   }
 }
 
@@ -69,11 +72,11 @@ html {
   }
 }
 
-@media screen and (max-device-width: 450px) {
+/* @media screen and (max-device-width: 450px) {
   #canvas-wrapper {
     
   }
-}
+} */
 
 #canvas {
   background-image: url("../img/redbg.png");
@@ -214,14 +217,14 @@ html {
 @media screen and (max-device-width: 896px) {
   .card {
     box-sizing: border-box;
-    width: 60%;
-    height: 89%;
+    width: 14vw;
+    height: 90%;
     margin: 8px;
     float: left;
     background-color: white;
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     border: 1px #555555 solid;
     border-radius: 10px;
     -webkit-box-shadow: 2px 2px 3px 0px #000000;
@@ -273,6 +276,7 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
+
 .card.selected {
   width: 175px;
   height: 250px;
@@ -291,15 +295,15 @@ html {
 
 @media screen and (max-device-width: 896px) {
   .card.selected {
-    width: 60%;
-    height: 89%;
+    width: 14vw;
+    height: 90%;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
 }
 
 @media screen and (max-device-width: 450px) {
-  .card.card.selected {
+  .card.selected {
     width: 155px;
     height: 225px;
     animation: glowing-border 2s infinite;
@@ -670,56 +674,8 @@ legend.other {
   }
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #111;
-  height: auto;
-  width: 100vw;
-  padding-top: 40px;
-  color: #fff;
-}
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
 
-.footer-bottom {
-  text-align: center;
-  background: #000;
-  width: 100vw;
-  padding: 20px;
-  padding-bottom: 20px;
-}
-.footer-bottom p {
-  text-align: center;
-  font-size: 10px;
-  word-spacing: 2px;
-  text-transform: capitalize;
-  color: white;
-}
 
-.fullscreen-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  background-image: url("../img/fullscreen.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  cursor: pointer;
-  bottom: 0;
-}
 
-.fullscreen-btn:hover {
-  opacity: 0.8;
-}
+

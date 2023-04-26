@@ -47,7 +47,6 @@
             </legend>
             <p>$15</p>
           </fieldset>
-          <button id="fullscreen-btn" class="fullscreen-btn"></button>
         </div>
         <div class="column grow">
           <div class="card-meter-container">
@@ -107,21 +106,8 @@
     </div>
 
     <script type="text/javascript" src="scripts/gm1.js"></script>
-    <script>
-      const gameContainer = document.getElementById("canvas-wrapper");
 
-      function toggleFullScreen() {
-        if (!document.fullscreenElement) {
-          gameContainer.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      }
-
-      const fullscreenBtn = document.getElementById("fullscreen-btn");
-      fullscreenBtn.addEventListener("click", toggleFullScreen);
-    </script>
-    <script>
+    <!-- <script>
       function hideAddressBar() {
         if (!window.location.hash) {
           if (document.height <= window.outerHeight + 10) {
@@ -135,6 +121,6 @@
 
       window.addEventListener("load", hideAddressBar);
       window.addEventListener("orientationchange", hideAddressBar);
-    </script>
+    </script> -->
   </body>
 </html>
