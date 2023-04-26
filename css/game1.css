@@ -240,24 +240,7 @@ html {
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  .card {
-    box-sizing: border-box;
-    width: 150px;
-    height: 214px;
-    margin: 8px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    opacity: 0;
-  }
-}
+
 
 .card.deal {
   animation: slideIn 0.1s ease-out backwards;
@@ -308,14 +291,7 @@ html {
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  .card.selected {
-    width: 155px;
-    height: 225px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-}
+
 
 .possible-cards {
   font-size: 24px;
@@ -668,14 +644,4 @@ legend.other {
   }
 }
 
-@media screen and (max-device-width: 450px) {
-  #messaging {
-    font-size: 25px;
-    padding: 0px 20px;
-    margin: 5px 0px;
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
+
