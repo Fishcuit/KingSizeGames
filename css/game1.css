@@ -355,14 +355,15 @@ HR {
   }
 }
 
-@media screen and (max-device-width: 450px) {
+@media screen and (max-device-width: 896px) {
   #deal {
-    font-size: 40px;
-    font-family: Arial;
-    width: 170px;
-    height: 150px;
+    width: 20vw;
+    height: 20vh;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
   }
 }
+
 
 #deal:hover {
   background: linear-gradient(#ed1502, #f24537);
@@ -394,15 +395,15 @@ HR {
     height: 65px;
   }
 }
-
-@media screen and (max-device-width: 450px) {
+@media screen and (max-device-width: 896px) {
   #confirm-choice {
-    font-size: 40px;
-    font-family: Arial;
-    width: 170px;
-    height: 150px;
+    width: 20vw;
+    height: 20vh;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
   }
 }
+
 
 #confirm-choice:hover {
   background: linear-gradient(rgba(189, 16, 224, 1), rgba(189, 16, 224, 1));
