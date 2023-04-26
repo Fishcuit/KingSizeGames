@@ -26,6 +26,12 @@ html {
 }
 @media screen and (max-device-width: 896px) {
   #board {
+    height: 300px;
+  }
+}
+
+@media screen and (max-device-width: 667px) {
+  #board {
     height: 200px;
   }
 }
@@ -208,8 +214,8 @@ html {
 @media screen and (max-device-width: 896px) {
   .card {
     box-sizing: border-box;
-    width: 50%;
-    height: 92%;
+    width: 60%;
+    height: 89%;
     margin: 8px;
     float: left;
     background-color: white;
@@ -285,8 +291,8 @@ html {
 
 @media screen and (max-device-width: 896px) {
   .card.selected {
-    width: 51%;
-    height: 93%;
+    width: 60%;
+    height: 89%;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
