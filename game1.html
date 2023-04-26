@@ -3,80 +3,16 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <link rel="stylesheet" type="text/css" href="css/game1.css" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.80, maximum-scale=0.80, user-scalable=no"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.80, maximum-scale=0.80, user-scalable=no"
+    />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="css/site.css" />
     <meta charset="utf-8" />
     <title>PiQum Classic</title>
   </head>
 
   <body>
-    <header style="position: relative">
-      <div class="w3-top" class="header" id="home">
-        <div
-          class="w3-bar w3-card w3-left-align w3-large heeder-large-screen"
-          style="background-color: #000015"
-        >
-          <a
-            class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-black w3-large"
-            href="javascript:void(0);"
-            onclick="myFunction()"
-            title="Toggle Navigation Menu"
-            ><i class="fa fa-bars"></i
-          ></a>
-
-          <div>
-            <a
-              href="index.html"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >Home</a
-            >
-            <a
-              href="#about"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >About</a
-            >
-            <a
-              href="#games"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-            >
-              Games</a
-            >
-            <a
-              href="#contact"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >Contact</a
-            >
-          </div>
-        </div>
-
-        <!-- Navbar on small screens -->
-        <div
-          id="navDemo"
-          class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-large"
-        >
-          <a
-            href="#about"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >About</a
-          >
-          <a
-            href="#games"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >Games</a
-          >
-          <a
-            href="#contact"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >Contact</a
-          >
-        </div>
-      </div>
-    </header>
-
     <div id="canvas-wrapper">
       <div id="canvas" class="row">
         <div class="column side-bar">
@@ -111,6 +47,7 @@
             </legend>
             <p>$15</p>
           </fieldset>
+          <button id="fullscreen-btn" class="fullscreen-btn"></button>
         </div>
         <div class="column grow">
           <div class="card-meter-container">
@@ -148,7 +85,7 @@
             </div>
           </div>
           <div id="board"></div>
-          
+
           <div class="card-meter-container2">
             <div id="messaging">Pick any Card to play!</div>
             <div id="deal-container" style="display: none">
@@ -158,8 +95,9 @@
               <button id="confirm-choice">Reveal</button>
             </div>
           </div>
+          
         </div>
-        <!-- <div class="column side-bar"><button id="fullscreen-btn">Toggle Full Screen</button></div> -->
+        
       </div>
     </div>
     <div id="bonus-popup" class="bonus-popup hidden">
@@ -194,5 +132,19 @@
       </footer>
     </div>
     <script type="text/javascript" src="scripts/gm1.js"></script>
+    <script>
+      const gameContainer = document.getElementById("canvas");
+
+      function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          gameContainer.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
+      fullscreenBtn.addEventListener("click", toggleFullScreen);
+    </script>
   </body>
 </html>

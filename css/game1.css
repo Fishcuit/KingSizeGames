@@ -1,3 +1,16 @@
+:root {
+  background-color: rgba(0, 0, 21, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #board {
   display: flex;
   align-items: center;
@@ -7,6 +20,11 @@
 }
 
 @media screen and (max-device-width: 1300px) {
+  #board {
+    height: 100%;
+  }
+}
+@media screen and (max-device-width: 896px) {
   #board {
     height: 200px;
   }
@@ -31,9 +49,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
+ 
+  position: relative;
   /* background-image: url("../img/Board.jpg"); */
 }
+@media screen and (max-device-width: 896px) {
+  #canvas-wrapper {
+    
+ 
+
+    
+  }
+}
+
 @media screen and (max-device-width: 450px) {
   #canvas-wrapper {
     
@@ -54,6 +82,14 @@
   #canvas {
     width: 900px;
     height: 450px;
+  }
+}
+
+@media screen and (max-device-width: 896px) {
+  #canvas {
+    
+    width: 100%;
+    
   }
 }
 
@@ -86,7 +122,7 @@
 }
 .side-bar img {
   /* height: 100px; */
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   width: 200px;
 }
 
@@ -171,6 +207,25 @@
   }
 }
 
+@media screen and (max-device-width: 896px) {
+  .card {
+    box-sizing: border-box;
+    width: 50%;
+    height: 92%;
+    margin: 8px;
+    float: left;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px #555555 solid;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 3px 0px #000000;
+    box-shadow: 2px 2px 3px 0px #000000;
+    opacity: 0;
+  }
+}
+
 @media screen and (max-device-width: 450px) {
   .card {
     box-sizing: border-box;
@@ -225,6 +280,15 @@
   .card.selected {
     width: 125px;
     height: 175px;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
+  }
+}
+
+@media screen and (max-device-width: 896px) {
+  .card.selected {
+    width: 51%;
+    height: 93%;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
@@ -436,13 +500,6 @@ legend.other {
   background-color: black;
 }
 
-#fullscreen-btn {
-  float: right;
-  bottom: 10px;
-  right: 10px;
-  position: relative;
-}
-
 @keyframes glowing-border {
   0% {
     box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000,
@@ -608,3 +665,66 @@ legend.other {
     text-overflow: ellipsis;
   }
 }
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  background: #000;
+  width: 100vw;
+  padding: 20px;
+  padding-bottom: 20px;
+}
+.footer-bottom p {
+  text-align: center;
+  font-size: 10px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+  color: white;
+}
+
+
+.fullscreen-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url('../img/fullscreen.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  bottom: 0;
+}
+
+.fullscreen-btn:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+
