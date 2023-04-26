@@ -6,7 +6,7 @@
   padding-left: 5px;
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #board {
     height: 200px;
   }
@@ -50,7 +50,7 @@
   height: 675px;
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #canvas {
     width: 900px;
     height: 450px;
@@ -101,7 +101,7 @@
   justify-self: center;
   padding-bottom: 10px;
 }
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   .card-meter-container {
     padding-bottom: 0px;
   }
@@ -118,7 +118,7 @@
   justify-content: space-evenly;
   margin: 12px 0px;
 }
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   .card-meter-container2 {
     padding-bottom: 0px;
   }
@@ -152,7 +152,7 @@
   opacity: 0;
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   .card {
     box-sizing: border-box;
     width: 115px;
@@ -221,7 +221,7 @@
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   .card.selected {
     width: 125px;
     height: 175px;
@@ -292,7 +292,7 @@ HR {
   background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #deal {
     font-size: 30px;
     font-family: Arial;
@@ -332,7 +332,7 @@ HR {
   background: linear-gradient(rgba(189, 16, 224, 1), rgba(189, 16, 224, 1));
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #confirm-choice {
     font-size: 30px;
     font-family: Arial;
@@ -518,7 +518,7 @@ legend.other {
   text-align: center;
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #bonus-reward img {
     width: 100px;
     height: 134px;
@@ -585,7 +585,7 @@ legend.other {
   text-overflow: ellipsis;
 }
 
-@media screen and (max-device-height: 900px) {
+@media screen and (max-device-width: 1300px) {
   #messaging {
     font-size: 16px;
     padding: 6px 20px;
