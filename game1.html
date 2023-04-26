@@ -95,9 +95,7 @@
               <button id="confirm-choice">Reveal</button>
             </div>
           </div>
-          
         </div>
-        
       </div>
     </div>
     <div id="bonus-popup" class="bonus-popup hidden">
@@ -133,18 +131,20 @@
     </div>
     <script type="text/javascript" src="scripts/gm1.js"></script>
     <script>
-      const gameContainer = document.getElementById("canvas");
+      const gameContainer = document.getElementById("canvas-wrapper");
 
       function toggleFullScreen() {
-        if (!document.fullscreenElement) {
-          gameContainer.requestFullscreen();
-        } else {
-          document.exitFullscreen();
+        if (document.fullscreenEnabled) {
+          if (!document.fullscreenElement) {
+            gameContainer.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
         }
       }
 
-      const fullscreenBtn = document.getElementById("fullscreen-btn");
-      fullscreenBtn.addEventListener("click", toggleFullScreen);
+      document.addEventListener("touchstart", toggleFullScreen);
+      document.addEventListener("click", toggleFullScreen);
     </script>
   </body>
 </html>

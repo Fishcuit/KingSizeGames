@@ -53,14 +53,14 @@ html {
   position: relative;
   /* background-image: url("../img/Board.jpg"); */
 }
-@media screen and (max-device-width: 896px) {
+/* @media screen and (max-device-width: 896px) {
   #canvas-wrapper {
     
  
 
     
   }
-}
+} */
 
 @media screen and (max-device-width: 450px) {
   #canvas-wrapper {
