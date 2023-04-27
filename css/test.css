@@ -365,9 +365,9 @@ HR {
 
 @media screen and (max-device-width: 450px) {
   #deal {
-    width: 18vw;
-    height: 7vh;
-    font-size: 17px;
+    width: 200px;
+    height: 10vh;
+    font-size: 30px;
   }
 }
 
@@ -410,9 +410,9 @@ HR {
 }
 @media screen and (max-device-width: 450px) {
   #confirm-choice {
-    width: 18vw;
-    height: 7vh;
-    font-size: 17px;
+    width: 200px;
+    height: 10vh;
+    font-size: 30px;
   }
 }
 
@@ -620,6 +620,20 @@ legend.other {
   border-radius: 10px;
   text-align: center;
 }
+
+@media screen and (max-device-width: 450px){
+    .bonus-popup-content {
+        height:fit-content;
+    }
+}
+@media screen and (max-device-width: 450px){
+    #bonus-reward img {
+        width: 60px; /* Adjust the width as needed */
+        height: 90px; /* Maintain the aspect ratio */
+        margin: 1px; /* Adjust the margin as needed */
+      }
+}
+
 
 .hidden {
   display: none;
