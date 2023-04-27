@@ -607,7 +607,7 @@ legend.other {
 }
 
 .bonus-popup-content {
-  background-image: url("../img/bonus_bg.png");
+  background-color: #000000;
   background-position: top;
   background-repeat: no-repeat;
   background-size: auto;
