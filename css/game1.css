@@ -498,7 +498,7 @@ legend.other {
 }
 
 .bonus-popup-content {
-  background-color: #000000;
+  background-image: url("../img/bluebg.png");
   background-position: top;
   background-repeat: no-repeat;
   background-size: auto;
