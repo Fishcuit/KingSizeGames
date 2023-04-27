@@ -267,11 +267,6 @@ const rules = {
       payOut: 0,
       name: "Bonus",
     },
-    {
-      imgSource: "bonus up.png",
-      payOut: 0,
-      name: "Bonus",
-    },
   ],
   bonusDecks: [
     [
@@ -332,7 +327,7 @@ const rules = {
     ],
   ],
 };
-for (let i = 0; i < 55; i++) {
+for (let i = 0; i < 35; i++) {
   rules.deck.push({
     imgSource: "JK.png",
     payOut: 0,
@@ -365,7 +360,10 @@ function startGame() {
     multiplier: 1,
     previousHandMultipliers: [],
     bonusLevel: 1,
+    
   };
+  game.selectedIndex = Math.floor(Math.random() * game.hand.length);
+
 
   //If bonusLevel is greater than 1, show the cards to the player before flipping and shuffling them
   if (game.bonusLevel > 1) {
@@ -383,6 +381,10 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
+    game.deck = shuffle(getBonusDeck(game.bonusLevel));
+
+    // const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
+
     
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
@@ -395,6 +397,11 @@ function startGame() {
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
 
+      if (index === game.selectedIndex) { // Check if the current index matches the random index
+        card.classList.add("selected"); // Mark the card as selected
+        game.selected = card; // Update the game.selected variable
+      }
+      confirmButtonContainer.style.display = "";
       card.style.animationDelay = `${index * 0.2}s`;
     }
     setTimeout(() => {
@@ -419,6 +426,7 @@ function startGame() {
         game.selected.classList.remove("selected");
       }
       game.selected = newCard;
+      game.selectedIndex = parseInt(newCard.dataset.cardIndex); // Store the selected card index
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
       message.innerText = "Press Reveal to continue!"
@@ -441,7 +449,6 @@ function startGame() {
         game.previousHandMultipliers[newCard.dataset.cardIndex] = null;
       }
     });
-    console.log(i);
   }
   dealHand();
 
