@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+
+
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color:transparent;
+  }
+
+  .nav-menu li {
+    display: inline-block;
+  }
+
+  .nav-menu li a {
+    display: block;
+    color: rgb(240, 182, 8);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:wavy;
+  }
+
+  .nav-menu li a:hover {
+    background-color: #111;
+  }
