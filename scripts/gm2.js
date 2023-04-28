@@ -59,18 +59,22 @@ const rules = {
     {
       imgSource: "Spades_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Spades_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Spades_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Spades_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Diamonds_2.png",
@@ -111,18 +115,22 @@ const rules = {
     {
       imgSource: "Diamonds_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Diamonds_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Diamonds_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Diamonds_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Hearts_2.png",
@@ -163,18 +171,22 @@ const rules = {
     {
       imgSource: "Hearts_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Hearts_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Hearts_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Hearts_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "Clubs_2.png",
@@ -215,18 +227,22 @@ const rules = {
     {
       imgSource: "Clubs_J.png",
       payOut: 1,
+      name: "Jack",
     },
     {
       imgSource: "Clubs_Q.png",
       payOut: 2,
+      name: "Queen",
     },
     {
       imgSource: "Clubs_K.png",
       payOut: 3,
+      name: "King",
     },
     {
       imgSource: "Clubs_A.png",
       payOut: 4,
+      name: "Ace",
     },
     {
       imgSource: "2x.png",
@@ -251,9 +267,74 @@ const rules = {
     {
       imgSource: "bonus up.png",
       payOut: 0,
+      name: "Bonus",
     },
   ],
+  bonusDecks: [
+    [
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "Mini.png", payOut: 15, name: "Mini" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Minor.png", payOut: 30, name: "Minor" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Major.png", payOut: 90, name: "Major" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "bonus up.png", payOut: 0, name: "Bonus" },
+      { imgSource: "bonus down.png", payOut: 0 },
+    ],
+    [
+      { imgSource: "Mega.png", payOut: 90, name: "Mega" },
+      { imgSource: "Mega.png", payOut: 300, name: "Mega" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+      { imgSource: "Grand.png", payOut: 3000, name: "Grand" },
+    ],
+  ],
 };
+for (let i = 0; i < 35; i++) {
+  rules.deck.push({
+    imgSource: "JK.png",
+    payOut: 0,
+  });
+}
 
 function startGame() {
   const confirmButtonContainer = document.getElementById(
@@ -279,23 +360,41 @@ function startGame() {
     game.selected = [null, null, null];
     game.flipped = [false, false, false];
     game.deck = [shuffle(), shuffle(), shuffle()]; // Shuffle three decks
-
+  
+    if (typeof game.initialRandomIndices === "undefined") {
+      game.initialRandomIndices = [
+        Math.floor(Math.random() * rules.dealtCards),
+        Math.floor(Math.random() * rules.dealtCards),
+        Math.floor(Math.random() * rules.dealtCards),
+      ]; // Calculate the random indices only if they're not set
+    }
+  
     for (let row = 0; row < 3; row++) {
       for (const [index, card] of game.hand[row].entries()) {
         // Display multipliers from the previous hand on the card backs
-        const previousMultiplier = game.previousHandMultipliers[index];
+        const previousMultiplier = game.previousHandMultipliers.length > 0
+          ? game.previousHandMultipliers[row][index]
+          : null;
         const cardBack = previousMultiplier
-          ? previousMultiplier.imgSource.replace(".png", " on card.png")
+          ? previousMultiplier.imgSource.replace(".png", "card.png")
           : "XX.png";
         card.style.backgroundImage = `url("img/cards/${cardBack}")`;
         card.classList.remove("selected");
         card.dataset.cardIndex = index;
-
+  
         // Assign the correct card object from the shuffled deck
         card.cardObject = game.deck[row][index];
+  
+        if (index === game.initialRandomIndices[row]) {
+          // Use the stored index for each row's selection
+          card.classList.add("selected");
+          game.selected[row] = card;
+        }
       }
     }
+    confirmButtonContainer.style.display = "";
   }
+  
 
   for (let row = 0; row < 3; row++) {
     game.hand[row] = [];
@@ -315,13 +414,8 @@ function startGame() {
           (selectedCard) => selectedCard !== null
         );
 
-        if (allRowsSelected) {
-          confirmButtonContainer.style.display = "";
-        } else {
-          confirmButtonContainer.style.display = "none";
-        }
+        game.initialRandomIndices[row] = parseInt(newCard.dataset.cardIndex); // Update the corresponding index when the player selects a card
       });
-      console.log(i);
     }
   }
   dealHand();
@@ -331,19 +425,56 @@ function startGame() {
   }
 
   function updatePreviousMultipliers() {
-    game.previousHandMultipliers = game.hand.map((cardEl, index) => {
-      const card = game.deck[cardEl.dataset.cardIndex];
-      return card.imgSource.match(/\dx\.png$/) ? card : null;
+    game.previousHandMultipliers = game.hand.map((row, rowIndex) => {
+      return row.map((cardEl, index) => {
+        const card = game.deck[rowIndex][cardEl.dataset.cardIndex];
+        const isMultiplierCard = card.imgSource.match(/\dx\.png$/);
+  
+        if (
+          isMultiplierCard &&
+          index == game.selected[rowIndex].dataset.cardIndex
+        ) {
+          const selectedCardMultiplier = parseInt(
+            card.imgSource.replace("x.png", ""),
+            10
+          );
+          const previousMultiplier =
+            game.previousHandMultipliers[rowIndex][index];
+  
+          if (previousMultiplier && game.multiplier == 1) {
+            return null;
+          } else if (previousMultiplier) {
+            const previousCardMultiplier = parseInt(
+              previousMultiplier.imgSource.replace("x.png", ""),
+              10
+            );
+            const newMultiplierValue =
+              selectedCardMultiplier * previousCardMultiplier;
+  
+            return {
+              imgSource: `${newMultiplierValue}x.png`,
+              payOut: 0,
+            };
+          }
+        }
+  
+        return isMultiplierCard ? card : null;
+      });
     });
   }
+  
+  
+  
 
   confirmButton.addEventListener("click", function () {
     if (game.flipped.every((flipStatus) => flipStatus)) {
       return;
     }
-
+  
+    confirmButtonContainer.style.display = "none";
+    dealContainer.style.display = "";
     game.bank -= game.bet;
-
+  
     let totalWin = 0;
     for (let row = 0; row < 3; row++) {
       for (let index = 0; index < rules.dealtCards; index++) {
@@ -351,12 +482,12 @@ function startGame() {
         const cardObject = game.deck[row][index];
         card.style.backgroundImage = `url("img/cards/${cardObject.imgSource}")`;
       }
-
+  
       const selectedCardIndex = game.selected[row].dataset.cardIndex;
       const selectedCard = game.deck[row][selectedCardIndex];
       const selectedMultiplier =
         game.previousHandMultipliers[selectedCardIndex];
-
+  
       if (selectedMultiplier) {
         if (selectedMultiplier.imgSource === "2x.png") {
           game.multiplier = 2;
@@ -370,33 +501,35 @@ function startGame() {
       } else {
         game.multiplier = 1;
       }
-
+  
       totalWin += (selectedCard.payOut || 0) * game.bet * game.multiplier;
-
-      game.selected[
-        row
-      ].style.backgroundImage = `url("img/cards/${selectedCard.imgSource}")`;
+  
+      game.selected[row].style.backgroundImage = `url("img/cards/${selectedCard.imgSource}")`;
+  
+      game.flipped[row] = true; // Set the flipped flag for the current row
     }
-
+  
+    if (game.flipped.every((flipStatus) => flipStatus)) {
+      dealContainer.style.display = "block";
+    }
+  
     game.bank += totalWin;
     currentScore.innerText = "$" + game.bank;
-    lastWin.innerText = "WON: " + totalWin;
-    dealContainer.style.display = "block";
-    confirmButtonContainer.style.display = "none";
+   
+  
     updatePreviousMultipliers();
-    game.flipped = true;
-    
-    // Change the following line from 'in' to 'of'
-    for (const cardi of game.hand) {
-      const cardEl = cardi;
-      cardEl.style.backgroundImage = `url("img/cards/${game.deck[cardi].imgSource}")`;
-    }
+    // Remove the loop below as it's not necessary
+    // for (const cardi of game.hand) {
+    //   const cardEl = cardi;
+    //   cardEl.style.backgroundImage = `url("img/cards/${game.deck[cardi].imgSource}")`;
+    // }
   });
+  
   dealButton.addEventListener("click", function () {
     dealHand();
-    confirmButtonContainer.style.display = "none";
+    confirmButtonContainer.style.display = "";
     dealContainer.style.display = "none";
-    lastWin.innerText = "";
+    
   });
 }
 

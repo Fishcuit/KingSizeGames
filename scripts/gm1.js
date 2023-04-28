@@ -383,7 +383,7 @@ function startGame() {
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
 
-    // const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
+    const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
 
     
     for (const [index, card] of game.hand.entries()) {
