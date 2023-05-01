@@ -510,6 +510,8 @@ function startGame() {
     console.log(JSON.stringify(game.previousHandMultipliers))
   }
 
+  
+
   confirmButton.addEventListener("click", function () {
     backgroundMusic.play();
     if (game.flipped) {
@@ -589,6 +591,8 @@ function startGame() {
     dealContainer.style.display = "block";
     game.bet = 1;
   });
+
+
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     // for (const card of game.hand) {

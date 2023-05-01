@@ -1,156 +1,96 @@
 <!DOCTYPE html>
 
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <link rel="stylesheet" type="text/css" href="css/game4.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" type="text/css" href="css/poker.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta charset="utf-8" />
     <title>PiQum Poker</title>
   </head>
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
   <body>
-    <header style="position: relative">
-      <div class="w3-top" class="header" id="home">
-        <div
-          class="w3-bar w3-card w3-left-align w3-large heeder-large-screen"
-          style="background-color: #000015"
-        >
-          <a
-            class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-black w3-large"
-            href="javascript:void(0);"
-            onclick="myFunction()"
-            title="Toggle Navigation Menu"
-            ><i class="fa fa-bars"></i
-          ></a>
 
-          <div>
-            <a
-              href="index.html"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >Home</a
-            >
-            <a
-              href="#about"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >About</a
-            >
-            <a
-              href="#games"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-            >
-              Games</a
-            >
-            <a
-              href="#contact"
-              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
-              >Contact</a
-            >
-          </div>
-        </div>
-
-        <!-- Navbar on small screens -->
-        <div
-          id="navDemo"
-          class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-large"
-        >
-          <a
-            href="#about"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >About</a
-          >
-          <a
-            href="#games"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >Games</a
-          >
-          <a
-            href="#contact"
-            class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()"
-            >Contact</a
-          >
-        </div>
-      </div>
-    </header>
-    <section>
-      <div class="hero-banner">
-        <h1>PiQum<span class="registered-trademark">&#174;</span> Poker</h1>
-        <p>presented by</p>
-        <img src="img/kingsize dark.png" alt="" />
-      </div>
-    </section>
     <div id="canvas-wrapper">
       <div id="canvas" class="row">
         <div class="column side-bar">
           <img class="title-logo" src="img/pokerlogo.png" alt="" />
-          <fieldset class="grand">
-            <legend class="grand">
-              <p>Royal Flush</p>
-            </legend>
-            <p>$1000</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Straight Flush</p>
-            </legend>
-            <p>$500</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Four of a Kind</p>
-            </legend>
-            <p>$50</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Full House</p>
-            </legend>
-            <p>$40</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Flush</p>
-            </legend>
-            <p>$30</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Straight</p>
-            </legend>
-            <p>$20</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Three of a Kind</p>
-            </legend>
-            <p>$8</p>
-          </fieldset>
-          <fieldset class="other">
-            <legend class="other">
-              <p>Two Pairs</p>
-            </legend>
-            <p>$2</p>
-          </fieldset>
-        </div>
-        <div class="column grow center">
-          <div class="card-meter-container">
-            <img class="card-meter" src="img/Meter_Royals_Ace.png" alt="" />
-            <img class="card-meter" src="img/Meter_Royals_King.png" alt="" />
-            <img class="card-meter" src="img/Meter_Royals_Queen.png" alt="" />
-            <img class="card-meter" src="img/Meter_Royals_Jack.png" alt="" />
-          </div>
-          <div class="column-meter">
-            <fieldset class="meter-value">
-              <legend class="other">
-                <p>P o k e r W i n</p>
+          <div class="high-end">
+            <fieldset class="grand">
+              <legend class="grand">
+                <p>Royal Flush</p>
               </legend>
-              <p id="poker-win">--</p>
+              <p>$1000</p>
             </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Straight Flush</p>
+              </legend>
+              <p>$500</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Four of a Kind</p>
+              </legend>
+              <p>$50</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Full House</p>
+              </legend>
+              <p>$40</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Flush</p>
+              </legend>
+              <p>$30</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Straight</p>
+              </legend>
+              <p>$20</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Three of a Kind</p>
+              </legend>
+              <p>$8</p>
+            </fieldset>
+            <fieldset class="other">
+              <legend class="other">
+                <p>Two Pairs</p>
+              </legend>
+              <p>$2</p>
+            </fieldset>
+          </div>
+        </div>
+        <div class="column grow">
+          <div class="card-meter-container">
+            <img class="card-meter" src="img/Meter_Royals_Jack.png" alt="" />
+            <img class="card-meter" src="img/Meter_Royals_Queen.png" alt="" />
+            <img class="card-meter" src="img/Meter_Royals_King.png" alt="" />
+            <img class="card-meter" src="img/Meter_Royals_Ace.png" alt="" />
           </div>
           <div class="possible-cards">Poker Hand</div>
           <div id="poker-hand"></div>
+          <div id="board"></div>
+
+
           <div class="card-meter-container">
             <div class="column-meter">
               <fieldset class="meter-value">
@@ -174,46 +114,35 @@
                 <legend class="other">
                   <p>W a g e r</p>
                 </legend>
-                <p id="current-wager">$1.00</p>
+                <p id="current-wager">$3.00</p>
               </fieldset>
             </div>
+            <div class="column-meter">
+              <fieldset class="meter-value">
+                <legend class="other">
+                  <p>P o k e r W i n</p>
+                </legend>
+                <p id="poker-win">--</p>
+              </fieldset>
+            </div>
+            
           </div>
-          <div id="board"></div>
-          <div id="messaging">Pick any Card to play!</div>
-          <div class="card-meter-container">
+
+          <div class="card-meter-container2">
+            <div id="messaging">Pick any Card to play!</div>
             <div id="deal-container" style="display: none">
               <button id="deal">Deal</button>
             </div>
             <div id="confirm-choice-container" style="display: none">
               <button id="confirm-choice">Reveal</button>
             </div>
+            
           </div>
         </div>
-        <!-- <div class="column side-bar"><button id="fullscreen-btn">Toggle Full Screen</button></div> -->
       </div>
     </div>
     <div class="container body-content">
       <hr />
-      <footer>
-        <div class="footer-content">
-          <!-- <img
-          class=" "
-          src="img/kingsize dark.png"
-          alt=""
-        /> -->
-        </div>
-        <div class="footer-bottom">
-          <p>Copyright &copy;2023 KingSize Games Inc.</p>
-          <p class="patent">
-            COPYRIGHT AND PATENTS. The proprietary products shown on this
-            website are covered by various patents, patent applications,
-            trademarks, trademark applications, design, copyright, and licensing
-            agreements in order to protect Kingsize Games' intellectual
-            property. Ownership of copyright and other Intellectual Property
-            will at all times remain exclusively with Kingsize Games.
-          </p>
-        </div>
-      </footer>
     </div>
     <script type="text/javascript" src="scripts/gm4.js"></script>
   </body>

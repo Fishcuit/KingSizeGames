@@ -344,7 +344,7 @@ function startGame() {
   const confirmButton = document.getElementById("confirm-choice");
   const dealButton = document.getElementById("deal");
   const currentScore = document.getElementById("current-score");
-  const lastWin = document.getElementById("last-win");
+  const currentWin = document.getElementById("current-win");
 
   const game = {
     flipped: [false, false, false],
@@ -352,7 +352,7 @@ function startGame() {
     deck: null,
     hand: [],
     bank: 100,
-    bet: 1,
+    bet: 3,
     multiplier: 1,
     previousHandMultipliers: [],
   };
@@ -441,27 +441,28 @@ function startGame() {
           const previousMultiplier =
             game.previousHandMultipliers[rowIndex][index];
   
-          if (previousMultiplier && game.multiplier == 1) {
-            return null;
-          } else if (previousMultiplier) {
-            const previousCardMultiplier = parseInt(
+          let previousCardMultiplier = 1;
+          if (previousMultiplier) {
+            previousCardMultiplier = parseInt(
               previousMultiplier.imgSource.replace("x.png", ""),
               10
             );
-            const newMultiplierValue =
-              selectedCardMultiplier * previousCardMultiplier;
-  
-            return {
-              imgSource: `${newMultiplierValue}x.png`,
-              payOut: 0,
-            };
           }
+  
+          const newMultiplierValue =
+            selectedCardMultiplier * previousCardMultiplier;
+  
+          return {
+            imgSource: `${newMultiplierValue}x.png`,
+            payOut: 0,
+          };
         }
   
         return isMultiplierCard ? card : null;
       });
     });
   }
+  
   
   
   
@@ -474,7 +475,7 @@ function startGame() {
     confirmButtonContainer.style.display = "none";
     dealContainer.style.display = "";
     game.bank -= game.bet;
-  
+    
     let totalWin = 0;
     for (let row = 0; row < 3; row++) {
       for (let index = 0; index < rules.dealtCards; index++) {
@@ -485,24 +486,12 @@ function startGame() {
   
       const selectedCardIndex = game.selected[row].dataset.cardIndex;
       const selectedCard = game.deck[row][selectedCardIndex];
-      const selectedMultiplier =
-        game.previousHandMultipliers[selectedCardIndex];
+      
+ 
   
-      if (selectedMultiplier) {
-        if (selectedMultiplier.imgSource === "2x.png") {
-          game.multiplier = 2;
-        } else if (selectedMultiplier.imgSource === "3x.png") {
-          game.multiplier = 3;
-        } else if (selectedMultiplier.imgSource === "4x.png") {
-          game.multiplier = 4;
-        } else if (selectedMultiplier.imgSource === "5x.png") {
-          game.multiplier = 5;
-        }
-      } else {
-        game.multiplier = 1;
-      }
-  
-      totalWin += (selectedCard.payOut || 0) * game.bet * game.multiplier;
+      totalWin += (selectedCard.payOut || 0) * game.multiplier;
+
+      currentWin.innerText = "$" + totalWin
   
       game.selected[row].style.backgroundImage = `url("img/cards/${selectedCard.imgSource}")`;
   
@@ -518,11 +507,6 @@ function startGame() {
    
   
     updatePreviousMultipliers();
-    // Remove the loop below as it's not necessary
-    // for (const cardi of game.hand) {
-    //   const cardEl = cardi;
-    //   cardEl.style.backgroundImage = `url("img/cards/${game.deck[cardi].imgSource}")`;
-    // }
   });
   
   dealButton.addEventListener("click", function () {

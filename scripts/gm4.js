@@ -399,6 +399,8 @@ function startGame() {
     previousHandMultipliers: [],
     pokerHand: [],
   };
+
+  game.selectedIndex = Math.floor(Math.random() * game.hand.length);
   displayBlankPokerHand();
   dealHand();
 
@@ -406,7 +408,11 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(rules.deck);
+   
 
+    const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
+
+    
     for (const [index, card] of game.hand.entries()) {
       // Display multipliers from the previous hand on the card backs
       const previousMultiplier = game.previousHandMultipliers[index];
@@ -418,6 +424,11 @@ function startGame() {
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
 
+      if (index === game.selectedIndex) { // Check if the current index matches the random index
+        card.classList.add("selected"); // Mark the card as selected
+        game.selected = card; // Update the game.selected variable
+      }
+      confirmButtonContainer.style.display = "";
       card.style.animationDelay = `${index * 0.2}s`;
     }
     setTimeout(() => {
@@ -442,9 +453,10 @@ function startGame() {
         game.selected.classList.remove("selected");
       }
       game.selected = newCard;
+      game.selectedIndex = parseInt(newCard.dataset.cardIndex); // Store the selected card index
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
-      message.innerText = "Press Reveal to continue!";
+      message.innerText = "Press Reveal to continue!"
 
       // Check if the card back is a Free Play card
       const previousCard =
