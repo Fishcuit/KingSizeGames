@@ -15,7 +15,7 @@ html {
   align-items: center;
   justify-content: center;
   height: 270px;
-  padding-left: 5px;
+  padding-left: 0px;
 }
 
 #poker-hand {
@@ -532,6 +532,43 @@ img.title-logo {
     width: 30vw;
     border: 1px solid #ffcc00;
   }
+
+  #board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+
+  }
+
+  #poker-hand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    padding-left: 5px;
+  }
+
+  .pcard {
+    width: 75px;
+    height: 120px;
+  }
+  .poker-card {
+    box-sizing: border-box;
+    width: 55px;
+    height: 80px;
+    margin: 4px;
+    float: left;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px #555555 solid;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 3px 0px #000000;
+    box-shadow: 2px 2px 3px 0px #000000;
+    /* animation: glowing-border 2s infinite; */
+  }
 }
 
 @media screen and (max-device-height: 667px) {
@@ -545,7 +582,7 @@ img.title-logo {
     align-items: center;
     justify-content: center;
     height: 120px;
-    padding-left: 5px;
+
   }
 
   #poker-hand {

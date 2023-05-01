@@ -99,15 +99,23 @@ function startGame() {
     previousHandMultipliers: [],
     bonusLevel: 0,
   };
+  game.selectedIndex = Math.floor(Math.random() * game.hand.length);
   function dealHand() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
 
+    const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
+
     for (const [index, card] of game.hand.entries()) {
       card.style.backgroundImage = `url("img/cards/XX.png")`;
       card.classList.remove("selected");
       card.dataset.cardIndex = index;
+      if (index === game.selectedIndex) { // Check if the current index matches the random index
+        card.classList.add("selected"); // Mark the card as selected
+        game.selected = card; // Update the game.selected variable
+      }
+      confirmButtonContainer.style.display = "";
       card.style.animationDelay = `${index * 0.2}s`;
     }
     setTimeout(() => {
@@ -145,10 +153,11 @@ function startGame() {
         game.selected.classList.remove("selected");
       }
       game.selected = newCard;
+      game.selectedIndex = parseInt(newCard.dataset.cardIndex); // Store the selected card index
       newCard.classList.add("selected");
       confirmButtonContainer.style.display = "";
-    });
-    console.log(i);
+      message.innerText = "Press Reveal to continue!"});
+
   }
   dealHand();
 
