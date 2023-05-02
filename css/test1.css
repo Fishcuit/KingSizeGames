@@ -14,37 +14,23 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 270px;
-  padding-left: 0px;
-}
+  height: 320px;
 
-#poker-hand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  padding-left: 5px;
 }
 
 #canvas-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
   /* background-image: url("../img/Board.jpg"); */
 }
 
 
-@media screen and (max-device-width: 450px) {
-  #canvas-wrapper {
-    z-index: 0;
-  }
-}
 
 #canvas {
-  width: 35%;
-
+  width: 40%;
+height: 910px;
   background-image: url("../img/redbg.png");
   background-repeat: no-repeat;
   background-position: right;
@@ -64,7 +50,6 @@ html {
   flex-direction: column;
 }
 
-
 .center {
   align-items: center;
 }
@@ -75,7 +60,6 @@ html {
   width: 100%;
   max-width: 100%;
 }
-
 
 .high-end {
   display: flex;
@@ -107,8 +91,8 @@ html {
 
 .card {
   box-sizing: border-box;
-  width: 130px;
-  height: 184px;
+  width: 160px;
+  height: 190px;
   margin: 8px;
   float: left;
   background-color: white;
@@ -121,9 +105,6 @@ html {
   box-shadow: 2px 2px 3px 0px #000000;
   opacity: 1;
 }
-
-
-
 
 .show-card {
   box-sizing: border-box;
@@ -143,54 +124,11 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-.pcard {
-  width: 75px;
-  height: 120px;
-}
-.poker-card {
-  box-sizing: border-box;
-  width: 78px;
-  height: 105px;
-  margin: 8px;
-  float: left;
-  background-color: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  border: 1px #555555 solid;
-  border-radius: 10px;
-  -webkit-box-shadow: 2px 2px 3px 0px #000000;
-  box-shadow: 2px 2px 3px 0px #000000;
-  /* animation: glowing-border 2s infinite; */
-}
-
 .card.selected {
-  width: 130px;
-  height: 184px;
+  width: 160px;
+  height: 190px;
   animation: glowing-border 2s infinite;
   border: 1px solid #ff0000; /* Change the border color if needed */
-}
-
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  .card.selected {
-    width: 14vw;
-    height: 30vh;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-}
-@media screen and (max-device-height: 896px) {
-  .card.selected {
-    width: 80px;
-    height: 110px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 80px;
-    height: 110px;
-    margin: 3px;
-  }
 }
 
 .possible-cards {
@@ -232,30 +170,6 @@ HR {
   cursor: pointer; /* Add this to change the cursor on hover */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #deal {
-    width: 20vw;
-    height: 20vh;
-    font-size: 20px;
-    animation: glowing-border 2s infinite;
-    border: 3px solid #ff0000;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #deal {
-    font-size: 30px;
-    width: 110px;
-    height: 110px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #deal-container {
-    padding-top: 1%;
-  }
-}
-
 #deal:hover {
   background: linear-gradient(
     45deg,
@@ -286,28 +200,6 @@ HR {
   cursor: pointer; /* Add this to change the cursor on hover */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #confirm-choice {
-    width: 20vw;
-    height: 20vh;
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #confirm-choice {
-    width: 110px;
-    height: 110px;
-    font-size: 30px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #confirm-choice-container {
-    padding-top: 1%;
-  }
-}
-
 #confirm-choice:hover {
   background: linear-gradient(
     45deg,
@@ -315,6 +207,24 @@ HR {
     rgba(189, 16, 224, 1)
   );
 }
+
+#close-popup {
+    font-size: 25px;
+    font-family: Arial;
+    width: 105px;
+    height: 54px;
+    border-width: 1px;
+    color: #fff;
+    border-color: #d02718;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
+  }
 @keyframes meter-gradient {
   0% {
     background-position: 0% 50%;
@@ -336,12 +246,6 @@ HR {
   border: 2px solid red;
   border-radius: 10px;
   text-align: center;
-}
-@media screen and (max-device-width: 450px) {
-  .meter-value {
-    font-size: 15px;
-    padding: 0px 2px;
-  }
 }
 
 .left {
@@ -405,7 +309,7 @@ HR {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   color: #ffffff;
   background-color: #000000;
@@ -415,6 +319,7 @@ HR {
   text-align: center;
   margin: 5px 0px;
   width: 40%;
+  height:fit-content;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   white-space: nowrap;
   overflow: hidden;
@@ -433,7 +338,27 @@ HR {
   }
 }
 
+fieldset.grand {
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(45deg, #d43100, #f7d206, #d43100);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+  padding: 0px;
+  border: 2px solid rgb(247, 210, 6);
+  border-radius: 10px;
+  text-align: center;
+}
 
+legend.grand {
+  color: white;
+  font-size: 20px;
+  padding: 0px 5px;
+  text-align: center;
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  background-color: black;
+}
 
 fieldset.other {
   color: white;
@@ -465,26 +390,57 @@ img.title-logo {
   padding-bottom: 15px;
 }
 
+.bonus-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.bonus-popup-content {
+  background-image: url("../img/bluebg.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  align-items: center;
+  justify-content: center;
+  color: antiquewhite;
+  padding: 20px;
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media screen and (max-device-width: 450px) {
+  .bonus-popup-content {
+    height: fit-content;
+  }
+}
+@media screen and (max-device-width: 450px) {
+  #bonus-reward img {
+    width: 60px; /* Adjust the width as needed */
+    height: 90px; /* Maintain the aspect ratio */
+    margin: 1px; /* Adjust the margin as needed */
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-device-height: 1000px) and (max-device-width: 1400px) {
-  .high-end {
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 10px;
+  fieldset.grand {
+    font-size: 12px;
   }
-  
-  .high-end table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  
-  .high-end th,
-  .high-end td {
-    border: 0px solid #333;
-    padding: 0px;
-    text-align: left;
-    color: #fff;
+  legend.grand {
+    font-size: 12px;
   }
 
   fieldset.other {
@@ -501,12 +457,11 @@ img.title-logo {
 
   img.title-logo {
     max-width: 30%;
-    display: none;
   }
 
   #canvas {
     width: 40%;
-    height:fit-content;
+    height: 100%;
   }
 
   #messaging {
@@ -521,19 +476,19 @@ img.title-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 190px;
+    height: 210px;
     
   }
 
   .card.selected {
     width: 100px;
-    height: 140px;
+    height: 130px;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
   .card {
     width: 100px;
-    height: 140px;
+    height: 130px;
     margin: 3px;
   }
 
@@ -548,37 +503,19 @@ img.title-logo {
     height: 110px; /* Update height to match the width for a circle */
     font-size: 20px;
   }
-  #poker-hand {
+  .card-meter-container2 {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    padding-left: 5px;
-  }
-
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 55px;
-    height: 80px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
+    flex-direction: row;
   }
 }
 
 @media screen and (max-device-height: 896px) and (max-device-width: 414px) {
+  fieldset.grand {
+    font-size: 12px;
+  }
+  legend.grand {
+    font-size: 12px;
+  }
 
   fieldset.other {
     font-size: 12px;
@@ -594,7 +531,6 @@ img.title-logo {
 
   img.title-logo {
     max-width: 50%;
-    display: block;
   }
 
   #canvas {
@@ -603,10 +539,10 @@ img.title-logo {
   }
 
   #messaging {
-    font-size: 10px;
-    padding: 0px 0px;
+    font-size: 12px;
+    padding: 0px 5px;
     height: 5vh;
-    width: 45vw;
+    width: 35vw;
     border: 1px solid #ffcc00;
   }
 
@@ -614,48 +550,31 @@ img.title-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
-  }
-
-  #poker-hand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90px;
-    padding-left: 5px;
-  }
-
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 55px;
-    height: 80px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
+    height: 200px;
   }
 
   .card.selected {
     width: 80px;
-    height: 105px;
+    height: 110px;
     animation: glowing-border 2s infinite;
     border: 1px solid #ff0000; /* Change the border color if needed */
   }
   .card {
     width: 80px;
-    height: 105px;
+    height: 110px;
     margin: 3px;
+  }
+
+  #confirm-choice {
+    width: 90px;
+    height: 90px; /* Update height to match the width for a circle */
+    font-size: 20px;
+  }
+
+  #deal {
+    width: 90px;
+    height: 90px; /* Update height to match the width for a circle */
+    font-size: 20px;
   }
 }
 
@@ -672,14 +591,6 @@ img.title-logo {
     height: 120px;
   }
 
-  #poker-hand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    padding-left: 5px;
-  }
-
   .card.selected {
     width: 60px;
     height: 85px;
@@ -692,31 +603,15 @@ img.title-logo {
     margin: 3px;
   }
 
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 45px;
-    height: 60px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
-  }
-
   img.title-logo {
     width: 50%;
   }
-
+  fieldset.grand {
+    font-size: 12px;
+  }
+  legend.grand {
+    font-size: 12px;
+  }
 
   fieldset.other {
     font-size: 12px;

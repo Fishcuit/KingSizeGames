@@ -263,12 +263,12 @@ const rules = {
       payOut: 0,
     },
     {
-      imgSource: "bonus up.png",
+      imgSource: "bonus.png",
       payOut: 0,
       name: "Bonus",
     },
     {
-      imgSource: "bonus up.png",
+      imgSource: "bonus.png",
       payOut: 0,
       name: "Bonus",
     },
@@ -339,6 +339,8 @@ for (let i = 0; i < 55; i++) {
   });
 }
 
+
+
 function startGame() {
   const confirmButtonContainer = document.getElementById(
     "confirm-choice-container"
@@ -365,6 +367,8 @@ function startGame() {
     multiplier: 1,
     previousHandMultipliers: [],
     bonusLevel: 1,
+    savedPreviousHandMultipliers: [],
+    leavingBonus: false,
     
   };
   game.selectedIndex = Math.floor(Math.random() * game.hand.length);
@@ -388,7 +392,7 @@ function startGame() {
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
     game.deck = shuffle(getBonusDeck(game.bonusLevel));
 
-    // const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
+    const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
 
     
     for (const [index, card] of game.hand.entries()) {
@@ -405,6 +409,7 @@ function startGame() {
       if (index === game.selectedIndex) { // Check if the current index matches the random index
         card.classList.add("selected"); // Mark the card as selected
         game.selected = card; // Update the game.selected variable
+        handleFreePick(index)
       }
       confirmButtonContainer.style.display = "";
       card.style.animationDelay = `${index * 0.2}s`;
@@ -515,6 +520,28 @@ function startGame() {
     console.log(JSON.stringify(game.previousHandMultipliers))
   }
 
+  function handleFreePick(cardIndex) {
+    const previousCard = game.previousHandMultipliers[cardIndex];
+    const isFreePlayCardBack =
+      previousCard && previousCard.imgSource === "free pick.png";
+  
+    if (isFreePlayCardBack) {
+      game.bet = 0;
+      currentWager.innerText = "$" + game.bet;
+      game.previousHandMultipliers[cardIndex] = null;
+    } else {
+      game.bet = 1;
+      currentWager.innerText = "$" + game.bet;
+    }
+
+    if (game.bonusLevel == 1 && game.leavingBonus) {
+      game.previousHandMultipliers = game.savedPreviousHandMultipliers.slice();
+      game.leavingBonus = false; // Reset the flag
+    }
+  }
+
+  
+
   confirmButton.addEventListener("click", function () {
     backgroundMusic.play();
     if (game.flipped) {
@@ -542,14 +569,29 @@ function startGame() {
       game.multiplier = 1;
     }
 
-    const isBonusCard = selectedCard.imgSource === "bonus up.png";
+    const isBonusCard = selectedCard.imgSource === "bonus.png";
+    const isBonusCardUp = selectedCard.imgSource === "bonus up.png";
     const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
+    const jackpotNames = ["Mini", "Minor", "Major", "Mega", "Grand"];
+    const isJackpotCard = jackpotNames.includes(selectedCard.name);
+
+    
 
     if (isBonusCard) {
+      game.savedPreviousHandMultipliers = game.previousHandMultipliers.slice();
+      game.bonusLevel++;
+    }
+    else if (isBonusCardUp){
       game.bonusLevel++;
     } else if (isBonusDownCard) {
       game.bonusLevel--;
-    } else {
+    }
+    else if (isJackpotCard && game.bonusLevel > 1) {
+      game.leavingBonus = true;
+      game.bonusLevel = 1;
+    }
+    else {
+      game.leavingBonus = false;
       game.bonusLevel = 1;
     }
 
@@ -594,6 +636,8 @@ function startGame() {
     dealContainer.style.display = "block";
     game.bet = 1;
   });
+
+
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     // for (const card of game.hand) {
@@ -653,6 +697,7 @@ function startGame() {
       console.log(game.previousHandMultipliers);
       return rules.bonusDecks[bonusLevel - 2];
     } else {
+      
       return rules.deck;
     }
   }

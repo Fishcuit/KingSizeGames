@@ -19,23 +19,9 @@ html {
   position: relative;
   /* background-image: url("../img/Board.jpg"); */
 }
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #canvas-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    padding-top: 0px;
-  }
-}
 
-@media screen and (max-device-width: 450px) {
-  #canvas-wrapper {
-    z-index: 0;
-  }
-}
+
+
 
 #canvas {
   width: 35%;
@@ -64,11 +50,7 @@ html {
   flex-direction: column;
 }
 
-@media screen and (max-device-width: 450px) {
-  .row {
-    flex-direction: column;
-  }
-}
+
 
 .center {
   align-items: center;
@@ -80,19 +62,7 @@ html {
   width: 100%;
     max-width: 100%;
 }
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  .side-bar {
-    width: 20vw;
-    max-width: 15vw;
-  }
-}
 
-@media screen and (max-device-width: 450px) {
-  .side-bar {
-    width: 100%;
-    max-width: 100%;
-  }
-}
 
 .high-end {
   display: flex;
@@ -140,31 +110,7 @@ html {
   opacity: 1;
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  .card {
-    box-sizing: border-box;
-    width: 14vw;
-    height: 35vh;
-    margin: 3px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    opacity: 1;
-  }
-}
 
-/* .card.deal {
-    animation: slideIn 0.1s ease-out backwards;
-    animation-fill-mode: both;
-    opacity: 1;
-    
-  } */
 
 .show-card {
   box-sizing: border-box;
@@ -191,27 +137,7 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  .card.selected {
-    width: 14vw;
-    height: 30vh;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-}
-@media screen and (max-device-height: 896px) {
-  .card.selected {
-    width: 80px;
-    height: 110px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 80px;
-    height: 110px;
-    margin: 3px;
-  }
-}
+
 
 .possible-cards {
   font-size: 24px;
@@ -252,29 +178,7 @@ HR {
   cursor: pointer; /* Add this to change the cursor on hover */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #deal {
-    width: 20vw;
-    height: 20vh;
-    font-size: 20px;
-    animation: glowing-border 2s infinite;
-    border: 3px solid #ff0000;
-  }
-}
 
-@media screen and (max-device-width: 450px) {
-  #deal {
-    font-size: 30px;
-    width: 110px;
-    height: 110px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #deal-container {
-    padding-top: 1%;
-  }
-}
 
 #deal:hover {
   background: linear-gradient(
@@ -306,27 +210,6 @@ HR {
   cursor: pointer; /* Add this to change the cursor on hover */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #confirm-choice {
-    width: 20vw;
-    height: 20vh;
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #confirm-choice {
-    width: 110px;
-    height: 110px;
-    font-size: 30px;
-  }
-}
-
-@media screen and (max-device-width: 450px) {
-  #confirm-choice-container {
-    padding-top: 1%;
-  }
-}
 
 #confirm-choice:hover {
   background: linear-gradient(
@@ -357,12 +240,7 @@ HR {
   border-radius: 10px;
   text-align: center;
 }
-@media screen and (max-device-width: 450px) {
-  .meter-value {
-    font-size: 15px;
-    padding: 0px 2px;
-  }
-}
+
 
 .left {
   margin-right: 100px;
@@ -465,8 +343,75 @@ img.title-logo {
   margin: 0 auto;
   padding-bottom: 15px;
 }
+@media screen and (max-device-height: 1000px) and (max-device-width: 1400px) {
+  .high-end {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 10px;
+  }
+  
 
-@media screen and (max-device-height: 896px) {
+
+  fieldset.other {
+    font-size: 12px;
+  }
+
+  legend.other {
+    font-size: 12px;
+  }
+
+  .meter-value {
+    font-size: 12px;
+  }
+
+  img.title-logo {
+    max-width: 30%;
+   
+  }
+
+  #canvas {
+    width: 40%;
+    height:fit-content;
+  }
+
+  #messaging {
+    font-size: 10px;
+    padding: 0px 5px;
+    height: 6vh;
+    width: 15vw;
+    border: 1px solid #ffcc00;
+  }
+
+ 
+
+  .card.selected {
+    width: 50px;
+    height: 75px;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
+  }
+  .card {
+    width: 50px;
+    height: 75px;
+    margin: 3px;
+  }
+
+  #confirm-choice {
+    width: 110px;
+    height: 110px; /* Update height to match the width for a circle */
+    font-size: 20px;
+  }
+
+  #deal {
+    width: 110px;
+    height: 110px; /* Update height to match the width for a circle */
+    font-size: 20px;
+  }
+}
+
+
+@media screen and (max-device-height: 896px) and (max-device-width: 414px){
   fieldset.grand {
     font-size: 12px;
   }
@@ -501,6 +446,17 @@ img.title-logo {
     height: 4vh;
     width: 30vw;
     border: 1px solid #ffcc00;
+  }
+  .card.selected {
+    width: 90px;
+    height: 115px;
+    animation: glowing-border 2s infinite;
+    border: 1px solid #ff0000; /* Change the border color if needed */
+  }
+  .card {
+    width: 90px;
+    height: 115px;
+    margin: 3px;
   }
 }
 
