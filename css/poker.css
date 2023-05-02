@@ -400,13 +400,62 @@ HR {
 .right {
   margin-left: 100px;
 }
+.high-end {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.high-end table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.high-end th,
+.high-end td {
+  border: 0px solid #333;
+  padding: 2px;
+  text-align: left;
+  color: #fff;
+}
+
+.high-end th {
+  background-size: 400% 400%;
+
+  font-weight: bold;
+}
+
+.high-end tbody tr:nth-child(odd) {
+  font-weight: bold;
+}
+
+.high-end tbody tr:nth-child(even) {
+  font-weight: bold;
+}
+
+.high-end tbody tr:hover {
+  background: rgb(110, 6, 6);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 #messaging {
   font-family: "Arial", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 15px;
   font-weight: bold;
   color: #ffffff;
   background-color: #000000;
@@ -420,16 +469,6 @@ HR {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  #messaging {
-    font-size: 16px;
-    padding: 0px 10px;
-    margin: 0px 0px;
-    width: 30vw;
-    border: 2px solid #ffcc00;
-  }
 }
 
 @keyframes gradient {
@@ -538,7 +577,6 @@ img.title-logo {
     align-items: center;
     justify-content: center;
     height: 120px;
-
   }
 
   #poker-hand {
@@ -582,7 +620,6 @@ img.title-logo {
     align-items: center;
     justify-content: center;
     height: 120px;
-
   }
 
   #poker-hand {
@@ -627,7 +664,7 @@ img.title-logo {
   }
 
   img.title-logo {
-    max-width: 50%;
+    width: 50%;
   }
   fieldset.grand {
     font-size: 12px;
@@ -687,7 +724,7 @@ img.title-logo {
     font-size: 10px;
     padding: 0px 0px;
     height: 5vh;
-    width: 30vw;
+    width: 45vw;
     border: 1px solid #ffcc00;
   }
 
@@ -697,6 +734,11 @@ img.title-logo {
     display: block;
     margin: 0 auto;
     padding-bottom: 15px;
+  }
+
+  .high-end th,
+  .high-end td {
+    font-size: 8px;
   }
 }
 

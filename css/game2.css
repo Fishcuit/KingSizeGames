@@ -524,7 +524,7 @@ img.title-logo {
   }
 
   img.title-logo {
-    max-width: 50%;
+    width: 50%;
   }
   fieldset.grand {
     font-size: 12px;
