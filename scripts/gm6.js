@@ -267,6 +267,11 @@ const rules = {
       payOut: 0,
       name: "Bonus",
     },
+    {
+      imgSource: "bonus up.png",
+      payOut: 0,
+      name: "Bonus",
+    },
   ],
   bonusDecks: [
     [
@@ -327,7 +332,7 @@ const rules = {
     ],
   ],
 };
-for (let i = 0; i < 35; i++) {
+for (let i = 0; i < 55; i++) {
   rules.deck.push({
     imgSource: "JK.png",
     payOut: 0,

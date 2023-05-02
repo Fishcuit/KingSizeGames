@@ -263,7 +263,7 @@ const rules = {
       payOut: 0,
     },
     {
-      imgSource: "bonus up.png",
+      imgSource: "bonus.png",
       payOut: 0,
       name: "Bonus",
     },
@@ -334,6 +334,8 @@ for (let i = 0; i < 35; i++) {
   });
 }
 
+
+
 function startGame() {
   const confirmButtonContainer = document.getElementById(
     "confirm-choice-container"
@@ -360,6 +362,8 @@ function startGame() {
     multiplier: 1,
     previousHandMultipliers: [],
     bonusLevel: 1,
+    savedPreviousHandMultipliers: [],
+    leavingBonus: false,
     
   };
   game.selectedIndex = Math.floor(Math.random() * game.hand.length);
@@ -524,6 +528,11 @@ function startGame() {
       game.bet = 1;
       currentWager.innerText = "$" + game.bet;
     }
+
+    if (game.bonusLevel == 1 && game.leavingBonus) {
+      game.previousHandMultipliers = game.savedPreviousHandMultipliers.slice();
+      game.leavingBonus = false; // Reset the flag
+    }
   }
 
   
@@ -555,14 +564,29 @@ function startGame() {
       game.multiplier = 1;
     }
 
-    const isBonusCard = selectedCard.imgSource === "bonus up.png";
+    const isBonusCard = selectedCard.imgSource === "bonus.png";
+    const isBonusCardUp = selectedCard.imgSource === "bonus up.png";
     const isBonusDownCard = selectedCard.imgSource === "bonus down.png";
+    const jackpotNames = ["Mini", "Minor", "Major", "Mega", "Grand"];
+    const isJackpotCard = jackpotNames.includes(selectedCard.name);
+
+    
 
     if (isBonusCard) {
+      game.savedPreviousHandMultipliers = game.previousHandMultipliers.slice();
+      game.bonusLevel++;
+    }
+    else if (isBonusCardUp){
       game.bonusLevel++;
     } else if (isBonusDownCard) {
       game.bonusLevel--;
-    } else {
+    }
+    else if (isJackpotCard && game.bonusLevel > 1) {
+      game.leavingBonus = true;
+      game.bonusLevel = 1;
+    }
+    else {
+      game.leavingBonus = false;
       game.bonusLevel = 1;
     }
 
@@ -668,6 +692,7 @@ function startGame() {
       console.log(game.previousHandMultipliers);
       return rules.bonusDecks[bonusLevel - 2];
     } else {
+      
       return rules.deck;
     }
   }
