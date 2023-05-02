@@ -400,6 +400,7 @@ function startGame() {
       if (index === game.selectedIndex) { // Check if the current index matches the random index
         card.classList.add("selected"); // Mark the card as selected
         game.selected = card; // Update the game.selected variable
+        handleFreePick(index)
       }
       confirmButtonContainer.style.display = "";
       card.style.animationDelay = `${index * 0.2}s`;
@@ -508,6 +509,21 @@ function startGame() {
       return isMultiplierCard ? card : null;
     });
     console.log(JSON.stringify(game.previousHandMultipliers))
+  }
+
+  function handleFreePick(cardIndex) {
+    const previousCard = game.previousHandMultipliers[cardIndex];
+    const isFreePlayCardBack =
+      previousCard && previousCard.imgSource === "free pick.png";
+  
+    if (isFreePlayCardBack) {
+      game.bet = 0;
+      currentWager.innerText = "$" + game.bet;
+      game.previousHandMultipliers[cardIndex] = null;
+    } else {
+      game.bet = 1;
+      currentWager.innerText = "$" + game.bet;
+    }
   }
 
   
