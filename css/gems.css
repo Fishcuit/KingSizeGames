@@ -1,0 +1,132 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  background-image: url("../img/gem_bg.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 75px);
+  grid-template-rows: repeat(5, 75px);
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  
+}
+.grid-item {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  line-height: 75px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.symbol {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  display: none;
+  justify-content: center;
+  text-align: center;
+  line-height: 75px;
+  background-color: rgba(113, 42, 228, 0.3);
+}
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  background-image: url("../img/chest.png");
+  background-color: rgba(113, 42, 228, 0.3);
+  background-position: center;
+  background-size: cover;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  font-size: 20px;
+  color: white;
+  background-color: rgba(113, 42, 228, 0.7);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+#bonus-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+fieldset.grand {
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(45deg, #d43100, #f7d206, #d43100);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+  padding: 0px;
+  border: 2px solid rgb(247, 210, 6);
+  border-radius: 10px;
+  text-align: center;
+}
+
+legend.grand {
+  color: white;
+  font-size: 20px;
+  padding: 0px 5px;
+  text-align: center;
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  background-color: black;
+}
+
+fieldset.other {
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(45deg, #000000, #5013d2, #000000);
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+  padding: 0px;
+  border: 2px solid red;
+  border-radius: 10px;
+  text-align: center;
+}
+
+legend.other {
+  color: white;
+  font-size: 20px;
+  padding: 0px 5px;
+  text-align: center;
+  border: 2px solid rgb(50, 13, 213);
+  border-radius: 10px;
+  background-color: black;
+}
