@@ -4,6 +4,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="css/test1.css" />
     <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -13,14 +14,25 @@
     <title>PiQum Classic</title>
   </head>
   <header>
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#games">Games</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="topnav">
+      <a href="index.html" class="active"></a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a href="index.html">Home</a>
+        <a href="game1.html">piQum Classic</a>
+        <a href="game6.html">Bonus piQum</a>
+        <a href="game2.html">Triple piQum</a>
+        <a href="game4.html">piQum Poker</a>
+        <a href="gems.html">piQum Gems</a>
+        <a href="game3.html">piQum Royale</a>
+        <a href="gemsBonusOnly.html">Gems Bonus Game</a>
+
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i id = "top" class="fa fa-bars"></i>
+      </a>
+    </div>
   </header>
 
   <body>
@@ -122,7 +134,20 @@
     </div>
 
     <script type="text/javascript" src="scripts/gm1.js"></script>
-
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        var y = document.getElementById("top");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+          y.style.display = "block";
+        } else {
+          x.style.display = "block";
+          y.style.display = "none";
+          x.style.backgroundColor = "black";
+        }
+      }
+      </script>
     <!-- <script>
       function hideAddressBar() {
         if (!window.location.hash) {
