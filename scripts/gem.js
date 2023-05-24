@@ -267,6 +267,11 @@ const rules = {
       payOut: 0,
       name: "Bonus",
     },
+    {
+      imgSource: "bonus up.png",
+      payOut: 0,
+      name: "Bonus",
+    },
   ],
 };
 for (let i = 0; i < 35; i++) {
