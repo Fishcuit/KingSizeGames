@@ -1,4 +1,9 @@
 /* Style the navigation menu */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .topnav {
   overflow: hidden;
   background-color: transparent;
