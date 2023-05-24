@@ -35,7 +35,6 @@ html {
   /* background-image: url("../img/Board.jpg"); */
 }
 
-
 @media screen and (max-device-width: 450px) {
   #canvas-wrapper {
     z-index: 0;
@@ -64,7 +63,6 @@ html {
   flex-direction: column;
 }
 
-
 .center {
   align-items: center;
 }
@@ -75,7 +73,6 @@ html {
   width: 100%;
   max-width: 100%;
 }
-
 
 .high-end {
   display: flex;
@@ -121,9 +118,6 @@ html {
   box-shadow: 2px 2px 3px 0px #000000;
   opacity: 1;
 }
-
-
-
 
 .show-card {
   box-sizing: border-box;
@@ -421,6 +415,24 @@ HR {
   text-overflow: ellipsis;
 }
 
+#poker-win {
+  position: absolute;
+  display: none;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 44px;
+  font-weight: bold;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  width: 70%;
+ 
+  color: #ffcc00;
+
+ 
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -432,8 +444,6 @@ HR {
     background-position: 0% 50%;
   }
 }
-
-
 
 fieldset.other {
   color: white;
@@ -472,13 +482,13 @@ img.title-logo {
     margin: 0 auto;
     font-size: 10px;
   }
-  
+
   .high-end table {
     width: 100%;
     border-collapse: collapse;
     background-color: rgba(0, 0, 0, 0.3);
   }
-  
+
   .high-end th,
   .high-end td {
     border: 0px solid #333;
@@ -506,7 +516,7 @@ img.title-logo {
 
   #canvas {
     width: 40%;
-    height:fit-content;
+    height: fit-content;
   }
 
   #messaging {
@@ -522,7 +532,6 @@ img.title-logo {
     align-items: center;
     justify-content: center;
     height: 190px;
-    
   }
 
   .card.selected {
@@ -579,7 +588,6 @@ img.title-logo {
 }
 
 @media screen and (max-device-height: 896px) and (max-device-width: 414px) {
-
   fieldset.other {
     font-size: 12px;
   }
@@ -623,6 +631,21 @@ img.title-logo {
     justify-content: center;
     height: 90px;
     padding-left: 5px;
+  }
+  #poker-win {
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 70%;
+ 
+    color: #ffcc00;
+
+    
   }
 
   .pcard {
@@ -716,7 +739,6 @@ img.title-logo {
   img.title-logo {
     width: 50%;
   }
-
 
   fieldset.other {
     font-size: 12px;

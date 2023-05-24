@@ -408,6 +408,7 @@ function startGame() {
     game.selected = null;
     game.flipped = false;
     game.deck = shuffle(rules.deck);
+    game.deck = shuffle(game.deck);
    
 
     const randomIndex = Math.floor(Math.random() * game.hand.length); // Initialize the randomIndex variable instead of player choice
@@ -589,7 +590,7 @@ function startGame() {
         selectedCard.payOut * game.multiplier +
         ". \n Press Deal to Play again.";
     } else {
-      message.innerText = "No Winner.\n Press Deal to Play again!";
+      message.innerText = "Press Deal to Play again!";
     }
     currentScore.innerText = "$" + game.bank;
     // currentWin.innerText =
@@ -620,6 +621,7 @@ function startGame() {
     }
     if (game.pokerHand.length === 5) {
       pokerPayout = calculatePayout();
+      
     } else {
       pokerPayout = 0;
     }
@@ -629,7 +631,7 @@ function startGame() {
   dealButton.addEventListener("click", function () {
     currentWager.innerText = "$" + game.bet;
     if (game.pokerHand.length === 5) {
-      pokerWin.innerText = "--";
+      pokerWin.style.display = "none";
       resetPokerHand();
     }
     // for (const card of game.hand) {
@@ -684,23 +686,26 @@ function startGame() {
       handName = "No winner";
     }
 
-    // const increment = 1;
-    // const cycles = ((payout || 0) * 1) / increment;
-    // const coinSound = new Audio("sound/coin.mp3");
+    if (payout > 0) {
+      pokerWin.style.display = "block";
+      
+    }
+    const increment = 1;
+    const cycles =
+      (payout) / increment;
+    const coinSound = new Audio("sound/coin.mp3");
 
-    // for (let i = 0; i < cycles; i++) {
-    //   setTimeout(() => {
-    //     game.bank += increment;
-    //     currentScore.innerText = "$" + game.bank;
-    //     coinSound.currentTime = 0; // Reset the playback position
-    //     coinSound.play();
-    //     // Update the player's total display here, if necessary
-    //   }, i * 100); // Adjust the delay time as needed
-    // }
-
-    game.bank += payout;
+    for (let i = 0; i < cycles; i++) {
+      setTimeout(() => {
+        game.bank += increment;
+        currentScore.innerText = "$" + game.bank;
+        coinSound.currentTime = 0; // Reset the playback position
+        coinSound.play();
+        // Update the player's total display here, if necessary
+      }, i * 100); // Adjust the delay time as needed
+    }
     currentScore.innerText = "$" + game.bank;
-    pokerWin.innerText = handName + " pays: " + payout || "No Winner";
+    pokerWin.innerText = handName + " pays: $" + payout || "No Winner";
 
     return payout;
   }
