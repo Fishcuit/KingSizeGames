@@ -15,7 +15,6 @@ html {
   align-items: center;
   justify-content: center;
   height: 320px;
-
 }
 
 #canvas-wrapper {
@@ -26,11 +25,9 @@ html {
   /* background-image: url("../img/Board.jpg"); */
 }
 
-
-
 #canvas {
   width: 40%;
-height: 910px;
+  height: 910px;
   background-image: url("../img/redbg.png");
   background-repeat: no-repeat;
   background-position: right;
@@ -209,22 +206,22 @@ HR {
 }
 
 #close-popup {
-    font-size: 25px;
-    font-family: Arial;
-    width: 105px;
-    height: 54px;
-    border-width: 1px;
-    color: #fff;
-    border-color: #d02718;
-    font-weight: bold;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    box-shadow: inset 0px 1px 0px 0px #f5978e;
-    text-shadow: inset 0px 1px 0px #810e05;
-    background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
-  }
+  font-size: 25px;
+  font-family: Arial;
+  width: 105px;
+  height: 54px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #d02718;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #f5978e;
+  text-shadow: inset 0px 1px 0px #810e05;
+  background: linear-gradient(rgb(193, 48, 55), rgba(189, 16, 224, 1));
+}
 @keyframes meter-gradient {
   0% {
     background-position: 0% 50%;
@@ -319,7 +316,7 @@ HR {
   text-align: center;
   margin: 5px 0px;
   width: 40%;
-  height:fit-content;
+  height: fit-content;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   white-space: nowrap;
   overflow: hidden;
@@ -477,7 +474,6 @@ img.title-logo {
     align-items: center;
     justify-content: center;
     height: 210px;
-    
   }
 
   .card.selected {

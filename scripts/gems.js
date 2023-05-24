@@ -41,11 +41,9 @@ let selectedCells = 0;
 let score = 0;
 let matchedSymbols = 0;
 document.getElementById("continueButton").addEventListener("click", () => {
-    hideModal();
-    startNextLevel();
-  });
-  
-  
+  hideModal();
+  startNextLevel();
+});
 
 function generateFirstLevelSymbols() {
   const symbolList = [];
@@ -211,28 +209,26 @@ function updateLevelAndScoreDisplays() {
 }
 
 function updateLevelSymbolsDisplay() {
-    const levelSymbolsDiv = document.getElementById("levelSymbols");
-    levelSymbolsDiv.innerHTML = ""; // Clear previous content
-  
-    const currentSymbols = symbols.slice(0, level+1);
-  
-    currentSymbols.forEach((symbolObj) => {
-      const symbolSpan = document.createElement("span");
-      symbolSpan.textContent = symbolObj.symbol;
-      symbolSpan.style.fontSize = "24px";
-      symbolSpan.style.marginRight = "10px";
-  
-      const countSpan = document.createElement("span");
-      countSpan.textContent = "x" + symbolObj.count;
-      countSpan.style.fontSize = "16px";
-      countSpan.style.marginRight = "20px";
-  
-      levelSymbolsDiv.appendChild(symbolSpan);
-      levelSymbolsDiv.appendChild(countSpan);
-    });
-  }
-  
-  
+  const levelSymbolsDiv = document.getElementById("levelSymbols");
+  levelSymbolsDiv.innerHTML = ""; // Clear previous content
+
+  const currentSymbols = symbols.slice(0, level + 1);
+
+  currentSymbols.forEach((symbolObj) => {
+    const symbolSpan = document.createElement("span");
+    symbolSpan.textContent = symbolObj.symbol;
+    symbolSpan.style.fontSize = "24px";
+    symbolSpan.style.marginRight = "10px";
+
+    const countSpan = document.createElement("span");
+    countSpan.textContent = "x" + symbolObj.count;
+    countSpan.style.fontSize = "16px";
+    countSpan.style.marginRight = "20px";
+
+    levelSymbolsDiv.appendChild(symbolSpan);
+    levelSymbolsDiv.appendChild(countSpan);
+  });
+}
 
 function showModal() {
   const modal = document.getElementById("modal");
