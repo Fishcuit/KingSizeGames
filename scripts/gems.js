@@ -52,6 +52,11 @@
     // hideBonusModal();
     resetGame();
   });
+  
+  document.getElementById("startButton").addEventListener("click", () => {
+    welcomeModal = document.getElementById("welcome-modal");
+    welcomeModal.style.display = "none";
+  });
 
   function generateFirstLevelSymbols() {
     const symbolList = [];
@@ -128,16 +133,21 @@
         cell.classList.add("grid-item");
         symbol.classList.add("symbol");
         cover.classList.add("cover");
-
+        
+        
         symbol.textContent = gameBoard[i][j];
         cell.appendChild(symbol);
         cell.appendChild(cover);
+
+        
 
         cell.addEventListener("click", () => handleCellClick(cell));
         board.appendChild(cell);
       }
     }
   }
+
+  
 
   function findSymbolByCharacter(character) {
     return symbols.find((symbolObj) => symbolObj.symbol === character);
@@ -180,7 +190,15 @@
 
           // Set the matchedSymbols value
           matchedSymbols = selectedCells;
-
+          
+          // Remove cover from all cells  and show all symbols
+          const cells = document.querySelectorAll(".grid-item");
+          cells.forEach((cell) => {
+            const cover = cell.querySelector(".cover");
+            const symbol = cell.querySelector(".symbol");
+            cover.style.display = "none";
+            symbol.style.display = "block";
+          });
           // Show the modal
           setTimeout(() => {
             showModal();
@@ -189,6 +207,7 @@
         // If a match is found in the first 3 selections, prevent further selections
         return;
       } else if (selectedCells === 5) {
+        
         gameOver();
       }
     }
@@ -236,6 +255,7 @@
 
     const gameOverMessage = document.getElementById("gameOverMessage");
     gameOverMessage.innerText = `Final Score: ${score} \n You won $${winnings}.`;
+    
 
     showEndModal();
     // game.bank += winnings;
