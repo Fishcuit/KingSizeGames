@@ -6,7 +6,7 @@ let symbols = [
     count: 13,
   },
   {
-    symbol: "🪨",
+    symbol: "♦️",
     count: 12,
   },
   {
