@@ -313,7 +313,7 @@ function gameOver() {
   else if (score >= 13) winnings = 300;
   else if (score >= 9) winnings = 90;
   else if (score >= 5) winnings = 30;
-  else if (score >= 4) winnings = 15;
+  else if (score >= 1) winnings = 15;
 
   const gameOverMessage = document.getElementById("gameOverMessage");
   gameOverMessage.innerText = `Final Score: ${score} \n You won $${winnings}.`;
