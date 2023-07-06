@@ -141,49 +141,9 @@
   flex-direction: column;
   padding: 10px;
 }
-fieldset.grand {
-  color: white;
-  font-size: 20px;
-  background: linear-gradient(45deg, #d43100, #f7d206, #d43100);
-  background-size: 200% 200%;
-  animation: gradient 5s ease infinite;
-  padding: 0px;
-  border: 2px solid rgb(247, 210, 6);
-  border-radius: 10px;
-  text-align: center;
-}
 
-legend.grand {
-  color: white;
-  font-size: 20px;
-  padding: 0px 5px;
-  text-align: center;
-  border: 2px solid goldenrod;
-  border-radius: 10px;
-  background-color: black;
-}
 
-fieldset.other {
-  color: white;
-  font-size: 20px;
-  background: linear-gradient(45deg, #000000, #5013d2, #000000);
-  background-size: 200% 100%;
-  animation: gradient 5s ease infinite;
-  padding: 0px;
-  border: 2px solid red;
-  border-radius: 10px;
-  text-align: center;
-}
 
-legend.other {
-  color: white;
-  font-size: 20px;
-  padding: 0px 5px;
-  text-align: center;
-  border: 2px solid rgb(50, 13, 213);
-  border-radius: 10px;
-  background-color: black;
-}
 
 .my-button {
   padding: 10px 20px;
