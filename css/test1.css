@@ -14,7 +14,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 320px;
+  height: 30vh;
 }
 
 #canvas-wrapper {
@@ -22,12 +22,13 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
+  height:auto
   /* background-image: url("../img/Board.jpg"); */
 }
 
 #canvas {
-  width: 40%;
-  height: 910px;
+  width: 60%;
+  height: auto;
   background-image: url("../img/redbg.png");
   background-repeat: no-repeat;
   background-position: right;
@@ -35,6 +36,54 @@ html {
   position: relative;
   border: 3px solid transparent;
 }
+
+
+@media (max-width: 575.98px) { 
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to extra small devices */
+    height: 15vh;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to small devices */
+    height: 30vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to medium devices */
+    height: 25vh;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+  #board {
+    /* Styles specific to large devices */
+    height: 30vh;
+  }
+}
+
+@media (min-width: 1200px) { 
+  #board {
+    /* Styles specific to extra large devices */
+    height: 30vh;
+  }
+}
+
+
+
 
 .card-row {
   display: flex;
@@ -87,13 +136,13 @@ html {
 }
 
 .card {
-  box-sizing: border-box;
-  width: 160px;
-  height: 190px;
-  margin: 8px;
+ 
+  width: calc(100% - 10px);
+  height: 90%;
+  margin: 4px;
   float: left;
   background-color: white;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
   border: 1px #555555 solid;
@@ -101,6 +150,35 @@ html {
   -webkit-box-shadow: 2px 2px 3px 0px #000000;
   box-shadow: 2px 2px 3px 0px #000000;
   opacity: 1;
+}
+@media screen and (min-width: 600px) {
+  .card {
+    width: calc(33% - 10px);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    width: calc(25% - 10px);
+  }
+}
+
+.card.selected {
+  width: calc(100% - 10px);
+  height: 90%;
+  animation: glowing-border 2s infinite;
+  border: 1px solid #ff0000; /* Change the border color if needed */
+}
+@media screen and (min-width: 600px) {
+  .card.card.selected {
+    width: calc(33% - 10px);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card.card.selected {
+    width: calc(25% - 10px);
+  }
 }
 
 .show-card {
@@ -121,12 +199,7 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-.card.selected {
-  width: 160px;
-  height: 190px;
-  animation: glowing-border 2s infinite;
-  border: 1px solid #ff0000; /* Change the border color if needed */
-}
+
 
 .possible-cards {
   font-size: 24px;
@@ -239,7 +312,7 @@ HR {
   background: linear-gradient(45deg, #000000, #3a3a3a, #000000);
   background-size: 200% 200%;
   animation: meter-gradient 5s ease infinite;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border: 2px solid red;
   border-radius: 10px;
   text-align: center;
@@ -456,10 +529,7 @@ img.title-logo {
     max-width: 30%;
   }
 
-  #canvas {
-    width: 40%;
-    height: 100%;
-  }
+ 
 
   #messaging {
     font-size: 10px;
@@ -469,24 +539,8 @@ img.title-logo {
     border: 1px solid #ffcc00;
   }
 
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 210px;
-  }
 
-  .card.selected {
-    width: 100px;
-    height: 130px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 100px;
-    height: 130px;
-    margin: 3px;
-  }
+
 
   #confirm-choice {
     width: 110px;
@@ -542,24 +596,9 @@ img.title-logo {
     border: 1px solid #ffcc00;
   }
 
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-  }
+  
 
-  .card.selected {
-    width: 80px;
-    height: 110px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 80px;
-    height: 110px;
-    margin: 3px;
-  }
+
 
   #confirm-choice {
     width: 90px;
@@ -580,24 +619,9 @@ img.title-logo {
     height: 100%;
   }
 
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-  }
+ 
 
-  .card.selected {
-    width: 60px;
-    height: 85px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 60px;
-    height: 85px;
-    margin: 3px;
-  }
+ 
 
   img.title-logo {
     width: 50%;

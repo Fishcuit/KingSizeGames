@@ -1,14 +1,16 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 
-
-
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #bonus-popup {
-  display: none; 
+  display: none;
   position: fixed; /* Fixed/sticky position */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -16,14 +18,11 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   justify-content: center;
   align-items: center; /* Align items center in flex container */
-  
- 
 }
-
 
 .containerx {
   display: flex;
@@ -37,12 +36,11 @@
   font-weight: 500;
   background-image: url("../img/gem_bg.jpg");
   background-position: center;
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
   padding-top: 50px;
   width: 50%;
   height: 100%;
-
 }
 .grid-container {
   display: grid;
@@ -52,7 +50,6 @@
   justify-content: center;
   align-items: center;
   padding: 0px 20px;
-  
 }
 .grid-item {
   position: relative;
@@ -211,11 +208,16 @@ legend.other {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
 
 .pulse {
   animation: pulse 0.5s ease-in-out 3;
@@ -226,26 +228,20 @@ legend.other {
     width: 100%;
   }
   .grid-container {
-
     grid-template-columns: repeat(5, 65px);
     grid-template-rows: repeat(5, 65px);
-
-    
   }
   .grid-item {
- 
     width: 65px;
     height: 65px;
- 
-    line-height: 65px;
 
+    line-height: 65px;
   }
-  
+
   .symbol {
     width: 65px;
     height: 65px;
     line-height: 65px;
-
   }
   .cover {
     width: 65px;
