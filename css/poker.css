@@ -14,15 +14,14 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 270px;
-  padding-left: 0px;
+  height: 40vh;
 }
 
 #poker-hand {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 15vh;
   padding-left: 5px;
 }
 
@@ -42,8 +41,8 @@ html {
 }
 
 #canvas {
-  width: 35%;
-
+  width: 60%;
+  height: auto;
   background-image: url("../img/redbg.png");
   background-repeat: no-repeat;
   background-position: right;
@@ -51,6 +50,8 @@ html {
   position: relative;
   border: 3px solid transparent;
 }
+
+
 
 .card-row {
   display: flex;
@@ -103,13 +104,12 @@ html {
 }
 
 .card {
-  box-sizing: border-box;
-  width: 130px;
-  height: 184px;
-  margin: 8px;
+  width: calc(100% - 10px);
+  height: 90%;
+  margin: 4px;
   float: left;
   background-color: white;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
   border: 1px #555555 solid;
@@ -137,18 +137,14 @@ html {
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-.pcard {
-  width: 75px;
-  height: 120px;
-}
 .poker-card {
   box-sizing: border-box;
-  width: 78px;
-  height: 105px;
+  width: 10vw;
+  height: 10vh;
   margin: 8px;
   float: left;
   background-color: white;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
   border: 1px #555555 solid;
@@ -159,31 +155,68 @@ html {
 }
 
 .card.selected {
-  width: 130px;
-  height: 184px;
+  width: calc(100% - 10px);
+  height: 90%;
   animation: glowing-border 2s infinite;
   border: 1px solid #ff0000; /* Change the border color if needed */
 }
 
-@media screen and (max-device-width: 896px) and (max-device-height: 450px) {
-  .card.selected {
-    width: 14vw;
-    height: 30vh;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
+@media (max-width: 575.98px) {
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to extra small devices */
+    height: 15vh;
   }
 }
-@media screen and (max-device-height: 896px) {
-  .card.selected {
-    width: 80px;
-    height: 110px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to small devices */
+    height: 30vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #canvas {
+    width: 100%;
+  }
+  #board {
+    /* Styles specific to medium devices */
+    height: 25vh;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #board {
+    /* Styles specific to large devices */
+    height: 30vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  #board {
+    /* Styles specific to extra large devices */
+    height: 25vh;
+  }
+  #poker-hand {
+    height: 15vh;
+  }
+  .poker-card {
+    width: 5vw;
+    height: 10vh;
   }
   .card {
-    width: 80px;
-    height: 110px;
-    margin: 3px;
+    width: 9vw;
+    height: 20vh;
+  }
+  .card.selected{
+    width: 9vw;
+    height: 20vh;
   }
 }
 
@@ -427,10 +460,8 @@ HR {
   background-color: rgba(0, 0, 0, 0.7);
   align-items: center;
   width: 70%;
- 
-  color: #ffcc00;
 
- 
+  color: #ffcc00;
 }
 
 @keyframes gradient {
@@ -468,7 +499,7 @@ legend.other {
 }
 
 img.title-logo {
-  max-width: 40%;
+  max-width: 20%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -511,12 +542,7 @@ img.title-logo {
 
   img.title-logo {
     max-width: 30%;
-    display: none;
-  }
-
-  #canvas {
-    width: 40%;
-    height: fit-content;
+   
   }
 
   #messaging {
@@ -527,25 +553,6 @@ img.title-logo {
     border: 1px solid #ffcc00;
   }
 
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 190px;
-  }
-
-  .card.selected {
-    width: 100px;
-    height: 140px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 100px;
-    height: 140px;
-    margin: 3px;
-  }
-
   #confirm-choice {
     width: 110px;
     height: 110px; /* Update height to match the width for a circle */
@@ -557,284 +564,154 @@ img.title-logo {
     height: 110px; /* Update height to match the width for a circle */
     font-size: 20px;
   }
-  #poker-hand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    padding-left: 5px;
+
+  @media screen and (max-device-height: 896px) and (max-device-width: 414px) {
+    fieldset.other {
+      font-size: 12px;
+    }
+
+    legend.other {
+      font-size: 12px;
+    }
+
+    .meter-value {
+      font-size: 12px;
+    }
+
+    img.title-logo {
+      max-width: 50%;
+      display: block;
+    }
+
+    #canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    #messaging {
+      font-size: 10px;
+      padding: 0px 0px;
+      height: 5vh;
+      width: 45vw;
+      border: 1px solid #ffcc00;
+    }
+
+    #poker-win {
+      position: fixed;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 70%;
+
+      color: #ffcc00;
+    }
   }
 
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 55px;
-    height: 80px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
-  }
-}
+  @media screen and (max-device-height: 667px) {
+    img.title-logo {
+      width: 50%;
+    }
 
-@media screen and (max-device-height: 896px) and (max-device-width: 414px) {
-  fieldset.other {
-    font-size: 12px;
-  }
+    fieldset.other {
+      font-size: 12px;
+    }
 
-  legend.other {
-    font-size: 12px;
-  }
+    legend.other {
+      font-size: 12px;
+    }
 
-  .meter-value {
-    font-size: 12px;
-  }
+    .meter-value {
+      font-size: 12px;
+    }
+    #confirm-choice {
+      width: 90px;
+      height: 90px; /* Update height to match the width for a circle */
+      font-size: 20px;
+    }
 
-  img.title-logo {
-    max-width: 50%;
-    display: block;
-  }
+    #deal {
+      width: 90px;
+      height: 90px; /* Update height to match the width for a circle */
+      font-size: 20px;
+    }
 
-  #canvas {
-    width: 100%;
-    height: 100%;
-  }
+    .high-end {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 3%;
+      justify-content: space-evenly;
+    }
 
-  #messaging {
-    font-size: 10px;
-    padding: 0px 0px;
-    height: 5vh;
-    width: 45vw;
-    border: 1px solid #ffcc00;
-  }
+    .card-meter {
+      width: 20%;
+    }
 
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 150px;
-  }
+    .card-meter-container {
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      padding: 10px;
+    }
 
-  #poker-hand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90px;
-    padding-left: 5px;
-  }
-  #poker-win {
-    position: fixed;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 70%;
- 
-    color: #ffcc00;
+    .card-meter-container2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
 
-    
+    #messaging {
+      font-size: 10px;
+      padding: 0px 0px;
+      height: 5vh;
+      width: 45vw;
+      border: 1px solid #ffcc00;
+    }
+
+    img.title-logo {
+      max-width: 70%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      padding-bottom: 15px;
+    }
+
+    .high-end th,
+    .high-end td {
+      font-size: 8px;
+    }
   }
 
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 55px;
-    height: 80px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
+  @keyframes glowing-border {
+    0% {
+      box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000,
+        0 0 20px #ff0000;
+    }
+    50% {
+      box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
+        0 0 40px #ff0000;
+    }
+    100% {
+      box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000,
+        0 0 20px #ff0000;
+    }
   }
 
-  .card.selected {
-    width: 80px;
-    height: 105px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 80px;
-    height: 105px;
-    margin: 3px;
-  }
-}
-
-@media screen and (max-device-height: 667px) {
-  #canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  #board {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-  }
-
-  #poker-hand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    padding-left: 5px;
-  }
-
-  .card.selected {
-    width: 60px;
-    height: 85px;
-    animation: glowing-border 2s infinite;
-    border: 1px solid #ff0000; /* Change the border color if needed */
-  }
-  .card {
-    width: 60px;
-    height: 85px;
-    margin: 3px;
-  }
-
-  .pcard {
-    width: 75px;
-    height: 120px;
-  }
-  .poker-card {
-    box-sizing: border-box;
-    width: 45px;
-    height: 60px;
-    margin: 4px;
-    float: left;
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px #555555 solid;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px #000000;
-    box-shadow: 2px 2px 3px 0px #000000;
-    /* animation: glowing-border 2s infinite; */
-  }
-
-  img.title-logo {
-    width: 50%;
-  }
-
-  fieldset.other {
-    font-size: 12px;
-  }
-
-  legend.other {
-    font-size: 12px;
-  }
-
-  .meter-value {
-    font-size: 12px;
-  }
-  #confirm-choice {
-    width: 90px;
-    height: 90px; /* Update height to match the width for a circle */
-    font-size: 20px;
-  }
-
-  #deal {
-    width: 90px;
-    height: 90px; /* Update height to match the width for a circle */
-    font-size: 20px;
-  }
-
-  .high-end {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 3%;
-    justify-content: space-evenly;
-  }
-
-  .card-meter {
-    width: 20%;
-  }
-
-  .card-meter-container {
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    padding: 10px;
-  }
-
-  .card-meter-container2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-
-  #messaging {
-    font-size: 10px;
-    padding: 0px 0px;
-    height: 5vh;
-    width: 45vw;
-    border: 1px solid #ffcc00;
-  }
-
-  img.title-logo {
-    max-width: 70%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    padding-bottom: 15px;
-  }
-
-  .high-end th,
-  .high-end td {
-    font-size: 8px;
-  }
-}
-
-@keyframes glowing-border {
-  0% {
-    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000,
-      0 0 20px #ff0000;
-  }
-  50% {
-    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
-      0 0 40px #ff0000;
-  }
-  100% {
-    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000,
-      0 0 20px #ff0000;
-  }
-}
-
-@keyframes glowing-text {
-  0% {
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
-      0 0 40px #ff0000;
-  }
-  50% {
-    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
-      0 0 50px #ff0000;
-  }
-  100% {
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
-      0 0 40px #ff0000;
+  @keyframes glowing-text {
+    0% {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
+        0 0 40px #ff0000;
+    }
+    50% {
+      text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
+        0 0 50px #ff0000;
+    }
+    100% {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000,
+        0 0 40px #ff0000;
+    }
   }
 }
